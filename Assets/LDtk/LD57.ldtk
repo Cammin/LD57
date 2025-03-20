@@ -27,7 +27,7 @@
 	"bgColor": "#40465B",
 	"defaultLevelBgColor": "#696A79",
 	"minifyJson": false,
-	"externalLevels": false,
+	"externalLevels": true,
 	"exportTiled": false,
 	"simplifiedExport": false,
 	"imageExportMode": "None",
@@ -60,9 +60,9 @@
 			"bgPivotY": 0.5,
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
-			"externalRelPath": null,
+			"externalRelPath": "LD57/Level_0.ldtkl",
 			"fieldInstances": [],
-			"layerInstances": [],
+			"layerInstances": null,
 			"__neighbours": []
 		}
 	],
