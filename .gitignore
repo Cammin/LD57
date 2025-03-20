@@ -1,8 +1,5 @@
-# This .gitignore file should be placed at the root of your Unity project directory
-#
-# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-#
-.utmp/
+# Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -15,8 +12,8 @@
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
 
-# Recordings can get excessive in size
-/[Rr]ecordings/
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -26,6 +23,9 @@
 
 # Visual Studio cache directory
 .vs/
+
+# Rider cache directory
+.idea/
 
 # Gradle cache directory
 .gradle/
@@ -58,10 +58,7 @@ sysinfo.txt
 
 # Builds
 *.apk
-*.aab
 *.unitypackage
-*.unitypackage.meta
-*.app
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -70,5 +67,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+#ignore these until unity fixes their addressables bug of leaving this folder existing after a build
+Assets/StreamingAssets/aa.meta
+Assets/StreamingAssets.meta
