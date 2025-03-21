@@ -67,10 +67,10 @@ jobs:
             Library-build-
             Library-
 
-      - uses: game-ci/unity-builder@v4
+      - uses: game-ci/unity-builder@v4.3.0
         with:
           targetPlatform: ${{ matrix.targetPlatform.platform }}
-          unityVersion: 2022.3.26f1
+          unityVersion: 6000.0.42f1
           buildName: Build
 
       - uses: actions/upload-artifact@v3
