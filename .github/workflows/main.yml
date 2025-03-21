@@ -73,7 +73,7 @@ jobs:
           unityVersion: 6000.0.42f1
           buildName: Build
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Build-${{ matrix.targetPlatform.name }}
           path: build/${{ matrix.targetPlatform.platform }}
