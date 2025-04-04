@@ -1342,8 +1342,8 @@ MonoBehaviour:
     Lucas Moreira (Art)
 
 
-    Audio
-    Credits etc'
+    Audio Credits
+    etc'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2128,6 +2128,10 @@ PrefabInstance:
     - target: {fileID: 3733575046965981501, guid: a153bbe473604a4419c4c3acb5bab149, type: 3}
       propertyPath: m_Name
       value: SettingsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4322632398396452906, guid: a153bbe473604a4419c4c3acb5bab149, type: 3}
+      propertyPath: _doNotDestroyOnLoad
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4339637432987516121, guid: a153bbe473604a4419c4c3acb5bab149, type: 3}
       propertyPath: m_AnchorMax.y
