@@ -21,7 +21,6 @@ public class _GhostBase : MonoBehaviour
 
     //-------------------------------------------------
 
-    public const int WallLayer = 8;
     public const float DefaultSpeed = 1000f;
 
     [NonSerialized] public bool PlayerFound;
@@ -48,7 +47,7 @@ public class _GhostBase : MonoBehaviour
             {
                 var hit = Physics2D.Raycast(transform.position, (Player.Instance.transform.position - transform.position).normalized, DetectPlayerRange);
 
-                if (hit.collider != null && hit.collider.gameObject.layer == WallLayer)
+                if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
                 {
                     return;
                 }
