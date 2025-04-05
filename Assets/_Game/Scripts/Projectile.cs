@@ -8,8 +8,10 @@ public class Projectile : MonoBehaviour
     {
         if (other.TryGetComponent<Player>(out var player))
         {
-            player.TakeDamage();
-            Destroy(gameObject);
+            if (player.TryTakeDamage())
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

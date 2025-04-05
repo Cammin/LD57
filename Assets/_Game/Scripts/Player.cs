@@ -20,6 +20,8 @@ public class Player : Singleton<Player>
     public Vector2 LightInnerOverLifetimeRatio;
     public Vector2 LightOuterOverLifetimeRatio;
 
+    public float InvincibilityTime;
+    
     public GameObject Model;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
@@ -36,6 +38,8 @@ public class Player : Singleton<Player>
         UpdateFlashlight();
         
         TickBatteryLifetime();
+        
+        InvincibilityTime -= Time.deltaTime;
     }
 
     private void TickBatteryLifetime()
@@ -61,8 +65,6 @@ public class Player : Singleton<Player>
         Vector3 move = new Vector3(horiz, vert, 0).normalized;
         MoveInput = move;
         _rb.linearVelocity = MoveInput * (moveSpeed);
-        
-        
     }
 
     private void TryCheats()
@@ -94,8 +96,11 @@ public class Player : Singleton<Player>
     {
     }
 
-    public void TakeDamage()
+    public bool TryTakeDamage()
     {
+        if (InvincibilityTime > 0) return false;
+        InvincibilityTime = 0.5f;
+        
         HP--;
         if (HP <= 0)
         {
@@ -107,6 +112,8 @@ public class Player : Singleton<Player>
             // Handle player taking damage
             Debug.Log("Player took damage, remaining HP: " + HP);
         }
+
+        return true;
     }
 
     public void RechargeBattery()
