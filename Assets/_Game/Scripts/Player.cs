@@ -24,6 +24,12 @@ public class Player : Singleton<Player>
         Vector3 move = new Vector3(horiz, vert, 0).normalized;
         MoveInput = move;
         _rb.linearVelocity = MoveInput * (moveSpeed);
+
+
+        if (Debug.isDebugBuild && Input.GetMouseButtonDown(2))
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
     }
     
     private void FixedUpdate()
