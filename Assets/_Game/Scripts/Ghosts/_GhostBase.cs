@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class _GhostBase : MonoBehaviour
 {
+    public Rigidbody2D Rigidbody;
+    [Space]
     public bool CanMove = true;
     public float MoveSpeedModifier = 1f;
     [Space]
@@ -11,10 +13,19 @@ public class _GhostBase : MonoBehaviour
     public bool CanBeCaptured = true;
     public float CaptureDifficultyModifier = 1f;
     [Space]
-    public float DetectPlayerRange = 2f;
+    public bool CanDetectPlayerThroughWalls = false;
+    public float DetectPlayerRange = 5f;
+    public float StopAtDistance = 1f;
 
+    //-------------------------------------------------
+
+    public const int WallLayer = 8;
+    public const float DefaultSpeed = 1000f;
+
+    [NonSerialized] public bool PlayerFound;
     [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] private float CooldownRemaining;
+
 
     private void Start()
     {
@@ -27,11 +38,47 @@ public class _GhostBase : MonoBehaviour
 
         if (CaptureInProgress) return;
 
-        OnGhostUpdate();
+        if (!PlayerFound && Vector2.Distance(Player.Instance.transform.position, transform.position) <= DetectPlayerRange)
+        {
+            if (!CanDetectPlayerThroughWalls)
+            {
+                var hit = Physics2D.Raycast(transform.position, (Player.Instance.transform.position - transform.position).normalized, DetectPlayerRange);
+
+                if (hit.collider != null && hit.collider.gameObject.layer == WallLayer)
+                {
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Player found!");
+                }
+            }
+
+            PlayerFound = true;
+        }
+
+        if (PlayerFound && CooldownRemaining <= 0)
+        {
+            CooldownRemaining = ActionCooldownDuration;
+            GhostAction();
+        }
     }
 
-    public virtual void OnGhostUpdate()
+    public void FixedUpdate()
     {
+        Rigidbody.linearVelocity = Vector2.zero;
 
+        if (PlayerFound && CanMove && Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
+        {
+            var direction = (Player.Instance.transform.position - transform.position).normalized;
+            Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+
+            Debug.Log($"{Vector2.Distance(Player.Instance.transform.position, transform.position)}");
+        }
+    }
+
+    public virtual void GhostAction()
+    {
+        Debug.Log("Ghost action!");
     }
 }
