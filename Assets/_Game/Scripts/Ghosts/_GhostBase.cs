@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class _GhostBase : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class _GhostBase : MonoBehaviour
     public bool CanBeCaptured = true;
     public float CaptureDifficultyModifier = 1f;
     [Space]
-    public bool CanDetectPlayerThroughWalls = false;
+    public bool CanDetectPlayerThroughWalls;
+    public bool RetreatIfTooClose;
     public float DetectPlayerRange = 5f;
     public float StopAtDistance = 1f;
 
@@ -68,12 +70,18 @@ public class _GhostBase : MonoBehaviour
     {
         Rigidbody.linearVelocity = Vector2.zero;
 
-        if (PlayerFound && CanMove && Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
+        if (PlayerFound && CanMove)
         {
-            var direction = (Player.Instance.transform.position - transform.position).normalized;
-            Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
-
-            Debug.Log($"{Vector2.Distance(Player.Instance.transform.position, transform.position)}");
+            if (Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
+            {
+                var direction = (Player.Instance.transform.position - transform.position).normalized;
+                Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+            }
+            else if (RetreatIfTooClose)
+            {
+                var direction = (transform.position - Player.Instance.transform.position).normalized;
+                Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+            }
         }
     }
 
