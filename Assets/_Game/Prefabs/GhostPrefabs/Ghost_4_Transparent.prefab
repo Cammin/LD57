@@ -50,7 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3761475287114160860, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: m_Name
-      value: BaseGhost
+      value: Ghost_4_Transparent
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761475287114160860, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
