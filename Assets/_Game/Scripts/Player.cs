@@ -41,6 +41,9 @@ public class Player : Singleton<Player>
         TickBatteryLifetime();
         
         InvincibilityTime -= Time.deltaTime;
+        
+        
+        
     }
 
     private void TickBatteryLifetime()
@@ -75,9 +78,34 @@ public class Player : Singleton<Player>
 
     private void TryCheats()
     {
-        if (Debug.isDebugBuild && Input.GetMouseButtonDown(2))
+        if (!Debug.isDebugBuild)
+        {
+            return;
+        }
+        
+        if (Input.GetMouseButtonDown(2))
         {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            //find and kill the nearest ghost
+            var ghosts = FindObjectsByType<_GhostBase>(FindObjectsSortMode.None);
+            _GhostBase nearestGhost = null;
+            float nearestDistance = float.MaxValue;
+            foreach (var ghost in ghosts)
+            {
+                float distance = Vector2.Distance(transform.position, ghost.transform.position);
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearestGhost = ghost;
+                }
+            }
+            if (nearestGhost != null)
+            {
+                Destroy(nearestGhost.gameObject);
+            }
         }
     }
 
