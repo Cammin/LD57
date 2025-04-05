@@ -1,0 +1,33 @@
+{
+  "Rects": null,
+  "Def": {
+    "__cHei": 3,
+    "__cWid": 8,
+    "cachedPixelData": {
+      "opaqueTiles": "000100010001000100000000",
+      "averageColors": "08880888f555f444f5550000f000f00008881777f555f333f5550000f111f11100000000f888f888f8880555f888f777"
+    },
+    "customData": [
+
+    ],
+    "embedAtlas": null,
+    "enumTags": [
+
+    ],
+    "identifier": "Tileset_test_ld",
+    "padding": 0,
+    "pxHei": 84,
+    "pxWid": 224,
+    "relPath": "atlas/tileset_test_ld.png",
+    "savedSelections": [
+
+    ],
+    "spacing": 0,
+    "tags": [
+
+    ],
+    "tagsSourceEnumUid": null,
+    "tileGridSize": 28,
+    "uid": 4
+  }
+}

@@ -19,7 +19,11 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlayButtonPressed()
     {
-        SceneManager.LoadScene(GameplayScene.ScenePath);
+        FadeManager.Instance.FadeIn(Color.black, () =>
+        {
+            SceneManager.LoadScene(GameplayScene.ScenePath);
+        }, 1.5f);
+        
     }
 
     public void OnOptionsButtonPressed()

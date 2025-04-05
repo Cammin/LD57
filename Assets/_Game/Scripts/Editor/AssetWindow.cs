@@ -1,16 +1,15 @@
+using CamLib.Editor;
 using UnityEngine;
 
-public class AssetWindow : MonoBehaviour
+public class AssetWindow : CentralizedAssetWindowImplementation
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public override string[] SceneFolders => new []{"Assets/_Game/Scenes"};
 
-    // Update is called once per frame
-    void Update()
+    public override IEditorPrefInstance[] Prefs => base.Prefs;
+
+    public override string[] AssetDisplayPaths => new []
     {
-        
-    }
+        "Assets/_Game/Prefabs/Player.prefab",
+        "Assets/_Game/LDtk/LD57.ldtk",
+    };
 }

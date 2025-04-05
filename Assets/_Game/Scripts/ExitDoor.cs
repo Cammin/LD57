@@ -19,7 +19,7 @@ public class ExitDoor : MonoBehaviour
     {
         if (other.TryGetComponent<Player>(out var player))
         {
-            Hud.Instance.FadeIn(Color.white, LoadWinScene);
+            FadeManager.Instance.FadeIn(Color.white, LoadWinScene);
         }
     }
 

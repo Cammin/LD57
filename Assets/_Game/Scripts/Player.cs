@@ -150,7 +150,7 @@ public class Player : Singleton<Player>
         {
             Debug.Log("Player is dead");
             
-            Hud.Instance.FadeIn(Color.black, () =>
+            FadeManager.Instance.FadeIn(Color.black, () =>
             {
                 SceneManager.LoadScene("Gameplay");
             });
