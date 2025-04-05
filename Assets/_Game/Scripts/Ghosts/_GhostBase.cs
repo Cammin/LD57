@@ -13,7 +13,6 @@ public class _GhostBase : MonoBehaviour
     [Space]
     public float DetectPlayerRange = 2f;
 
-    //[NonSerialized] public Target;
     [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] private float CooldownRemaining;
 
