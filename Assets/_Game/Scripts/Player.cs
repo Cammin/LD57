@@ -10,6 +10,7 @@ public class Player : Singleton<Player>
     public float moveSpeed;
     public Rigidbody2D _rb;
     public Light2D flashlight;
+    public Light2D lightAround;
 
     private Vector2 MoveInput;
 
@@ -52,9 +53,14 @@ public class Player : Singleton<Player>
 
         bool empty = ratio <= 0;
         flashlight.enabled = !empty;
+        lightAround.enabled = !empty;
         
         flashlight.pointLightInnerRadius = Mathf.Lerp(LightInnerOverLifetimeRatio.x, LightInnerOverLifetimeRatio.y, ratio);
         flashlight.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio);
+        
+        
+        lightAround.pointLightInnerRadius = 0;
+        lightAround.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio * 0.5f);
     }
 
     private void DoMoveInput()
