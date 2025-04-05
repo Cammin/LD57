@@ -1,4 +1,5 @@
 using CamLib;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,8 @@ public class Player : Singleton<Player>
     public float InvincibilityTime;
     
     public GameObject Model;
+
+    public CinemachineImpulseSource Impulse;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
     
@@ -136,6 +139,9 @@ public class Player : Singleton<Player>
         InvincibilityTime = 0.5f;
         
         HP--;
+        Impulse.GenerateImpulse();
+        GameManager.Instance.ImpulseDamageVolume();
+        
         if (HP <= 0)
         {
             Debug.Log("Player is dead");
@@ -151,6 +157,7 @@ public class Player : Singleton<Player>
         {
             // Handle player taking damage
             Debug.Log("Player took damage, remaining HP: " + HP);
+            
         }
 
         return true;
