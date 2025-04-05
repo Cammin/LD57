@@ -1,5 +1,5 @@
 //cannot shoot bullets
-public class GhostTransparent : _GhostBase
+public class GhostTransparent : GhostScript
 {
         
 }

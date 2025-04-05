@@ -1,4 +1,4 @@
-public class GhostStationary : _GhostBase
+public class GhostStationary : GhostScript
 {
         
 }

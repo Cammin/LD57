@@ -1,4 +1,4 @@
-public class GhostFollower : _GhostBase
+public class GhostFollower : GhostScript
 {
         
 }

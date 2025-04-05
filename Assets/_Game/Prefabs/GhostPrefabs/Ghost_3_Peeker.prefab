@@ -50,10 +50,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3761475287114160860, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: m_Name
-      value: BaseGhost
+      value: Ghost_3_Peeker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3761475287114160860, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4403935517847823861}
   m_SourcePrefab: {fileID: 100100000, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+--- !u!1 &8369874442096318507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3761475287114160860, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+  m_PrefabInstance: {fileID: 4617515274879107831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4403935517847823861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369874442096318507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba86542b66b401e840f3183e56ce897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidingSpots: []
+  CurrentHidingSpot: {fileID: 0}

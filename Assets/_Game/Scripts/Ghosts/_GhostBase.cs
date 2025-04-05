@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class _GhostBase : MonoBehaviour
+public sealed class _GhostBase : MonoBehaviour
 {
     public Rigidbody2D Rigidbody;
     [Space]
@@ -19,6 +19,8 @@ public class _GhostBase : MonoBehaviour
     public float DetectPlayerRange = 5f;
     public float StopAtDistance = 1f;
 
+    public GhostScript Ghost;
+    
     //-------------------------------------------------
 
     public const int WallLayer = 8;
@@ -28,10 +30,9 @@ public class _GhostBase : MonoBehaviour
     [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] private float CooldownRemaining;
 
-
     private void Start()
     {
-
+        Ghost = GetComponent<GhostScript>();
     }
 
     private void Update()
@@ -64,7 +65,7 @@ public class _GhostBase : MonoBehaviour
         if (PlayerFound && CooldownRemaining <= 0)
         {
             CooldownRemaining = ActionCooldownDuration;
-            GhostAction();
+            Ghost.GhostAction();
         }
     }
 
@@ -88,10 +89,5 @@ public class _GhostBase : MonoBehaviour
                 Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
             }
         }
-    }
-
-    public virtual void GhostAction()
-    {
-        Debug.Log("Ghost action!");
     }
 }
