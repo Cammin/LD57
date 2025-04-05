@@ -131,4 +131,13 @@ public class Player : Singleton<Player>
     {
         HP = 3;
     }
+
+    public int Score;
+    
+    public void AddScore(int score)
+    {
+        Score += score;
+        Debug.Log("Score: " + Score);
+        //update UI etc
+    }
 }
