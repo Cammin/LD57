@@ -70,7 +70,7 @@ public sealed class _GhostBase : MonoBehaviour
             if (Vector2.Distance(Player.Instance.transform.position, transform.position) <= AttackPlayerRange)
             {
                 CooldownRemaining = ActionCooldownDuration;
-                GhostBehaviour.GhostAction();
+                if (GhostBehaviour) GhostBehaviour.GhostAction();
             }
         }
     }
