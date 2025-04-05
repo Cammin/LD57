@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class Player : Singleton<Player>
 {
     public int HP;
+    
+    
 
     private void Start()
     {
@@ -13,7 +15,15 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
+        //translate player
+        float horiz = Input.GetAxisRaw("Horizontal");
+        float vert = Input.GetAxisRaw("Vertical");
+        Vector3 move = new Vector3(horiz, vert, 0).normalized;
         
+        if (move.magnitude > 0)
+        {
+            transform.position += move * Time.deltaTime;
+        }
     }
 
     public void TakeDamage()
@@ -21,9 +31,8 @@ public class Player : Singleton<Player>
         HP--;
         if (HP <= 0)
         {
-            // Handle player death
             Debug.Log("Player is dead");
-            
+            SceneManager.LoadScene("Gameplay");
         }
         else
         {
