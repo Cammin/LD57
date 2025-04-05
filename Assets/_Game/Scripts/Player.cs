@@ -1,5 +1,7 @@
 using CamLib;
 using DG.Tweening;
+using System;
+using System.Collections;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -31,6 +33,11 @@ public class Player : Singleton<Player>
     public CinemachineImpulseSource Impulse;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
+
+    public const float CaptureCastRadius = 1f;
+
+    [NonSerialized] private GhostBase GhostTarget;
+    [NonSerialized] private bool CaptureActive;
     
     private void Start()
     {
@@ -48,9 +55,39 @@ public class Player : Singleton<Player>
         TickBatteryLifetime();
         
         InvincibilityTime -= Time.deltaTime;
-        
-        
-        
+
+        CaptureActive = Input.GetMouseButton(0);
+
+        if (CaptureActive)
+        {
+
+        }
+    }
+
+    private GhostBase GhostCaptureHit()
+    {
+        return null;
+        //var hit = Physics2D.CircleCast(transform.position, CaptureCastRadius, )
+    }
+
+    private void CaptureGhost()
+    {
+        GhostTarget.BlockActions = true;
+        GhostTarget.BlockCapture = true;
+        GhostTarget.BlockMovement = true;
+
+        //TODO animate
+
+        StartCoroutine(CoCapture());
+
+        IEnumerator CoCapture()
+        {
+            yield return new WaitForSeconds(1); //TODO change to anim time
+
+            AddScore(GhostTarget.ScoreAddedForCapture);
+            Destroy(GhostTarget.gameObject);
+            GhostTarget = null;
+        }
     }
 
     private void TickBatteryLifetime()
@@ -97,8 +134,8 @@ public class Player : Singleton<Player>
         if (Input.GetKeyDown(KeyCode.V))
         {
             //find and kill the nearest ghost
-            var ghosts = FindObjectsByType<_GhostBase>(FindObjectsSortMode.None);
-            _GhostBase nearestGhost = null;
+            var ghosts = FindObjectsByType<GhostBase>(FindObjectsSortMode.None);
+            GhostBase nearestGhost = null;
             float nearestDistance = float.MaxValue;
             foreach (var ghost in ghosts)
             {

@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public sealed class _GhostBase : MonoBehaviour
+public sealed class GhostBase : MonoBehaviour
 {
+    public GhostBehaviour GhostBehaviour;
     public Rigidbody2D Rigidbody;
     [Space]
     public bool CanMove = true;
@@ -13,20 +15,20 @@ public sealed class _GhostBase : MonoBehaviour
     [Space]
     public bool CanBeCaptured = true;
     public float CaptureDifficultyModifier = 1f;
+    public int ScoreAddedForCapture = 100;
     [Space]
     public bool CanDetectPlayerThroughWalls;
     public bool RetreatIfTooClose;
     public float DetectPlayerRange = 25f;
     public float AttackPlayerRange = 20f;
     public float StopAtDistance = 3f;
-
-    public GhostBehaviour GhostBehaviour;
     
     //-------------------------------------------------
 
     public const float DefaultSpeed = 1000f;
 
     [NonSerialized] public Vector3 OverrideDestination;
+    [NonSerialized] public int CaptureProgress;
     [NonSerialized] public bool PlayerFound;
     [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] public bool BlockActions;

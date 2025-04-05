@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GhostDoor : MonoBehaviour, ILDtkImportedFields
 {
-    public _GhostBase[] Ghosts;
+    public GhostBase[] Ghosts;
 
     public void OnLDtkImportFields(LDtkFields fields)
     {
         LDtkReferenceToAnEntityInstance[] refs = fields.GetEntityReferenceArray("Ghosts");
-        Ghosts = refs.Select(p => p.FindEntity()).Select(p => p.GetComponent<_GhostBase>()).ToArray();
+        Ghosts = refs.Select(p => p.FindEntity()).Select(p => p.GetComponent<GhostBase>()).ToArray();
     }
 
     private void Update()

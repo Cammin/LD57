@@ -2,12 +2,12 @@ using UnityEngine;
 
 public abstract class GhostBehaviour : MonoBehaviour
 {
-    public _GhostBase Ghost;
+    public GhostBase Ghost;
 
     public virtual void Start()
     {
         //In case it isn't assigned in the Inspector.
-        Ghost = GetComponent<_GhostBase>();
+        Ghost = GetComponent<GhostBase>();
     }
 
     public virtual void GhostAction()
