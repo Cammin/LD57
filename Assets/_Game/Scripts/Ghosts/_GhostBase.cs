@@ -30,6 +30,7 @@ public sealed class _GhostBase : MonoBehaviour
     [NonSerialized] public bool PlayerFound;
     [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] public bool BlockActions;
+    [NonSerialized] public bool BlockMovement;
     [NonSerialized] public bool BlockCapture;
 
     [NonSerialized] private float CooldownRemaining;
@@ -78,38 +79,37 @@ public sealed class _GhostBase : MonoBehaviour
     {
         Rigidbody.linearVelocity = Vector2.zero;
 
-        //If destination is overriden prioritize moving to the override.
-        if (OverrideDestination != Vector3.zero)
+        if (!BlockMovement)
         {
-            if (Vector2.Distance(OverrideDestination, transform.position) > .01f)
+            //If destination is overriden prioritize moving to the override.
+            if (OverrideDestination != Vector3.zero)
             {
-                var direction = (OverrideDestination - transform.position).normalized;
-                Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                if (Vector2.Distance(OverrideDestination, transform.position) > .01f)
+                {
+                    var direction = (OverrideDestination - transform.position).normalized;
+                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    OverrideDestination = Vector3.zero;
+                }
             }
-            else
+            else if (PlayerFound && CanMove)
             {
-                OverrideDestination = Vector3.zero;
+                ///Move ghost towards player if stop distance hasn't been reached. If distance is less than stopping distance and
+                ///RetreatIfTooClose == true, ghost should move in opposite direction of the player until the stopping distance has
+                ///been reached.
+                if (Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
+                {
+                    var direction = (Player.Instance.transform.position - transform.position).normalized;
+                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                }
+                else if (RetreatIfTooClose)
+                {
+                    var direction = (transform.position - Player.Instance.transform.position).normalized;
+                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                }
             }
-        }
-        else if (PlayerFound && CanMove)
-        {
-            ///Move ghost towards player if stop distance hasn't been reached. If distance is less than stopping distance and
-            ///RetreatIfTooClose == true, ghost should move in opposite direction of the player until the stopping distance has
-            ///been reached.
-            if (Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
-            {
-                var direction = (Player.Instance.transform.position - transform.position).normalized;
-                Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
-            }
-            else if (RetreatIfTooClose)
-            {
-                var direction = (transform.position - Player.Instance.transform.position).normalized;
-                Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
-            }
-        }
-        else
-        {
-            Debug.Log($"{gameObject.name}: Not moving");
         }
     }
 

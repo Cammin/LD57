@@ -33,13 +33,13 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
     {
         if (Ghost.OverrideDestination == Vector3.zero && Retreating)
         {
-            Debug.Log("Reset");
             Retreating = false;
             Ghost.BlockActions = false;
             Ghost.BlockCapture = false;
         }
 
-        if (!Ghost.BlockActions && TimesRetreated < TimesAllowedToRetreat && Vector3.Distance(Player.Instance.transform.position, transform.position) <= RetreatDistance)
+        if (!Ghost.BlockActions && TimesRetreated < TimesAllowedToRetreat && 
+                                Vector3.Distance(Player.Instance.transform.position, transform.position) <= RetreatDistance)
         {
             RetreatToNewPoint();
         }
@@ -74,8 +74,6 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
 
     public void RetreatToNewPoint()
     {
-        Debug.Log("Retreat start");
-
         Ghost.BlockActions = true;
         Ghost.BlockCapture = true;
 

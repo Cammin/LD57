@@ -61,8 +61,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: AttackPlayerRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: DetectPlayerRange
-      value: 25
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: MoveSpeedModifier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: CanDetectPlayerThroughWalls
@@ -71,5 +79,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3761475287114160860, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -493654437880748243}
   m_SourcePrefab: {fileID: 100100000, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+--- !u!1 &8369874442096318507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3761475287114160860, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+  m_PrefabInstance: {fileID: 4617515274879107831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-493654437880748243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369874442096318507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539f894967bd4bff8b2331fbe4fb7284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ghost: {fileID: 0}
