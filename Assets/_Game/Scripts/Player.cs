@@ -1,17 +1,41 @@
 using CamLib;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Singleton<Player>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int HP;
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
+
+    public void TakeDamage()
+    {
+        HP--;
+        if (HP <= 0)
+        {
+            // Handle player death
+            Debug.Log("Player is dead");
+            
+        }
+        else
+        {
+            // Handle player taking damage
+            Debug.Log("Player took damage, remaining HP: " + HP);
+        }
+    }
+
+    public void Heal()
+    {
+        HP = 3;
+    }
+    
+    
 }
