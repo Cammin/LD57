@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
 
     public void SetupProjectile(Vector2 direction)
     {
-        Trajectory = direction;
+        Trajectory = direction.normalized;
     }
 
     //Check hit
@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
     {
         if (Trajectory == Vector2.zero) return; //We don't want anything else to get hit by the projectile if it's not moving
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ghost")) return;
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ghost") || other.gameObject.layer == LayerMask.NameToLayer("Projectile")) return;
 
         if (other.TryGetComponent<Player>(out var player))
         {

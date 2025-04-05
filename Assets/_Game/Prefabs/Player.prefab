@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5157207629590888583}
   - component: {fileID: 6637536357285378773}
   - component: {fileID: 6864832274345298387}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: player_placeholder_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 152646696425766714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: warning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1086404619337237183}
   - component: {fileID: 5709163412367745977}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NearLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2869036963245985488}
   - component: {fileID: 5472136227086559585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3742068132198580060}
   - component: {fileID: 1789405738374627199}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5419104803312583288}
   - component: {fileID: 2648489090378467982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FlashLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4860496345704909743}
   - component: {fileID: 7286719284569942345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 3166539304332644454}
   - component: {fileID: 4800535478567288387}
   - component: {fileID: 7481936059281199598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

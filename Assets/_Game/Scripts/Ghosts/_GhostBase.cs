@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class _GhostBase : MonoBehaviour
+public abstract class _GhostBase : MonoBehaviour
 {
     public Rigidbody2D Rigidbody;
     [Space]
@@ -16,8 +16,8 @@ public class _GhostBase : MonoBehaviour
     [Space]
     public bool CanDetectPlayerThroughWalls;
     public bool RetreatIfTooClose;
-    public float DetectPlayerRange = 5f;
-    public float StopAtDistance = 1f;
+    public float DetectPlayerRange = 25f;
+    public float StopAtDistance = 3f;
 
     //-------------------------------------------------
 
@@ -26,12 +26,6 @@ public class _GhostBase : MonoBehaviour
     [NonSerialized] public bool PlayerFound;
     [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] private float CooldownRemaining;
-
-
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
