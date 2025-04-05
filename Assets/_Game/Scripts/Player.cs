@@ -62,8 +62,7 @@ public class Player : Singleton<Player>
         MoveInput = move;
         _rb.linearVelocity = MoveInput * (moveSpeed);
         
-        //flip player model
-        Model.transform.localScale = new Vector3(horiz < 0 ? -1 : 1, 1, 1);
+        
     }
 
     private void TryCheats()
@@ -82,6 +81,13 @@ public class Player : Singleton<Player>
         Vector2 dir =  mousePos - flashlightPos;
         
         flashlight.transform.up = dir;
+        
+        
+        //flip player model
+        Vector3 scale = Model.transform.localScale;
+        float flipValue = dir.x < 0 ? -1 : 1;
+        scale.x = Mathf.Abs(scale.x) * flipValue;
+        Model.transform.localScale = scale;
     }
 
     private void FixedUpdate()
