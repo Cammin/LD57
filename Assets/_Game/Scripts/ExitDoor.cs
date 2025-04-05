@@ -4,7 +4,12 @@ using UnityEngine.SceneManagement;
 public class ExitDoor : MonoBehaviour
 {
     public GameObject Door;
-    
+
+    private void Start()
+    {
+        Door.SetActive(false);
+    }
+
     public void OpenDoor()
     {
         Door.SetActive(true);
@@ -20,5 +25,6 @@ public class ExitDoor : MonoBehaviour
 
     private void LoadWinScene()
     {
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 7481936059281199598}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -626,6 +626,7 @@ MonoBehaviour:
   LightOuterOverLifetimeRatio: {x: 2, y: 10}
   InvincibilityTime: 0
   Model: {fileID: 76832773416138559}
+  Score: 0
 --- !u!50 &4800535478567288387
 Rigidbody2D:
   serializedVersion: 5
