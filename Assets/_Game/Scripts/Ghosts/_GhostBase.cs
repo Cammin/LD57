@@ -38,10 +38,12 @@ public class _GhostBase : MonoBehaviour
     {
         if (CooldownRemaining > 0) CooldownRemaining -= Time.deltaTime;
 
+        //Ghost shouldn't be able to do anything if player is mid-capture QTE
         if (CaptureInProgress) return;
 
         if (!PlayerFound && Vector2.Distance(Player.Instance.transform.position, transform.position) <= DetectPlayerRange)
         {
+            //If player can't be detected through walls, raycast to player to confirm no walls. If wall is found, return.
             if (!CanDetectPlayerThroughWalls)
             {
                 var hit = Physics2D.Raycast(transform.position, (Player.Instance.transform.position - transform.position).normalized, DetectPlayerRange);
@@ -72,6 +74,9 @@ public class _GhostBase : MonoBehaviour
 
         if (PlayerFound && CanMove)
         {
+            ///Move ghost towards player if stop distance hasn't been reached. If distance is less than stopping distance and
+            ///RetreatIfTooClose == true, ghost should move in opposite direction of the player until the stopping distance has
+            ///been reached.
             if (Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
             {
                 var direction = (Player.Instance.transform.position - transform.position).normalized;
