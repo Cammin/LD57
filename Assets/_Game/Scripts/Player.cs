@@ -1,4 +1,7 @@
 using CamLib;
+using DG.Tweening;
+using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -24,12 +27,16 @@ public class Player : Singleton<Player>
     public float InvincibilityTime;
     
     public GameObject Model;
+
+    public CinemachineImpulseSource Impulse;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
     
     private void Start()
     {
         BatteryLifeRemaining = MaxBatteryLife;
+        
+        DialogueText.color = Color.clear;
     }
 
     private void Update()
@@ -41,6 +48,9 @@ public class Player : Singleton<Player>
         TickBatteryLifetime();
         
         InvincibilityTime -= Time.deltaTime;
+        
+        
+        
     }
 
     private void TickBatteryLifetime()
@@ -75,9 +85,34 @@ public class Player : Singleton<Player>
 
     private void TryCheats()
     {
-        if (Debug.isDebugBuild && Input.GetMouseButtonDown(2))
+        if (!Debug.isDebugBuild)
+        {
+            return;
+        }
+        
+        if (Input.GetMouseButtonDown(2))
         {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            //find and kill the nearest ghost
+            var ghosts = FindObjectsByType<_GhostBase>(FindObjectsSortMode.None);
+            _GhostBase nearestGhost = null;
+            float nearestDistance = float.MaxValue;
+            foreach (var ghost in ghosts)
+            {
+                float distance = Vector2.Distance(transform.position, ghost.transform.position);
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearestGhost = ghost;
+                }
+            }
+            if (nearestGhost != null)
+            {
+                Destroy(nearestGhost.gameObject);
+            }
         }
     }
 
@@ -108,15 +143,25 @@ public class Player : Singleton<Player>
         InvincibilityTime = 0.5f;
         
         HP--;
+        Impulse.GenerateImpulse();
+        GameManager.Instance.ImpulseDamageVolume();
+        
         if (HP <= 0)
         {
             Debug.Log("Player is dead");
-            SceneManager.LoadScene("Gameplay");
+            
+            Hud.Instance.FadeIn(Color.black, () =>
+            {
+                SceneManager.LoadScene("Gameplay");
+            });
+            
+            
         }
         else
         {
             // Handle player taking damage
             Debug.Log("Player took damage, remaining HP: " + HP);
+            
         }
 
         return true;
@@ -139,5 +184,23 @@ public class Player : Singleton<Player>
         Score += score;
         Debug.Log("Score: " + Score);
         //update UI etc
+    }
+
+    public TMP_Text DialogueText;
+
+    private Tween DialogueTween;
+    
+    public void SetDialogueText(string content)
+    {
+        DialogueTween?.Complete(true);
+        
+        if (content != null)
+        {
+            DialogueText.text = content;
+            DialogueTween = DialogueText.DOFade(1, 0.5f);
+            return;
+        }
+        
+        DialogueTween = DialogueText.DOFade(0, 0.2f);
     }
 }

@@ -26,6 +26,8 @@ ScriptedImporter:
     _asset: {fileID: 5215850011544252517, guid: 21503e14e5350924ab3d0d7fa88206dd, type: 3}
   - _key: Checkpoint
     _asset: {fileID: 624812286248129684, guid: 9a928f36dc6b9904ab85f39a3613f47f, type: 3}
+  - _key: Enemy0
+    _asset: {fileID: 6912847495749824689, guid: 8559596395203b240a79b774c328e875, type: 3}
   - _key: Enemy1
     _asset: {fileID: 8369874442096318507, guid: e8a384e1e72d7f340ae920486bb2346e, type: 3}
   - _key: Enemy2
@@ -40,6 +42,12 @@ ScriptedImporter:
     _asset: {fileID: 3145612187021570480, guid: 51c710ef2eb42794b8e932b8348ba9ab, type: 3}
   - _key: PeekerPoints
     _asset: {fileID: 8501266809022342043, guid: c67a3d5aca0f38b43a4ea89a436ee6b2, type: 3}
+  - _key: ClockOut
+    _asset: {fileID: 299791617168029126, guid: b177a6357d27ebf42b980ebbfa72f39a, type: 3}
+  - _key: ExitDoor
+    _asset: {fileID: 423441380663935504, guid: 0a97d0fa1813b3a468c7496e389f5fa3, type: 3}
+  - _key: Tutorial_Text_Trigger
+    _asset: {fileID: 3572396254277453792, guid: 7765dabe6baf8164dbf9a5266153aa76, type: 3}
   _enumGenerate: 0
   _enumPath: 
   _enumNamespace: 

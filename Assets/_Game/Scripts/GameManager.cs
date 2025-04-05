@@ -1,9 +1,13 @@
 using CamLib;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : Singleton<GameManager>
 {
-    
+    public Light2D GlobalLight;
+    public Volume DamageVolume;
     
     void Start()
     {
@@ -15,5 +19,19 @@ public class GameManager : Singleton<GameManager>
     {
         
         
+    }
+
+    private Tween DamageTween;
+    
+    public void ImpulseDamageVolume()
+    {
+        DamageTween?.Complete(true);
+        
+        DamageVolume.weight = 1;
+        
+        DamageTween = DOVirtual.Float(DamageVolume.weight, 0, 1, value =>
+        {
+            DamageVolume.weight = value;
+        });
     }
 }
