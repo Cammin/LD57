@@ -11,7 +11,7 @@
 	"iid": "46041160-e920-11ef-ac58-81145f378f32",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 28,
+	"nextUid": 29,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "Free",
@@ -717,7 +717,45 @@
 			"savedSelections": [],
 			"cachedPixelData": null
 		}
-	], "enums": [], "externalEnums": [], "levelFields": [] },
+	], "enums": [], "externalEnums": [], "levelFields": [
+		{
+			"identifier": "LightStrength",
+			"doc": null,
+			"__type": "Float",
+			"uid": 28,
+			"type": "F_Float",
+			"isArray": false,
+			"canBeNull": false,
+			"arrayMinLength": null,
+			"arrayMaxLength": null,
+			"editorDisplayMode": "NameAndValue",
+			"editorDisplayScale": 0.1,
+			"editorDisplayPos": "Above",
+			"editorLinkStyle": "StraightArrow",
+			"editorDisplayColor": "#FFFFFF",
+			"editorAlwaysShow": true,
+			"editorShowInWorld": true,
+			"editorCutLongValues": true,
+			"editorTextSuffix": null,
+			"editorTextPrefix": null,
+			"useForSmartColor": false,
+			"exportToToc": false,
+			"searchable": false,
+			"min": 0,
+			"max": 1,
+			"regex": null,
+			"acceptFileTypes": null,
+			"defaultOverride": { "id": "V_Float", "params": [0.5] },
+			"textLanguageMode": null,
+			"symmetricalRef": false,
+			"autoChainRef": true,
+			"allowOutOfLevelRef": true,
+			"allowedRefs": "OnlySame",
+			"allowedRefsEntityUid": null,
+			"allowedRefTags": [],
+			"tilesetUid": null
+		}
+	] },
 	"levels": [
 		{
 			"identifier": "Level_0",
@@ -738,7 +776,7 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [],
+			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.7, "__tile": null, "defUid": 28, "realEditorValues": [{ "id": "V_Float", "params": [0.7] }] }],
 			"layerInstances": [
 				{
 					"__identifier": "Entities",
@@ -928,7 +966,7 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [],
+			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.5, "__tile": null, "defUid": 28, "realEditorValues": [{ "id": "V_Float", "params": [0.5] }] }],
 			"layerInstances": [
 				{
 					"__identifier": "Entities",
@@ -1253,7 +1291,7 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [],
+			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.2, "__tile": null, "defUid": 28, "realEditorValues": [{ "id": "V_Float", "params": [0.2] }] }],
 			"layerInstances": [
 				{
 					"__identifier": "Entities",
@@ -1366,7 +1404,7 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [],
+			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [{ "id": "V_Float", "params": [0.1] }] }],
 			"layerInstances": [
 				{
 					"__identifier": "Entities",
