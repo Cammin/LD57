@@ -46,6 +46,8 @@ ScriptedImporter:
     _asset: {fileID: 299791617168029126, guid: b177a6357d27ebf42b980ebbfa72f39a, type: 3}
   - _key: ExitDoor
     _asset: {fileID: 423441380663935504, guid: 0a97d0fa1813b3a468c7496e389f5fa3, type: 3}
+  - _key: Tutorial_Text_Trigger
+    _asset: {fileID: 3572396254277453792, guid: 7765dabe6baf8164dbf9a5266153aa76, type: 3}
   _enumGenerate: 0
   _enumPath: 
   _enumNamespace: 

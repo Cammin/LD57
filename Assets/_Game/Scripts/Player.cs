@@ -1,4 +1,6 @@
 using CamLib;
+using DG.Tweening;
+using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -33,6 +35,8 @@ public class Player : Singleton<Player>
     private void Start()
     {
         BatteryLifeRemaining = MaxBatteryLife;
+        
+        DialogueText.color = Color.clear;
     }
 
     private void Update()
@@ -180,5 +184,23 @@ public class Player : Singleton<Player>
         Score += score;
         Debug.Log("Score: " + Score);
         //update UI etc
+    }
+
+    public TMP_Text DialogueText;
+
+    private Tween DialogueTween;
+    
+    public void SetDialogueText(string content)
+    {
+        DialogueTween?.Complete(true);
+        
+        if (content != null)
+        {
+            DialogueText.text = content;
+            DialogueTween = DialogueText.DOFade(1, 0.5f);
+            return;
+        }
+        
+        DialogueTween = DialogueText.DOFade(0, 0.2f);
     }
 }

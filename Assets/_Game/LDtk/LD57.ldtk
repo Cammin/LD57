@@ -11,7 +11,7 @@
 	"iid": "46041160-e920-11ef-ac58-81145f378f32",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 31,
+	"nextUid": 36,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "Free",
@@ -39,7 +39,7 @@
 	"levelNamePattern": "Level_%idx",
 	"tutorialDesc": null,
 	"customCommands": [{ "command": "../../../Library/LDtkTilesetExporter/ExportTilesetDefinition.exe \"LD57\"", "when": "AfterSave" }],
-	"flags": [],
+	"flags": ["UseMultilinesType"],
 	"defs": { "layers": [
 		{
 			"__type": "Entities",
@@ -733,6 +733,79 @@
 			"pivotX": 0.5,
 			"pivotY": 0.5,
 			"fieldDefs": []
+		},
+		{
+			"identifier": "Tutorial_Text_Trigger",
+			"uid": 32,
+			"tags": [],
+			"exportToToc": false,
+			"allowOutOfBounds": false,
+			"doc": null,
+			"width": 16,
+			"height": 16,
+			"resizableX": true,
+			"resizableY": true,
+			"minWidth": 16,
+			"maxWidth": null,
+			"minHeight": 16,
+			"maxHeight": null,
+			"keepAspectRatio": false,
+			"tileOpacity": 1,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#0099DB",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileRenderMode": "FitInside",
+			"tileRect": null,
+			"uiTileRect": null,
+			"nineSliceBorders": [],
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": [
+				{
+					"identifier": "msg",
+					"doc": "what the player will narrate to themself",
+					"__type": "Multilines",
+					"uid": 35,
+					"type": "F_Text",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "ValueOnly",
+					"editorDisplayScale": 1,
+					"editorDisplayPos": "Above",
+					"editorLinkStyle": "StraightArrow",
+					"editorDisplayColor": null,
+					"editorAlwaysShow": false,
+					"editorShowInWorld": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"exportToToc": false,
+					"searchable": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
+					"allowedRefTags": [],
+					"tilesetUid": null
+				}
+			]
 		}
 	], "tilesets": [
 		{
@@ -982,7 +1055,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": [{ "levelIid": "81dfb050-1030-11f0-b8ac-01c0f6ce170d", "dir": "e" }]
+			"__neighbours": [ { "levelIid": "81dfb050-1030-11f0-b8ac-01c0f6ce170d", "dir": "e" }, { "levelIid": "eb42eac0-1030-11f0-aa9b-690be1822126", "dir": "nw" }, { "levelIid": "7bc54e90-1030-11f0-aa9b-91f2a47157c6", "dir": "w" } ]
 		},
 		{
 			"identifier": "Level_1",
@@ -1429,8 +1502,8 @@
 			"identifier": "Win",
 			"iid": "eb42eac0-1030-11f0-aa9b-690be1822126",
 			"uid": 24,
-			"worldX": -640,
-			"worldY": 96,
+			"worldX": -480,
+			"worldY": -256,
 			"worldDepth": 0,
 			"pxWid": 480,
 			"pxHei": 256,
@@ -1491,8 +1564,8 @@
 								"id": "V_String",
 								"params": ["9b52c930-1030-11f0-aa9b-9d46eacd3339"]
 							}] }],
-							"__worldX": -440,
-							"__worldY": 152
+							"__worldX": -280,
+							"__worldY": -200
 						},
 						{
 							"__identifier": "ExitDoor",
@@ -1507,8 +1580,8 @@
 							"defUid": 26,
 							"px": [296,56],
 							"fieldInstances": [],
-							"__worldX": -344,
-							"__worldY": 152
+							"__worldX": -184,
+							"__worldY": -200
 						}
 					]
 				},
@@ -1553,16 +1626,16 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": []
+			"__neighbours": [{ "levelIid": "46045f80-e920-11ef-ac58-315c0c4af6f9", "dir": "se" }]
 		},
 		{
 			"identifier": "TutorialRoom",
 			"iid": "7bc54e90-1030-11f0-aa9b-91f2a47157c6",
 			"uid": 30,
-			"worldX": 32,
-			"worldY": 544,
+			"worldX": -1184,
+			"worldY": 112,
 			"worldDepth": 0,
-			"pxWid": 656,
+			"pxWid": 1184,
 			"pxHei": 176,
 			"__bgColor": "#696A79",
 			"bgColor": null,
@@ -1579,7 +1652,7 @@
 				{
 					"__identifier": "Entities",
 					"__type": "Entities",
-					"__cWid": 41,
+					"__cWid": 74,
 					"__cHei": 11,
 					"__gridSize": 16,
 					"__opacity": 1,
@@ -1602,7 +1675,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "GhostDoor",
-							"__grid": [23,5],
+							"__grid": [56,5],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": null,
@@ -1611,17 +1684,81 @@
 							"width": 16,
 							"height": 112,
 							"defUid": 15,
-							"px": [376,88],
-							"fieldInstances": [{ "__identifier": "Ghosts", "__type": "Array<EntityRef>", "__value": [], "__tile": null, "defUid": 16, "realEditorValues": [] }],
-							"__worldX": 408,
-							"__worldY": 632
+							"px": [904,88],
+							"fieldInstances": [{ "__identifier": "Ghosts", "__type": "Array<EntityRef>", "__value": [{
+								"entityIid": "f2002780-1030-11f0-aa9b-29c9231d5618",
+								"layerIid": "7bc575a0-1030-11f0-aa9b-3b466507e628",
+								"levelIid": "7bc54e90-1030-11f0-aa9b-91f2a47157c6",
+								"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
+							}], "__tile": null, "defUid": 16, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["f2002780-1030-11f0-aa9b-29c9231d5618"]
+							}] }],
+							"__worldX": -280,
+							"__worldY": 200
+						},
+						{
+							"__identifier": "Tutorial_Text_Trigger",
+							"__grid": [31,2],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#0099DB",
+							"iid": "b4ef8660-1030-11f0-aa9b-7bcd29131006",
+							"width": 96,
+							"height": 112,
+							"defUid": 32,
+							"px": [496,32],
+							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Alright, work is done. time to clock out.", "__tile": null, "defUid": 35, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["Alright, work is done. time to clock out."]
+							}] }],
+							"__worldX": -688,
+							"__worldY": 144
+						},
+						{
+							"__identifier": "Tutorial_Text_Trigger",
+							"__grid": [41,2],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#0099DB",
+							"iid": "c346ca20-1030-11f0-aa9b-d369052f46be",
+							"width": 96,
+							"height": 112,
+							"defUid": 32,
+							"px": [656,32],
+							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Wait, what's this ghost? \nMaybe I can get rid of it with my flashlight by shining it.", "__tile": null, "defUid": 35, "realEditorValues": [{
+								"id": "V_String",
+								"params": [
+									"Wait, what's this ghost? \\nMaybe I can get rid of it with my flashlight by shining it."
+								]
+							}] }],
+							"__worldX": -528,
+							"__worldY": 144
+						},
+						{
+							"__identifier": "Enemy0",
+							"__grid": [52,6],
+							"__pivot": [0.5,0.5],
+							"__tags": ["Enemy"],
+							"__tile": null,
+							"__smartColor": "#FEAE34",
+							"iid": "f2002780-1030-11f0-aa9b-29c9231d5618",
+							"width": 16,
+							"height": 16,
+							"defUid": 23,
+							"px": [840,104],
+							"fieldInstances": [],
+							"__worldX": -344,
+							"__worldY": 216
 						}
 					]
 				},
 				{
 					"__identifier": "IntGrid",
 					"__type": "IntGrid",
-					"__cWid": 41,
+					"__cWid": 74,
 					"__cHei": 11,
 					"__gridSize": 16,
 					"__opacity": 1,
@@ -1639,17 +1776,28 @@
 					"intGridCsv": [
 						1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 						1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-						1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,
-						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,
-						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-						0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-						0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-						0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 						1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-						1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+						1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+						1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+						1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+						1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+						1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+						1,1,1,1,1,1,1,1,1
 					],
 					"autoLayerTiles": [],
 					"seed": 6255618,
@@ -1658,7 +1806,7 @@
 					"entityInstances": []
 				}
 			],
-			"__neighbours": []
+			"__neighbours": [{ "levelIid": "46045f80-e920-11ef-ac58-315c0c4af6f9", "dir": "e" }]
 		}
 	],
 	"worlds": [],
