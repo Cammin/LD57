@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 691131921}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.72, y: -14.09, z: -10}
+  m_LocalPosition: {x: 11.07, y: -12.51, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -619,11 +619,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1334793749771802413, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1334793749771802413, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 318983163240401330, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_TileObjectToInstantiateArray.Array.size
@@ -6431,11 +6431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 378366054431719300, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 378366054431719300, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 868862511642922775, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_TileObjectToInstantiateArray.Array.size
@@ -12699,19 +12699,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933724014023688455, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1933724014023688455, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8274909651212022026, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8274909651212022026, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.375
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12746,7 +12746,7 @@ Transform:
   m_GameObject: {fileID: 1618023057}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.72, y: -14.09, z: -10}
+  m_LocalPosition: {x: 11.07, y: -12.51, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13036,11 +13036,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3625104718026779688, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.72
+      value: 11.07
       objectReference: {fileID: 0}
     - target: {fileID: 3625104718026779688, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.09
+      value: -12.51
       objectReference: {fileID: 0}
     - target: {fileID: 3625104718026779688, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
       propertyPath: m_LocalPosition.z
