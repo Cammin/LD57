@@ -41,6 +41,7 @@ public class Player : Singleton<Player>
     
     private void Start()
     {
+        _camera = Camera.main;
         BatteryLifeRemaining = MaxBatteryLife;
         
         DialogueText.color = Color.clear;
@@ -156,8 +157,8 @@ public class Player : Singleton<Player>
     private void UpdateFlashlight()
     {
         //direction to mouse
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 flashlightPos = Camera.main.transform.position;
+        Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 flashlightPos = transform.position;
         Vector2 dir =  mousePos - flashlightPos;
         
         flashlight.transform.up = dir;
@@ -226,7 +227,8 @@ public class Player : Singleton<Player>
     public TMP_Text DialogueText;
 
     private Tween DialogueTween;
-    
+    private Camera _camera;
+
     public void SetDialogueText(string content)
     {
         DialogueTween?.Complete(true);

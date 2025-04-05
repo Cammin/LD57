@@ -4,8 +4,8 @@
     "__cHei": 3,
     "__cWid": 8,
     "cachedPixelData": {
-      "opaqueTiles": "001100110001001100010011",
-      "averageColors": "09990999f555f333f4440000f000f00008880888f555f333f4440000f000f00000000000f888f888f8880000f777f777"
+      "opaqueTiles": "001100110001001111010011",
+      "averageColors": "09990999f555f333f4440000f000f00008880888f555f333f4440000f000f000f444f333f888f888f8880000f777f777"
     },
     "customData": [
 
@@ -14,11 +14,11 @@
     "enumTags": [
 
     ],
-    "identifier": "Tileset_test_ld",
+    "identifier": "Tileset_test",
     "padding": 0,
     "pxHei": 84,
     "pxWid": 224,
-    "relPath": "atlas/tileset_test_ld.png",
+    "relPath": "atlas/tileset_test.png",
     "savedSelections": [
 
     ],

@@ -35,7 +35,7 @@ public class CustomLevel : MonoBehaviour, ILDtkImportedFields, ILDtkImportedLeve
 
     public void OnLDtkImportLevel(Level level)
     {
-        Rect rect = level.UnityWorldSpaceBounds(WorldLayout.Free, 16);
+        Rect rect = level.UnityWorldSpaceBounds(WorldLayout.Free, 28);
         
         LightingArea.size = new Vector2(rect.width, rect.height);
         LightingArea.center = LightingArea.size* 0.5f;
