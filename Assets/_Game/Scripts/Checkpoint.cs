@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public bool IsStart;
+    
     private static int LastCheckpoint;
     
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -12,6 +14,12 @@ public class Checkpoint : MonoBehaviour
 
     private void Start()
     {
+        if (IsStart && LastCheckpoint == 0)
+        {
+            Player.Instance.transform.position = transform.position;
+            return;
+        }
+        
         if (LastCheckpoint == GetInstanceID())
         {
             Player.Instance.transform.position = transform.position;
