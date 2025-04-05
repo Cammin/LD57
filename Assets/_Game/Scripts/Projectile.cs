@@ -8,14 +8,27 @@ public class Projectile : MonoBehaviour
     public float ProjectileSpeedModifier = 5f;
 
     public const float DefaultSpeed = 1000f;
+    public const float CleanUpAfterDuration = 10f;
+    public const float HitWallsAfterDuration = .5f;
 
-    [NonSerialized] public Vector2 Trajectory;
+    [NonSerialized] private Vector2 Trajectory;
+    [NonSerialized] private float LifeTime;
 
     public static void SpawnProjectile(Projectile ProjectilePrefab, Vector2 StartingPosition, Vector2 TargetPosition)
     {
         var projectile = Instantiate(ProjectilePrefab);
         projectile.transform.position = StartingPosition;
         projectile.SetupProjectile(TargetPosition - StartingPosition);
+    }
+
+    private void Update()
+    {
+        LifeTime += Time.deltaTime;
+
+        if (LifeTime >= CleanUpAfterDuration)
+        {
+            DestroyProjectile();
+        }
     }
 
     private void FixedUpdate()
@@ -47,8 +60,12 @@ public class Projectile : MonoBehaviour
                 Debug.Log("Player hit!");
             }
         }
+        else if (LifeTime < HitWallsAfterDuration)
+        {
+            return;
+        }
 
-        Destroy(gameObject);
+        DestroyProjectile();
     }
 
     public void DestroyProjectile()

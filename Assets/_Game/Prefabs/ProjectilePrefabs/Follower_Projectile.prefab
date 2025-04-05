@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2528735656092904069, guid: bb5625b86a4dd7549bd96c208e7c71b4, type: 3}
+      propertyPath: ProjectileSpeedModifier
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4217046934061665572, guid: bb5625b86a4dd7549bd96c208e7c71b4, type: 3}
       propertyPath: m_Name
       value: Follower_Projectile

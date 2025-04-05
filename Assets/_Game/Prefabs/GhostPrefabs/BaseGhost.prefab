@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2812081817052192528}
   - component: {fileID: 6316611212012778301}
   - component: {fileID: 1750260032933030037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BaseGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,8 +55,9 @@ MonoBehaviour:
   CanDetectPlayerThroughWalls: 0
   RetreatIfTooClose: 0
   DetectPlayerRange: 10
+  AttackPlayerRange: 20
   StopAtDistance: 1
-  Ghost: {fileID: 0}
+  GhostBehaviour: {fileID: 0}
 --- !u!50 &1750260032933030037
 Rigidbody2D:
   serializedVersion: 5
@@ -80,7 +81,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -94,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738188691547771161}
   - component: {fileID: 7466982531889587248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: render
   m_TagString: Untagged
   m_Icon: {fileID: 0}

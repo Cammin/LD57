@@ -52,6 +52,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_3_Peeker
       objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CanMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: AttackPlayerRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: DetectPlayerRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: MoveSpeedModifier
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -77,5 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba86542b66b401e840f3183e56ce897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hidingSpots: []
+  Ghost: {fileID: 0}
+  ProjectilePrefab: {fileID: 1474880666440016087, guid: f186c530d2fabe842ac6f2864446c86b, type: 3}
+  ProjectileBurstHowMany: 3
+  TimeBetweenProjectiles: 0.2
+  HidingSpots: []
   CurrentHidingSpot: {fileID: 0}
+  RetreatDistance: 5
+  TimesAllowedToRetreat: 1
