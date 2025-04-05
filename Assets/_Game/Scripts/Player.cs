@@ -1,7 +1,7 @@
 using CamLib;
 using UnityEngine;
 
-public class Player : Singleton<MonoBehaviour>
+public class Player : Singleton<Player>
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
