@@ -19,6 +19,8 @@ public class Player : Singleton<Player>
 
     public Vector2 LightInnerOverLifetimeRatio;
     public Vector2 LightOuterOverLifetimeRatio;
+
+    public GameObject Model;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
     
@@ -59,6 +61,9 @@ public class Player : Singleton<Player>
         Vector3 move = new Vector3(horiz, vert, 0).normalized;
         MoveInput = move;
         _rb.linearVelocity = MoveInput * (moveSpeed);
+        
+        //flip player model
+        Model.transform.localScale = new Vector3(horiz < 0 ? -1 : 1, 1, 1);
     }
 
     private void TryCheats()
