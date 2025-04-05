@@ -34,6 +34,8 @@ ScriptedImporter:
     _asset: {fileID: 8369874442096318507, guid: 7c2d66c0c3145234fb0552d0e00c6551, type: 3}
   - _key: Enemy4
     _asset: {fileID: 8369874442096318507, guid: b307ae7acd11b6046aff5a3234f2a8b9, type: 3}
+  - _key: Battery
+    _asset: {fileID: 6445043388067381538, guid: e213d07c6d47e2a4b9b65f0eba0044b9, type: 3}
   _enumGenerate: 0
   _enumPath: 
   _enumNamespace: 

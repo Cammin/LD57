@@ -1,7 +1,9 @@
 {
     "name": "LD57.Editor",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:c304ee7b0467328498c20baef492b467"
+    ],
     "includePlatforms": [
         "Editor"
     ],

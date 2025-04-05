@@ -12,10 +12,19 @@ public class Player : Singleton<Player>
     public Light2D flashlight;
 
     private Vector2 MoveInput;
+
+    public float MaxBatteryLife;
+    private float BatteryLifeRemaining;
+    public GameObject BatteryLifeLowIndicator;
+
+    public Vector2 LightInnerOverLifetimeRatio;
+    public Vector2 LightOuterOverLifetimeRatio;
+    
+    public bool IsEmpty => BatteryLifeRemaining <= 0;
     
     private void Start()
     {
-        
+        BatteryLifeRemaining = MaxBatteryLife;
     }
 
     private void Update()
@@ -23,6 +32,23 @@ public class Player : Singleton<Player>
         DoMoveInput();
         TryCheats();
         UpdateFlashlight();
+        
+        TickBatteryLifetime();
+    }
+
+    private void TickBatteryLifetime()
+    {
+        BatteryLifeRemaining = Mathf.Max(BatteryLifeRemaining - Time.deltaTime, 0);
+        
+        float ratio = BatteryLifeRemaining / MaxBatteryLife;
+        
+        BatteryLifeLowIndicator.SetActive(ratio <= 0.2f);
+
+        bool empty = ratio <= 0;
+        flashlight.enabled = !empty;
+        
+        flashlight.pointLightInnerRadius = Mathf.Lerp(LightInnerOverLifetimeRatio.x, LightInnerOverLifetimeRatio.y, ratio);
+        flashlight.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio);
     }
 
     private void DoMoveInput()
@@ -72,10 +98,13 @@ public class Player : Singleton<Player>
         }
     }
 
+    public void RechargeBattery()
+    {
+        BatteryLifeRemaining = MaxBatteryLife;
+    }
+    
     public void Heal()
     {
         HP = 3;
     }
-    
-    
 }
