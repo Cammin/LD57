@@ -31,9 +31,8 @@ public class Player : Singleton<Player>
         HP--;
         if (HP <= 0)
         {
-            // Handle player death
             Debug.Log("Player is dead");
-            
+            SceneManager.LoadScene("Gameplay");
         }
         else
         {
