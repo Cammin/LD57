@@ -111,7 +111,13 @@ public class Player : Singleton<Player>
         if (HP <= 0)
         {
             Debug.Log("Player is dead");
-            SceneManager.LoadScene("Gameplay");
+            
+            Hud.Instance.FadeIn(Color.black, () =>
+            {
+                SceneManager.LoadScene("Gameplay");
+            });
+            
+            
         }
         else
         {
