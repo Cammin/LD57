@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-public class GhostFollower : GhostScript
+public class GhostFollower : GhostBehaviour
 {
     public Projectile ProjectilePrefab;
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class GhostStationary : GhostScript
+public class GhostStationary : GhostBehaviour
 {
     public Projectile ProjectilePrefab;
 

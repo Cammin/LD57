@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: DetectPlayerRange
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: MoveSpeedModifier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64,11 +72,6 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 4492528729261748124}
   m_SourcePrefab: {fileID: 100100000, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
---- !u!50 &6367695799376505442 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1750260032933030037, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
-  m_PrefabInstance: {fileID: 4617515274879107831}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8369874442096318507 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3761475287114160860, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
@@ -86,14 +89,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b5e813fb6f4e788128be9c3b53e11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rigidbody: {fileID: 6367695799376505442}
-  CanMove: 1
-  MoveSpeedModifier: 1
-  ActionCooldownDuration: 3
-  CanBeCaptured: 1
-  CaptureDifficultyModifier: 1
-  CanDetectPlayerThroughWalls: 0
-  RetreatIfTooClose: 1
-  DetectPlayerRange: 25
-  StopAtDistance: 3
+  Ghost: {fileID: 0}
   ProjectilePrefab: {fileID: 5344252758723513288, guid: 3c8b4acbfd6fb5b46bf982e1a216d7b0, type: 3}
