@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: CaptureDifficultyModifier
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7466982531889587248, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6690401898526012, guid: 50363fe14367abd4297be7e0011b5cf7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

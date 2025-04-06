@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: MoveSpeedModifier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7466982531889587248, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -399051333112880978, guid: 48bc0baa03a4a7b4a948a7fbcd9eeb1a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: CanDetectPlayerThroughWalls
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7466982531889587248, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 760810754087965584, guid: 8f8cd03816c479c4193cba518bf6d31f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

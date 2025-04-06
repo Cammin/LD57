@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: DetectPlayerRange
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7466982531889587248, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7922425762957927384, guid: 70682d5b4fd2d6640bd4aea67b7a79e9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -89,4 +93,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00cdbd12d79e4711b41b3a50cdcd9edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ghost: {fileID: 0}
   ProjectilePrefab: {fileID: 666175345821984074, guid: fdcc35a7d8a6813489f9739ef52ab759, type: 3}
