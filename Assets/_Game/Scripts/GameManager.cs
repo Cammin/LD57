@@ -1,5 +1,6 @@
 using CamLib;
 using DG.Tweening;
+using System;
 using Unity.Cinemachine;
 using UnityEditor;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class GameManager : Singleton<GameManager>
     public Light2D GlobalLight;
     public Volume ColourVolume;
 
+    [NonSerialized] public Transform OverrideCameraTarget;
     private Tween CurrentZoomTween;
 
     void Start()
@@ -24,8 +26,7 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
-        
-        
+        Camera.Follow = OverrideCameraTarget != null ? OverrideCameraTarget : Player.Instance.transform;
     }
 
     private Tween ColourTween;

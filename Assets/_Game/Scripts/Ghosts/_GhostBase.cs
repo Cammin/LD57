@@ -179,7 +179,11 @@ public sealed class GhostBase : MonoBehaviour
 
         IEnumerator CoCapture()
         {
+            GameManager.Instance.OverrideCameraTarget = transform;
+
             yield return new WaitForSeconds(1); //TODO change to anim time
+
+            GameManager.Instance.OverrideCameraTarget = null;
 
             Player.Instance.CaptureQTEActive = false;
             Player.Instance.AddScore(ScoreAddedForCapture);
