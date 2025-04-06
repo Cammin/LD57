@@ -36,6 +36,8 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
             Retreating = false;
             Ghost.BlockActions = false;
             Ghost.BlockCapture = false;
+            
+            Ghost.SfxPeekerRevert.Play();
         }
 
         if (!Ghost.BlockActions && TimesRetreated < TimesAllowedToRetreat && 
@@ -82,10 +84,12 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
         IEnumerator CoRetreat()
         {
             //TODO play animation
+            Ghost.SfxPeekerHide.Play();
 
             yield return new WaitForSeconds(1); //TODO change to anim time
 
             PeekerHidingSpot furthest = null;
+            
 
             foreach (var hidingSpot in HidingSpots)
             {

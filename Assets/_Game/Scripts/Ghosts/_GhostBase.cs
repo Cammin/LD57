@@ -26,8 +26,17 @@ public sealed class GhostBase : MonoBehaviour
     public float DetectPlayerRange = 25f;
     public float AttackPlayerRange = 20f;
     public float StopAtDistance = 3f;
-    
 
+
+    public AudioSource SfxChant;
+    public AudioSource SfxShoot;
+    public AudioSource SfxSuckedLoop;
+    public AudioSource SfxSuckedEnd;
+    
+    //for peeker
+    public AudioSource SfxPeekerHide;
+    public AudioSource SfxPeekerRevert;
+    
 
     //-------------------------------------------------
 
@@ -104,7 +113,7 @@ public sealed class GhostBase : MonoBehaviour
         if (CaptureInProgress && !Player.Instance.CaptureQTEActive)
         {
             var direction = (Player.Instance.transform.position - transform.position).normalized;
-            Rigidbody.AddForce(direction * CaptureForceModifier * DefaultCaptureForce * Time.deltaTime);
+            Rigidbody.AddForce(direction * (CaptureForceModifier * DefaultCaptureForce * Time.deltaTime));
         }
         else if (!BlockMovement)
         {
@@ -114,7 +123,7 @@ public sealed class GhostBase : MonoBehaviour
                 if (Vector2.Distance(OverrideDestination, transform.position) > .01f)
                 {
                     var direction = (OverrideDestination - transform.position).normalized;
-                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
                 }
                 else
                 {
@@ -129,12 +138,12 @@ public sealed class GhostBase : MonoBehaviour
                 if (Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
                 {
                     var direction = (Player.Instance.transform.position - transform.position).normalized;
-                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
                 }
                 else if (RetreatIfTooClose)
                 {
                     var direction = (transform.position - Player.Instance.transform.position).normalized;
-                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
                 }
             }
         }
@@ -180,6 +189,7 @@ public sealed class GhostBase : MonoBehaviour
         IEnumerator CoCapture()
         {
             GameManager.Instance.OverrideCameraTarget = transform;
+            SfxSuckedEnd.Play();
 
             yield return new WaitForSeconds(1); //TODO change to anim time
 
