@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class GameManager : Singleton<GameManager>
 {
     public Light2D GlobalLight;
-    public Volume DamageVolume;
+    public Volume ColourVolume;
     
     void Start()
     {
@@ -21,17 +21,20 @@ public class GameManager : Singleton<GameManager>
         
     }
 
-    private Tween DamageTween;
+    private Tween ColourTween;
     
-    public void ImpulseDamageVolume()
+    public void ImpulseColourVolume(Color colour)
     {
-        DamageTween?.Complete(true);
+        ColourVolume.profile.TryGet<Bloom>(out var bloom);
+        bloom.tint.value = colour;
+
+        ColourTween?.Complete(true);
         
-        DamageVolume.weight = 1;
-        
-        DamageTween = DOVirtual.Float(DamageVolume.weight, 0, 1, value =>
+        ColourVolume.weight = 1;
+
+        ColourTween = DOVirtual.Float(ColourVolume.weight, 0, 1, value =>
         {
-            DamageVolume.weight = value;
+            ColourVolume.weight = value;
         });
     }
 }
