@@ -11,6 +11,8 @@ public class Battery : MonoBehaviour
             player.RechargeBattery();
             player.AddScore(scoreOnCollect);
             Destroy(gameObject);
+            
+            
         }
     }
 }
