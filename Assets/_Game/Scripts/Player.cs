@@ -24,6 +24,7 @@ public class Player : Singleton<Player>
     public float MaxBatteryLife;
     private float BatteryLifeRemaining;
     public GameObject BatteryLifeLowIndicator;
+    
 
     public Vector2 LightInnerOverLifetimeRatio;
     public Vector2 LightOuterOverLifetimeRatio;
@@ -36,8 +37,15 @@ public class Player : Singleton<Player>
 
     public Animator Anim;
     public SkeletonRenderer Skeleton;
+
+    public AudioSource SfxFootstep;
+    public AudioSource SfxHurt;
+    public AudioSource SfxImpact;
+    public AudioSource SfxDeath;
+    public AudioSource SfxFlashlightEmpty;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
+    public bool IsEmptyLastFrame;
 
     public float ProgressPerQTEHit = 15f;
 
@@ -156,6 +164,17 @@ public class Player : Singleton<Player>
         if (IsDrainingFlashlight)
         {
             BatteryLifeRemaining = Mathf.Max(BatteryLifeRemaining - Time.deltaTime, 0);
+            
+            if (!IsEmptyLastFrame && BatteryLifeRemaining <= 0)
+            {
+                SfxFlashlightEmpty.Play();
+                IsEmptyLastFrame = true;
+            }
+
+            if (!IsEmpty)
+            {
+                IsEmptyLastFrame = false;
+            }
         }
         
         float ratio = BatteryLifeRemaining / MaxBatteryLife;
@@ -194,7 +213,7 @@ public class Player : Singleton<Player>
         
         if (Input.GetMouseButtonDown(2))
         {
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
@@ -288,11 +307,15 @@ public class Player : Singleton<Player>
         Impulse.GenerateImpulse();
         GameManager.Instance.ImpulseColourVolume(Color.red);
         
+        SfxImpact.Play();
+        
         if (HP <= 0)
         {
             Debug.Log("Player is dead");
             Anim.SetTrigger("death");
+            MoveInput = Vector2.zero;
             _rb.linearVelocity = Vector2.zero;
+            SfxDeath.Play();
             
             FadeManager.Instance.FadeIn(Color.black, () =>
             {
@@ -304,6 +327,7 @@ public class Player : Singleton<Player>
             // Handle player taking damage
             Debug.Log("Player took damage, remaining HP: " + HP);
             Anim.SetTrigger("damage");
+            SfxHurt.Play();
         }
 
         return true;

@@ -7,6 +7,11 @@ public class Checkpoint : MonoBehaviour, ILDtkImportedEntity
     
     private static string LastCheckpoint;
     public string iid;
+
+    public AudioSource Drink;
+    public Animator Anim;
+
+    public bool Touched;
     
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     public static void ResetCheckpoint()
@@ -30,9 +35,24 @@ public class Checkpoint : MonoBehaviour, ILDtkImportedEntity
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (Touched) return;
+        
         if (other.TryGetComponent<Player>(out var player))
         {
             LastCheckpoint = iid;
+            Touched = true;
+            
+            if (!IsStart)
+            {
+                Drink.Play();
+                Anim.SetTrigger("collect");
+                GameManager.Instance.ImpulseColourVolume(Color.green);
+                Destroy(gameObject, 4);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

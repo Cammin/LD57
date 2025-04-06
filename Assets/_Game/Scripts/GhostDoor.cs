@@ -6,6 +6,10 @@ using UnityEngine;
 public class GhostDoor : MonoBehaviour, ILDtkImportedFields
 {
     public GhostBase[] Ghosts;
+    
+    public AudioSource Sound;
+
+    private bool Destroying;
 
     public void OnLDtkImportFields(LDtkFields fields)
     {
@@ -23,7 +27,12 @@ public class GhostDoor : MonoBehaviour, ILDtkImportedFields
         bool allNull = Ghosts.All(p => p == null);
         if (allNull)
         {
-            Destroy(gameObject);
+            if (!Destroying)
+            {
+                Destroying = true;
+                Sound.Play();
+                Destroy(gameObject, 1f);
+            }
         }
     }
 }

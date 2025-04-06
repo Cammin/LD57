@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1233149941 &-2246831625322555007
+--- !u!1233149941 &2388324366160179558
 AudioContainerElement:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GemDink_{-2246831625322555007}
-  m_AudioClip: {fileID: 8300000, guid: 01f208cab00f7444082d50ae83814584, type: 3}
+  m_Name: PickUp_{2388324366160179558}
+  m_AudioClip: {fileID: 8300000, guid: 0cbe7b1f404249e42a5f57cbf8f37778, type: 3}
   m_Volume: 0
   m_Enabled: 1
 --- !u!1307931743 &6418180475301049370
@@ -26,7 +26,7 @@ AudioRandomContainer:
   m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
   m_LoopCountRandomizationRange: {x: 0, y: 0}
   m_Elements:
-  - {fileID: -2246831625322555007}
+  - {fileID: 2388324366160179558}
   m_AvoidRepeatingLast: 0
   m_PlaybackMode: 2
   m_TriggerMode: 0

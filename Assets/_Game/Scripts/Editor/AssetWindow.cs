@@ -11,5 +11,7 @@ public class AssetWindow : CentralizedAssetWindowImplementation
     {
         "Assets/_Game/Prefabs/Player.prefab",
         "Assets/_Game/LDtk/LD57.ldtk",
+        "Assets/_Game/Prefabs/Battery.prefab",
+        "Assets/_Game/Prefabs/Checkpoint.prefab",
     };
 }
