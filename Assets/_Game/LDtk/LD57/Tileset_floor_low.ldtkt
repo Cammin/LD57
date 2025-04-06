@@ -1,0 +1,33 @@
+{
+  "Rects": null,
+  "Def": {
+    "__cHei": 3,
+    "__cWid": 7,
+    "cachedPixelData": {
+      "opaqueTiles": "111011111101111110001",
+      "averageColors": "f647f537f6470000f547f647f637f537f224f5370000f647f647f537f647f537f647000000000000f437"
+    },
+    "customData": [
+
+    ],
+    "embedAtlas": null,
+    "enumTags": [
+
+    ],
+    "identifier": "Tileset_floor_low",
+    "padding": 0,
+    "pxHei": 84,
+    "pxWid": 196,
+    "relPath": "atlas/tileset_floor_low.png",
+    "savedSelections": [
+
+    ],
+    "spacing": 0,
+    "tags": [
+
+    ],
+    "tagsSourceEnumUid": null,
+    "tileGridSize": 28,
+    "uid": 84
+  }
+}
