@@ -64,7 +64,7 @@ public sealed class GhostBase : MonoBehaviour
             transform.localScale = new Vector3(Player.Instance.transform.position.x > transform.position.x ? 1 : -1, 1, 1);
         }
 
-        //Ghost shouldn't be able to do anything if player is mid-capture QTE
+        //Ghost shouldn't be able to do anything if player is mid-capture QTE.
         if (CaptureInProgress)
         {
             return;
@@ -88,7 +88,9 @@ public sealed class GhostBase : MonoBehaviour
         else if (PlayerFound && !CanDetectPlayerThroughWalls && CheckForWalls())
         {
             PlayerFound = false;
-            OverrideDestination = Player.Instance.transform.position;
+
+            //Ghost travels to the player's last known position if they lose sight of them.
+            if (CanMove) OverrideDestination = Player.Instance.transform.position;
         }
 
         if (!BlockActions && !Destroying && PlayerFound && CooldownRemaining <= 0)

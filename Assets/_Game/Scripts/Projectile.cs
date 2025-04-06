@@ -5,6 +5,10 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Rigidbody2D Rigidbody;
+
+    public GameObject ProjectileMoving;
+    public GameObject ProjectileImpact;
+
     public float ProjectileSpeedModifier = 5f;
 
     public const float DefaultSpeed = 1000f;
@@ -82,9 +86,10 @@ public class Projectile : MonoBehaviour
 
         IEnumerator CoDestroy()
         {
-            //TODO play animation
+            ProjectileMoving.SetActive(false);
+            ProjectileImpact.SetActive(true);
 
-            yield return new WaitForSeconds(1); //TODO change to animation time
+            yield return new WaitForSeconds(1f);
 
             Destroy(gameObject);
         }
