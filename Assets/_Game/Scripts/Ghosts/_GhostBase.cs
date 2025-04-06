@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -182,6 +183,8 @@ public sealed class GhostBase : MonoBehaviour
 
             Player.Instance.CaptureQTEActive = false;
             Player.Instance.AddScore(ScoreAddedForCapture);
+
+            GameManager.Instance.CameraResetZoom();
 
             GameManager.Instance.ImpulseColourVolume(CaptureFlashColor);
             Destroy(gameObject);
