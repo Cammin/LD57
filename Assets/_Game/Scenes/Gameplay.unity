@@ -453,8 +453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
+  Camera: {fileID: 0}
   GlobalLight: {fileID: 245181903}
-  DamageVolume: {fileID: 1306976771}
+  ColourVolume: {fileID: 0}
 --- !u!4 &972629867
 Transform:
   m_ObjectHideFlags: 0
