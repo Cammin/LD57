@@ -1090,7 +1090,7 @@ MonoBehaviour:
   Impulse: {fileID: 7289971482518546540}
   Anim: {fileID: 6060184374556475088}
   Skeleton: {fileID: 7172285985089965335}
-  CaptureForceModifier: 20
+  ProgressPerQTEHit: 15
   Score: 0
   DialogueText: {fileID: 6797408072210317865}
 --- !u!50 &4800535478567288387
