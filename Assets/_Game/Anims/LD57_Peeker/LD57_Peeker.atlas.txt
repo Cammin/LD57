@@ -1,0 +1,69 @@
+LD57_Peeker.png
+	size: 1024, 1024
+	filter: Linear, Linear
+Peeker in shadow/eyel
+	bounds: 801, 508, 29, 44
+	offsets: 2, 2, 33, 48
+	rotate: 90
+Peeker in shadow/eyelreveal
+	bounds: 498, 523, 36, 51
+	offsets: 1, 1, 39, 54
+Peeker in shadow/eyer
+	bounds: 861, 848, 29, 41
+	offsets: 2, 1, 32, 44
+	rotate: 90
+Peeker in shadow/eyerreveal
+	bounds: 712, 500, 37, 40
+	offsets: 2, 1, 41, 43
+	rotate: 90
+Peeker in shadow/hidingbody
+	bounds: 734, 825, 128, 121
+	offsets: 1, 1, 130, 123
+	rotate: 90
+Peeker in shadow/revealbody
+	bounds: 354, 284, 198, 388
+	rotate: 90
+Peeker/Shadow
+	bounds: 734, 543, 276, 100
+	offsets: 1, 1, 278, 102
+	rotate: 90
+Peeker/arml
+	bounds: 540, 493, 105, 201
+	offsets: 0, 0, 105, 218
+Peeker/armr
+	bounds: 748, 326, 90, 168
+Peeker/blackblob1
+	bounds: 651, 515, 49, 55
+	offsets: 1, 1, 51, 57
+	rotate: 90
+Peeker/blackblob2
+	bounds: 758, 505, 32, 37
+	offsets: 2, 1, 35, 39
+	rotate: 90
+Peeker/blackblob3
+	bounds: 861, 883, 70, 92
+	offsets: 1, 1, 72, 94
+	rotate: 90
+Peeker/body
+	bounds: 6, 208, 274, 342
+	offsets: 0, 0, 289, 342
+	rotate: 90
+Peeker/bodyback
+	bounds: 384, 700, 253, 344
+	rotate: 90
+Peeker/eyel
+	bounds: 384, 580, 114, 150
+	offsets: 1, 1, 117, 152
+	rotate: 90
+Peeker/eyer
+	bounds: 651, 570, 75, 124
+	offsets: 9, 2, 85, 140
+Peeker/glow
+	bounds: 6, 488, 372, 465
+Peeker/hiteyes
+	bounds: 840, 654, 165, 85
+	offsets: 2, 4, 168, 90
+	rotate: 90
+Peeker/mouth
+	bounds: 384, 497, 108, 77
+	offsets: 1, 1, 110, 79
