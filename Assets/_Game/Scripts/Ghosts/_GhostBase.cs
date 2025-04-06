@@ -1,3 +1,4 @@
+using Spine;
 using System;
 using System.Collections;
 using Unity.Cinemachine;
@@ -58,13 +59,20 @@ public sealed class GhostBase : MonoBehaviour
 
         if (CaptureProgress > 0) CaptureProgress -= Time.deltaTime;
 
-        if (PlayerFound)
+        if (PlayerFound || CaptureInProgress)
         {
             transform.localScale = new Vector3(Player.Instance.transform.position.x > transform.position.x ? 1 : -1, 1, 1);
         }
 
         //Ghost shouldn't be able to do anything if player is mid-capture QTE
-        if (CaptureInProgress) return;
+        if (CaptureInProgress)
+        {
+            var distanceModifier = 100f / (Player.CaptureDistanceForQTE - 1);
+            var newPosition = transform.position + (Vector3)(Player.Instance.GetAimDirection().normalized * (Player.CaptureDistanceForQTE - CaptureProgress / (distanceModifier)));
+            transform.position = newPosition;
+
+            return;
+        }
 
         if (!PlayerFound && Vector2.Distance(Player.Instance.transform.position, transform.position) <= DetectPlayerRange)
         {
@@ -150,7 +158,8 @@ public sealed class GhostBase : MonoBehaviour
             {
                 return false;
             } 
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
             {
                 return true;
             }
