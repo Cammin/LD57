@@ -55,8 +55,8 @@ public class Player : Singleton<Player>
     {
         _camera = Camera.main;
         BatteryLifeRemaining = MaxBatteryLife;
-        
-        DialogueText.color = Color.clear;
+
+        DialogueText.color = new Color(1, 1, 1, 0);
     }
 
     private void Update()
@@ -168,6 +168,8 @@ public class Player : Singleton<Player>
 
     private void TickBatteryLifetime()
     {
+        if (CaptureQTEActive) return;
+        
         BatteryLifeRemaining = Mathf.Max(BatteryLifeRemaining - Time.deltaTime, 0);
         
         float ratio = BatteryLifeRemaining / MaxBatteryLife;
