@@ -1,0 +1,12 @@
+Font: Ad Lib  Style: Regular
+Point Size: 100   Padding: 5   SP/PD Ratio: 5.0%
+
+Characters included: 86/86
+Missing characters: 0
+Excluded characters: 0
+
+Characters missing from font file:
+----------------------------------------
+
+Characters excluded from packing:
+----------------------------------------
