@@ -21,6 +21,8 @@ ScriptedImporter:
   _intGridValues:
   - _key: IntGrid_1
     _asset: {fileID: 11400000, guid: f5aed684d2a350d46919e1bafb3e29aa, type: 2}
+  - _key: IntGrid_2
+    _asset: {instanceID: 0}
   _entities:
   - _key: PlayerStart
     _asset: {fileID: 5215850011544252517, guid: 21503e14e5350924ab3d0d7fa88206dd, type: 3}
@@ -41,7 +43,7 @@ ScriptedImporter:
   - _key: GhostDoor
     _asset: {fileID: 3145612187021570480, guid: 51c710ef2eb42794b8e932b8348ba9ab, type: 3}
   - _key: GhostDoor_Horiz
-    _asset: {instanceID: 0}
+    _asset: {fileID: 6466888445938807002, guid: f4b0b2ea6559be24eb9b8a4bec177d96, type: 3}
   - _key: PeekerPoints
     _asset: {fileID: 8501266809022342043, guid: c67a3d5aca0f38b43a4ea89a436ee6b2, type: 3}
   - _key: ClockOut

@@ -2296,13 +2296,13 @@
 	], "tilesets": [
 		{
 			"__cWid": 8,
-			"__cHei": 3,
+			"__cHei": 4,
 			"identifier": "Tileset_walls_low",
 			"uid": 4,
 			"relPath": "atlas/tileset_walls_low.png",
 			"embedAtlas": null,
 			"pxWid": 224,
-			"pxHei": 84,
+			"pxHei": 112,
 			"tileGridSize": 28,
 			"spacing": 0,
 			"padding": 0,
@@ -2312,8 +2312,8 @@
 			"customData": [],
 			"savedSelections": [],
 			"cachedPixelData": {
-				"opaqueTiles": "001100110001001111010011",
-				"averageColors": "01030203f101f001f1010000f001f10103050305f102f102f1020000f000f001f101f101f877f978f8770000f877f877"
+				"opaqueTiles": "00110011000100111111001100111011",
+				"averageColors": "01030203f101f001f1010000f001f10103050305f102f102f1020000f000f001f101f101f867f977f8670000f977f97700000000fa87fa87fa870000fa87fa87"
 			}
 		},
 		{

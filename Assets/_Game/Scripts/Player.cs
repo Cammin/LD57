@@ -96,10 +96,8 @@ public class Player : Singleton<Player>
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     GhostTarget.CaptureGhostAddProgress();
-
                 }
             }
-
             return;
         }
 
