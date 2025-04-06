@@ -1,16 +1,33 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Battery : MonoBehaviour
 {
     public int scoreOnCollect = 100;
+
+    public Animator Anim;
+    public bool collected;
+
+    public AudioSource CollectSfx;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<Player>(out var player))
         {
+            if (collected) return;
+            
+            collected = true;
             player.RechargeBattery();
             player.AddScore(scoreOnCollect);
-            Destroy(gameObject);
+            
+            Anim.SetTrigger("collect");
+            
+            
+            CollectSfx.Play();
+            
+            Destroy(gameObject, 1f);
+            
+            
         }
     }
 }
