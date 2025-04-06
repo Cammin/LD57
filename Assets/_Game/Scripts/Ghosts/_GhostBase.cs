@@ -57,6 +57,11 @@ public sealed class GhostBase : MonoBehaviour
 
         if (CaptureProgress > 0) CaptureProgress -= Time.deltaTime;
 
+        if (PlayerFound)
+        {
+            transform.localScale = new Vector3(Player.Instance.transform.position.x > transform.position.x ? 1 : -1, 1, 1);
+        }
+
         //Ghost shouldn't be able to do anything if player is mid-capture QTE
         if (CaptureInProgress) return;
 
@@ -69,6 +74,11 @@ public sealed class GhostBase : MonoBehaviour
             }
 
             PlayerFound = true;
+
+            if (CanMove)
+            {
+                OverrideDestination = Vector3.zero;
+            }
         }
         else if (PlayerFound && !CanDetectPlayerThroughWalls && CheckForWalls())
         {
@@ -160,8 +170,6 @@ public sealed class GhostBase : MonoBehaviour
 
     public void CaptureGhost()
     {
-        Player.Instance.CaptureQTEActive = false;
-
         Player.Instance.GhostTarget = null;
 
         //TODO animate
@@ -172,7 +180,9 @@ public sealed class GhostBase : MonoBehaviour
         {
             yield return new WaitForSeconds(1); //TODO change to anim time
 
+            Player.Instance.CaptureQTEActive = false;
             Player.Instance.AddScore(ScoreAddedForCapture);
+
             GameManager.Instance.ImpulseColourVolume(CaptureFlashColor);
             Destroy(gameObject);
         }
