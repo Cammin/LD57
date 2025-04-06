@@ -117,7 +117,7 @@ public class Player : Singleton<Player>
         {
             if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
             {
-                Debug.Log("hit ghost");
+                //Debug.Log("hit ghost");
                 if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture)
                 {
                     return ghost;
