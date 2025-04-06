@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public sealed class _GhostBase : MonoBehaviour
+public sealed class GhostBase : MonoBehaviour
 {
+    public GhostBehaviour GhostBehaviour;
     public Rigidbody2D Rigidbody;
     [Space]
     public bool CanMove = true;
@@ -13,22 +15,25 @@ public sealed class _GhostBase : MonoBehaviour
     [Space]
     public bool CanBeCaptured = true;
     public float CaptureDifficultyModifier = 1f;
+    public int ScoreAddedForCapture = 100;
     [Space]
     public bool CanDetectPlayerThroughWalls;
     public bool RetreatIfTooClose;
     public float DetectPlayerRange = 25f;
     public float AttackPlayerRange = 20f;
     public float StopAtDistance = 3f;
+    public float CaptureForceModifier = 20f;
 
-    public GhostBehaviour GhostBehaviour;
-    
     //-------------------------------------------------
 
     public const float DefaultSpeed = 1000f;
+    public const float DefaultCaptureForce = 1000f;
+
+    public bool CaptureInProgress => Player.Instance.GhostTarget == this;
 
     [NonSerialized] public Vector3 OverrideDestination;
+    [NonSerialized] public float CaptureProgress;
     [NonSerialized] public bool PlayerFound;
-    [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] public bool BlockActions;
     [NonSerialized] public bool BlockMovement;
     [NonSerialized] public bool BlockCapture;
@@ -45,6 +50,8 @@ public sealed class _GhostBase : MonoBehaviour
     private void Update()
     {
         if (CooldownRemaining > 0) CooldownRemaining -= Time.deltaTime;
+
+        if (CaptureProgress > 0) CaptureProgress -= Time.deltaTime;
 
         //Ghost shouldn't be able to do anything if player is mid-capture QTE
         if (CaptureInProgress) return;
@@ -79,7 +86,12 @@ public sealed class _GhostBase : MonoBehaviour
     {
         Rigidbody.linearVelocity = Vector2.zero;
 
-        if (!BlockMovement)
+        if (CaptureInProgress && !Player.Instance.CaptureQTEActive)
+        {
+            var direction = (Player.Instance.transform.position - transform.position).normalized;
+            Rigidbody.AddForce(direction * CaptureForceModifier * DefaultCaptureForce * Time.deltaTime);
+        }
+        else if (!BlockMovement)
         {
             //If destination is overriden prioritize moving to the override.
             if (OverrideDestination != Vector3.zero)

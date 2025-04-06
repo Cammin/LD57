@@ -1,6 +1,8 @@
 using CamLib;
 using DG.Tweening;
 using Spine.Unity;
+using System;
+using System.Collections;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -35,6 +37,17 @@ public class Player : Singleton<Player>
     public SkeletonRenderer Skeleton;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
+
+    public float ProgressPerQTEHit = 15f;
+
+    public const float CaptureCastRadius = 3f;
+    public const float CaptureCastLength = 10f;
+
+    private Vector2 AimDirection;
+
+    [NonSerialized] public GhostBase GhostTarget;
+    [NonSerialized] public bool CaptureActive;
+    [NonSerialized] public bool CaptureQTEActive;
     
     private void Start()
     {
@@ -46,6 +59,16 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
+        if (CaptureQTEActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                CaptureGhostAddProgress();
+            }
+
+            return;
+        }
+
         DoMoveInput();
         TryCheats();
         UpdateFlashlight();
@@ -56,6 +79,85 @@ public class Player : Singleton<Player>
         
         
         
+
+        CaptureActive = Input.GetMouseButton(0);
+
+        if (CaptureActive)
+        {
+            if (!GhostTarget)
+            {
+                GhostTarget = GhostCaptureHit();
+            }
+            else
+            {
+                if (Vector2.Distance(transform.position, GhostTarget.transform.position) < 1f)
+                {
+                    CaptureGhostQTE();
+                }
+            }
+        }
+        else
+        {
+            GhostTarget = null;
+        }
+    }
+
+    private GhostBase GhostCaptureHit()
+    {
+        var hits = Physics2D.CircleCastAll(transform.position, CaptureCastRadius, AimDirection, CaptureCastLength);
+
+        foreach(var hit in hits)
+        {
+            if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
+            {
+                Debug.Log("hit ghost");
+                if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture)
+                {
+                    return ghost;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private void CaptureGhostQTE()
+    {
+        GhostTarget.BlockActions = true;
+        GhostTarget.BlockCapture = true;
+        GhostTarget.BlockMovement = true;
+
+        CaptureQTEActive = true;
+    }
+
+    private void CaptureGhostAddProgress()
+    {
+        GhostTarget.CaptureProgress += (ProgressPerQTEHit / GhostTarget.CaptureDifficultyModifier);
+
+        if (GhostTarget.CaptureProgress >= 100)
+        {
+            CaptureGhost();
+        }
+    }
+
+    private void CaptureGhost()
+    {
+        CaptureQTEActive = false;
+
+        var ghost = GhostTarget;
+        GhostTarget = null;
+
+        //TODO animate
+
+        StartCoroutine(CoCapture());
+
+        IEnumerator CoCapture()
+        {
+            yield return new WaitForSeconds(1); //TODO change to anim time
+
+            AddScore(ghost.ScoreAddedForCapture);
+            Destroy(ghost.gameObject);
+        }
     }
 
     private void TickBatteryLifetime()
@@ -104,8 +206,8 @@ public class Player : Singleton<Player>
         if (Input.GetKeyDown(KeyCode.V))
         {
             //find and kill the nearest ghost
-            var ghosts = FindObjectsByType<_GhostBase>(FindObjectsSortMode.None);
-            _GhostBase nearestGhost = null;
+            var ghosts = FindObjectsByType<GhostBase>(FindObjectsSortMode.None);
+            GhostBase nearestGhost = null;
             float nearestDistance = float.MaxValue;
             foreach (var ghost in ghosts)
             {
@@ -129,15 +231,12 @@ public class Player : Singleton<Player>
         Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 flashlightPos = transform.position;
         Vector2 dir =  mousePos - flashlightPos;
-        
+        AimDirection = dir.normalized;
         
         //flip player model
         Vector3 scale = Model.transform.localScale;
         float flipValue = dir.x < 0 ? -1 : 1;
         scale.x = Mathf.Abs(scale.x) * flipValue;
-        
-        
-        
         
         //AIM BONE
         if (dir.magnitude > 1f)
@@ -150,9 +249,6 @@ public class Player : Singleton<Player>
             Skeleton.skeleton.FindBone("AIM").SetLocalPosition(dir.normalized * 5);
             
         }
-        
-        
-        
     }
 
     private void FixedUpdate()
