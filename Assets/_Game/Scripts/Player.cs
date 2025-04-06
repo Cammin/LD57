@@ -67,7 +67,7 @@ public class Player : Singleton<Player>
         
         if (IsDead) return;
 
-        flashlight.color = CaptureActive ? Color.green : Color.white;
+        flashlight.color = CaptureActive ? Color.cyan : Color.white;
 
         DoMoveInput();
         TryCheats();
@@ -77,13 +77,13 @@ public class Player : Singleton<Player>
         {
             if (GhostTarget)
             {
+                UpdateFlashlight(GhostTarget.transform.position - transform.position);
+
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     GhostTarget.CaptureGhostAddProgress();
 
                 }
-
-                UpdateFlashlight(GhostTarget.transform.position - transform.position);
             }
 
             return;
@@ -143,6 +143,8 @@ public class Player : Singleton<Player>
         GhostTarget.BlockMovement = true;
 
         CaptureQTEActive = true;
+
+        GameManager.Instance.CameraZoom(4);
     }
 
     private void TickBatteryLifetime()

@@ -1,14 +1,23 @@
 using CamLib;
 using DG.Tweening;
+using System;
+using Unity.Cinemachine;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class GameManager : Singleton<GameManager>
 {
+    public const float DefaultZoom = 8f;
+
+    public CinemachineCamera Camera;
     public Light2D GlobalLight;
     public Volume ColourVolume;
-    
+
+    [NonSerialized] public Transform OverrideCameraTarget;
+    private Tween CurrentZoomTween;
+
     void Start()
     {
         
@@ -17,8 +26,7 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
-        
-        
+        Camera.Follow = OverrideCameraTarget != null ? OverrideCameraTarget : Player.Instance.transform;
     }
 
     private Tween ColourTween;
@@ -36,5 +44,26 @@ public class GameManager : Singleton<GameManager>
         {
             ColourVolume.weight = value;
         });
+    }
+
+    public void CameraZoom(float zoom)
+    {
+        // Kill existing tween if it's running
+        if (CurrentZoomTween != null && CurrentZoomTween.IsActive())
+        {
+            CurrentZoomTween.Kill();
+        }
+
+        CurrentZoomTween = DOTween.To(
+            () => Camera.Lens.OrthographicSize,
+            x => Camera.Lens.OrthographicSize = x,
+            zoom,
+            .2f
+        ).SetEase(Ease.InOutSine);
+    }
+
+    public void CameraResetZoom()
+    {
+        CameraZoom(DefaultZoom);
     }
 }

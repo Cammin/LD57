@@ -44,6 +44,9 @@ public class Projectile : MonoBehaviour
     public void SetupProjectile(Vector2 direction)
     {
         Trajectory = direction.normalized;
+
+        float angle = Mathf.Atan2(Trajectory.y, Trajectory.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     //Check hit

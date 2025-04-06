@@ -12484,6 +12484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
+  Camera: {fileID: 1247739888}
   GlobalLight: {fileID: 1386915201}
   ColourVolume: {fileID: 1193812761}
 --- !u!4 &994494385
