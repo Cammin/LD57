@@ -27,7 +27,7 @@ public class Battery : MonoBehaviour
             
             GameManager.Instance.ImpulseColourVolume(Color.yellow);
             
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 2f);
             
             
         }

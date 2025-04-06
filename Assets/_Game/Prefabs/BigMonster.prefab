@@ -139,7 +139,7 @@ MonoBehaviour:
   LurkingPosition: {fileID: 0}
   Model: {fileID: 2070509519692161279}
   Rb: {fileID: 1374830192615753919}
-  MoveSpeed: 10
+  MoveSpeed: 0.5
 --- !u!50 &1374830192615753919
 Rigidbody2D:
   serializedVersion: 5

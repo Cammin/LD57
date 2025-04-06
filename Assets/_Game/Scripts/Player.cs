@@ -303,6 +303,7 @@ public class Player : Singleton<Player>
         {
             Debug.Log("Player is dead");
             Anim.SetTrigger("death");
+            MoveInput = Vector2.zero;
             _rb.linearVelocity = Vector2.zero;
             SfxDeath.Play();
             
