@@ -34,7 +34,13 @@ public class Player : Singleton<Player>
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
 
+    public float CaptureForceModifier = 5f;
+
     public const float CaptureCastRadius = 1f;
+    public const float CaptureCastLength = 5f;
+    public const float DefaultCaptureForce = 1000f;
+
+    private Vector2 AimDirection => (_camera.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
 
     [NonSerialized] private GhostBase GhostTarget;
     [NonSerialized] private bool CaptureActive;
@@ -58,24 +64,28 @@ public class Player : Singleton<Player>
         InvincibilityTime -= Time.deltaTime;
 
         CaptureActive = Input.GetMouseButton(0);
-
-        if (CaptureActive)
-        {
-
-        }
     }
 
     private GhostBase GhostCaptureHit()
     {
+        var hit = Physics2D.CircleCast(transform.position, CaptureCastRadius, AimDirection, CaptureCastLength);
+
+        if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
+        {
+            if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture)
+            {
+                return ghost;
+            }
+        }
+
         return null;
-        //var hit = Physics2D.CircleCast(transform.position, CaptureCastRadius, )
     }
 
-    private void CaptureGhost()
+    private void CaptureGhost(GhostBase ghost)
     {
-        GhostTarget.BlockActions = true;
-        GhostTarget.BlockCapture = true;
-        GhostTarget.BlockMovement = true;
+        ghost.BlockActions = true;
+        ghost.BlockCapture = true;
+        ghost.BlockMovement = true;
 
         //TODO animate
 
@@ -85,9 +95,8 @@ public class Player : Singleton<Player>
         {
             yield return new WaitForSeconds(1); //TODO change to anim time
 
-            AddScore(GhostTarget.ScoreAddedForCapture);
-            Destroy(GhostTarget.gameObject);
-            GhostTarget = null;
+            AddScore(ghost.ScoreAddedForCapture);
+            Destroy(ghost.gameObject);
         }
     }
 
@@ -156,23 +165,37 @@ public class Player : Singleton<Player>
 
     private void UpdateFlashlight()
     {
-        //direction to mouse
-        Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 flashlightPos = transform.position;
-        Vector2 dir =  mousePos - flashlightPos;
-        
-        flashlight.transform.up = dir;
+        flashlight.transform.up = AimDirection;
         
         
         //flip player model
         Vector3 scale = Model.transform.localScale;
-        float flipValue = dir.x < 0 ? -1 : 1;
+        float flipValue = AimDirection.x < 0 ? -1 : 1;
         scale.x = Mathf.Abs(scale.x) * flipValue;
         Model.transform.localScale = scale;
     }
 
     private void FixedUpdate()
     {
+        if (CaptureActive)
+        {
+            if (!GhostTarget)
+            {
+                GhostTarget = GhostCaptureHit();
+                GhostTarget.CaptureInProgress = true;
+            }
+            else
+            {
+                var direction = transform.position - GhostTarget.transform.position;
+                GhostTarget.Rigidbody.AddForce(direction * CaptureForceModifier * DefaultCaptureForce * Time.deltaTime);
+
+                if (Vector2.Distance(transform.position, GhostTarget.transform.position) < .25f)
+                {
+                    CaptureGhost(GhostTarget);
+                    GhostTarget = null;
+                }
+            }
+        }
     }
 
     public bool TryTakeDamage()

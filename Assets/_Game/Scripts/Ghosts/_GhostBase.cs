@@ -28,7 +28,7 @@ public sealed class GhostBase : MonoBehaviour
     public const float DefaultSpeed = 1000f;
 
     [NonSerialized] public Vector3 OverrideDestination;
-    [NonSerialized] public int CaptureProgress;
+    [NonSerialized] public float CaptureProgress;
     [NonSerialized] public bool PlayerFound;
     [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] public bool BlockActions;
@@ -47,6 +47,8 @@ public sealed class GhostBase : MonoBehaviour
     private void Update()
     {
         if (CooldownRemaining > 0) CooldownRemaining -= Time.deltaTime;
+
+        if (CaptureProgress > 0) CaptureProgress -= Time.deltaTime;
 
         //Ghost shouldn't be able to do anything if player is mid-capture QTE
         if (CaptureInProgress) return;
