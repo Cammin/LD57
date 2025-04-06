@@ -45,7 +45,7 @@ public class Player : Singleton<Player>
 
     public const float CaptureCastRadius = 3f;
     public const float CaptureCastLength = 10f;
-    public const float CaptureDistanceForQTE = 5f;
+    public const float CaptureDistanceForQTE = 4f;
 
     private Vector2 AimDirection;
 
@@ -144,13 +144,9 @@ public class Player : Singleton<Player>
 
     private void CaptureGhostQTE()
     {
-        GhostTarget.BlockActions = true;
-        GhostTarget.BlockCapture = true;
-        GhostTarget.BlockMovement = true;
-
         CaptureQTEActive = true;
 
-        GameManager.Instance.CameraZoom(4);
+        GhostTarget.StartCapture();
     }
 
     private void TickBatteryLifetime()

@@ -33,9 +33,7 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
     {
         if (Ghost.OverrideDestination == Vector3.zero && Retreating)
         {
-            Retreating = false;
-            Ghost.BlockActions = false;
-            Ghost.BlockCapture = false;
+            RetreatEnd();
         }
 
         if (!Ghost.BlockActions && TimesRetreated < TimesAllowedToRetreat && 
@@ -49,15 +47,18 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
     {
         base.GhostAction();
 
-        //TODO animate
+        Ghost.Animator.SetTrigger("shoot");
         StartCoroutine(CoCastProjectileBurst());
 
         IEnumerator CoCastProjectileBurst()
         {
-            yield return new WaitForSeconds(1); //TODO change to anim time
+            yield return new WaitForSeconds(.3f);
 
             for(int i = 0; i < ProjectileBurstHowMany; i++)
             {
+                if (Ghost.CaptureInProgress)
+                    yield break;
+
                 Projectile.SpawnProjectile(ProjectilePrefab, transform.position, Player.Instance.transform.position);
 
                 yield return new WaitForSeconds(TimeBetweenProjectiles);
@@ -77,13 +78,12 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
         Ghost.BlockActions = true;
         Ghost.BlockCapture = true;
 
+        Ghost.Animator.SetTrigger("shadow");
         StartCoroutine(CoRetreat());
 
         IEnumerator CoRetreat()
         {
-            //TODO play animation
-
-            yield return new WaitForSeconds(1); //TODO change to anim time
+            yield return new WaitForSeconds(.792f);
 
             PeekerHidingSpot furthest = null;
 
@@ -104,6 +104,21 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
 
             Ghost.OverrideDestination = CurrentHidingSpot.GetFurthestPoint(Player.Instance.transform.position);
             Retreating = true;
+        }
+    }
+
+    public void RetreatEnd()
+    {
+        Ghost.Animator.SetTrigger("revert");
+        StartCoroutine(CoRetreatEnd());
+
+        IEnumerator CoRetreatEnd()
+        {
+            yield return new WaitForSeconds(.792f);
+
+            Retreating = false;
+            Ghost.BlockActions = false;
+            Ghost.BlockCapture = false;
         }
     }
 }
