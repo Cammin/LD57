@@ -49,6 +49,8 @@ public class Player : Singleton<Player>
     [NonSerialized] public bool CaptureActive;
     [NonSerialized] public bool CaptureQTEActive;
     
+    public bool IsDead => HP <= 0;
+    
     private void Start()
     {
         _camera = Camera.main;
@@ -59,6 +61,8 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
+        if (IsDead) return;
+        
         if (CaptureQTEActive)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -182,6 +186,8 @@ public class Player : Singleton<Player>
 
     private void DoMoveInput()
     {
+        
+        
         //translate player
         float horiz = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
@@ -257,7 +263,7 @@ public class Player : Singleton<Player>
 
     public bool TryTakeDamage()
     {
-        if (HP <= 0) return false;
+        if (IsDead) return false;
         
         if (InvincibilityTime > 0) return false;
         InvincibilityTime = 0.5f;
@@ -270,6 +276,7 @@ public class Player : Singleton<Player>
         {
             Debug.Log("Player is dead");
             Anim.SetTrigger("death");
+            _rb.linearVelocity = Vector2.zero;
             
             FadeManager.Instance.FadeIn(Color.black, () =>
             {
