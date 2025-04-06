@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-9118523218884007076
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-15_{-9118523218884007076}
+  m_AudioClip: {fileID: 8300000, guid: 42c7184046c3b1449b23d8d88988f7ff, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-8779318664719741424
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-08_{-8779318664719741424}
+  m_AudioClip: {fileID: 8300000, guid: 91e2b468c82d9964ebb1447d2d2e6a16, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-7335373261444664412
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-11_{-7335373261444664412}
+  m_AudioClip: {fileID: 8300000, guid: 826e44c7b3d463d43be72f87f3384b5e, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1261369858977713295
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-14_{-1261369858977713295}
+  m_AudioClip: {fileID: 8300000, guid: d9f314c55a7df42489555b6002d1bd12, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-829984507250526275
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-09_{-829984507250526275}
+  m_AudioClip: {fileID: 8300000, guid: 39460c52ea1fc43458583d01fcd6f499, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &451259644765519101
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-01_{451259644765519101}
+  m_AudioClip: {fileID: 8300000, guid: ae974c8442c0c564fa63f7f0f58efed3, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1545998030572579852
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-06_{1545998030572579852}
+  m_AudioClip: {fileID: 8300000, guid: cf2a105ebe4281a43bb75899c7f69e5a, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &3691957182153745546
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-03_{3691957182153745546}
+  m_AudioClip: {fileID: 8300000, guid: 51eed12265f11ef499197d4cad2b7fa9, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4573887538671426379
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-12_{4573887538671426379}
+  m_AudioClip: {fileID: 8300000, guid: b219cf9c62dad56489f17fb55dfe04f3, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4869191216654484308
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-02_{4869191216654484308}
+  m_AudioClip: {fileID: 8300000, guid: b07811b9c2313ba4783c7b6672c5dd2f, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &5955903532405172387
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-04_{5955903532405172387}
+  m_AudioClip: {fileID: 8300000, guid: b7df5c288e0aab546b3d9a47004dec77, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &6236584017650337671
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-10_{6236584017650337671}
+  m_AudioClip: {fileID: 8300000, guid: a0f1c7410211a654d9d39146d1c6fa2d, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hurt_Voice
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 451259644765519101}
+  - {fileID: 4869191216654484308}
+  - {fileID: 3691957182153745546}
+  - {fileID: 5955903532405172387}
+  - {fileID: 7646521936042896804}
+  - {fileID: 1545998030572579852}
+  - {fileID: 8330762298873614961}
+  - {fileID: -8779318664719741424}
+  - {fileID: -829984507250526275}
+  - {fileID: 6236584017650337671}
+  - {fileID: -7335373261444664412}
+  - {fileID: 4573887538671426379}
+  - {fileID: 8790414484616237187}
+  - {fileID: -1261369858977713295}
+  - {fileID: -9118523218884007076}
+  m_AvoidRepeatingLast: 3
+  m_PlaybackMode: 2
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7646521936042896804
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-05_{7646521936042896804}
+  m_AudioClip: {fileID: 8300000, guid: fcf0a733afa09814c93e94e80b708565, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &8330762298873614961
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-07_{8330762298873614961}
+  m_AudioClip: {fileID: 8300000, guid: e1aa7484d47d9304cac7cc9af51129f6, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &8790414484616237187
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: slightscream-13_{8790414484616237187}
+  m_AudioClip: {fileID: 8300000, guid: 9df0f8ab6ce6502449fddda17adda287, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
