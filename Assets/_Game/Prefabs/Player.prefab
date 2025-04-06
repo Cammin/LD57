@@ -891,6 +891,7 @@ MonoBehaviour:
   InvincibilityTime: 0
   Model: {fileID: 76832773416138559}
   Impulse: {fileID: 7289971482518546540}
+  CaptureForceModifier: 20
   Score: 0
   DialogueText: {fileID: 6797408072210317865}
 --- !u!50 &4800535478567288387

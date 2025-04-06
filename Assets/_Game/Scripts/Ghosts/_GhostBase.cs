@@ -22,15 +22,18 @@ public sealed class GhostBase : MonoBehaviour
     public float DetectPlayerRange = 25f;
     public float AttackPlayerRange = 20f;
     public float StopAtDistance = 3f;
-    
+    public float CaptureForceModifier = 20f;
+
     //-------------------------------------------------
 
     public const float DefaultSpeed = 1000f;
+    public const float DefaultCaptureForce = 1000f;
+
+    public bool CaptureInProgress => Player.Instance.GhostTarget == this;
 
     [NonSerialized] public Vector3 OverrideDestination;
     [NonSerialized] public float CaptureProgress;
     [NonSerialized] public bool PlayerFound;
-    [NonSerialized] public bool CaptureInProgress;
     [NonSerialized] public bool BlockActions;
     [NonSerialized] public bool BlockMovement;
     [NonSerialized] public bool BlockCapture;
@@ -83,7 +86,12 @@ public sealed class GhostBase : MonoBehaviour
     {
         Rigidbody.linearVelocity = Vector2.zero;
 
-        if (!BlockMovement)
+        if (CaptureInProgress && !Player.Instance.CaptureQTEActive)
+        {
+            var direction = (Player.Instance.transform.position - transform.position).normalized;
+            Rigidbody.AddForce(direction * CaptureForceModifier * DefaultCaptureForce * Time.deltaTime);
+        }
+        else if (!BlockMovement)
         {
             //If destination is overriden prioritize moving to the override.
             if (OverrideDestination != Vector3.zero)

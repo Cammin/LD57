@@ -31,19 +31,19 @@ public class Player : Singleton<Player>
     public GameObject Model;
 
     public CinemachineImpulseSource Impulse;
-    
+
     public bool IsEmpty => BatteryLifeRemaining <= 0;
 
-    public float CaptureForceModifier = 5f;
+    public float ProgressPerQTEHit = 15f;
 
-    public const float CaptureCastRadius = 1f;
-    public const float CaptureCastLength = 5f;
-    public const float DefaultCaptureForce = 1000f;
+    public const float CaptureCastRadius = 3f;
+    public const float CaptureCastLength = 10f;
 
     private Vector2 AimDirection => (_camera.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
 
-    [NonSerialized] private GhostBase GhostTarget;
-    [NonSerialized] private bool CaptureActive;
+    [NonSerialized] public GhostBase GhostTarget;
+    [NonSerialized] public bool CaptureActive;
+    [NonSerialized] public bool CaptureQTEActive;
     
     private void Start()
     {
@@ -55,6 +55,16 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
+        if (CaptureQTEActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                CaptureGhostAddProgress();
+            }
+
+            return;
+        }
+
         DoMoveInput();
         TryCheats();
         UpdateFlashlight();
@@ -64,28 +74,71 @@ public class Player : Singleton<Player>
         InvincibilityTime -= Time.deltaTime;
 
         CaptureActive = Input.GetMouseButton(0);
+
+        if (CaptureActive)
+        {
+            if (!GhostTarget)
+            {
+                GhostTarget = GhostCaptureHit();
+            }
+            else
+            {
+                if (Vector2.Distance(transform.position, GhostTarget.transform.position) < 1f)
+                {
+                    CaptureGhostQTE();
+                }
+            }
+        }
+        else
+        {
+            GhostTarget = null;
+        }
     }
 
     private GhostBase GhostCaptureHit()
     {
-        var hit = Physics2D.CircleCast(transform.position, CaptureCastRadius, AimDirection, CaptureCastLength);
+        var hits = Physics2D.CircleCastAll(transform.position, CaptureCastRadius, AimDirection, CaptureCastLength);
 
-        if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
+        foreach(var hit in hits)
         {
-            if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture)
+            if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
             {
-                return ghost;
+                Debug.Log("hit ghost");
+                if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture)
+                {
+                    return ghost;
+                }
             }
         }
 
         return null;
     }
 
-    private void CaptureGhost(GhostBase ghost)
+    private void CaptureGhostQTE()
     {
-        ghost.BlockActions = true;
-        ghost.BlockCapture = true;
-        ghost.BlockMovement = true;
+        GhostTarget.BlockActions = true;
+        GhostTarget.BlockCapture = true;
+        GhostTarget.BlockMovement = true;
+
+        CaptureQTEActive = true;
+    }
+
+    private void CaptureGhostAddProgress()
+    {
+        GhostTarget.CaptureProgress += (ProgressPerQTEHit / GhostTarget.CaptureDifficultyModifier);
+
+        if (GhostTarget.CaptureProgress >= 100)
+        {
+            CaptureGhost();
+        }
+    }
+
+    private void CaptureGhost()
+    {
+        CaptureQTEActive = false;
+
+        var ghost = GhostTarget;
+        GhostTarget = null;
 
         //TODO animate
 
@@ -114,7 +167,6 @@ public class Player : Singleton<Player>
         
         flashlight.pointLightInnerRadius = Mathf.Lerp(LightInnerOverLifetimeRatio.x, LightInnerOverLifetimeRatio.y, ratio);
         flashlight.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio);
-        
         
         lightAround.pointLightInnerRadius = 0;
         lightAround.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio * 0.5f);
@@ -177,25 +229,7 @@ public class Player : Singleton<Player>
 
     private void FixedUpdate()
     {
-        if (CaptureActive)
-        {
-            if (!GhostTarget)
-            {
-                GhostTarget = GhostCaptureHit();
-                GhostTarget.CaptureInProgress = true;
-            }
-            else
-            {
-                var direction = transform.position - GhostTarget.transform.position;
-                GhostTarget.Rigidbody.AddForce(direction * CaptureForceModifier * DefaultCaptureForce * Time.deltaTime);
-
-                if (Vector2.Distance(transform.position, GhostTarget.transform.position) < .25f)
-                {
-                    CaptureGhost(GhostTarget);
-                    GhostTarget = null;
-                }
-            }
-        }
+        
     }
 
     public bool TryTakeDamage()
@@ -215,8 +249,6 @@ public class Player : Singleton<Player>
             {
                 SceneManager.LoadScene("Gameplay");
             });
-            
-            
         }
         else
         {
