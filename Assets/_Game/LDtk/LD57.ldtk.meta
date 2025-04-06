@@ -12,7 +12,7 @@ ScriptedImporter:
   _jsonFile: {fileID: -164016180542632921, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
   _pixelsPerUnit: 28
   _customLevelPrefab: {fileID: 2857546171091752619, guid: c861f03a82ba1f045bf20fe8554a2867, type: 3}
-  _intGridValueColorsVisible: 1
+  _intGridValueColorsVisible: 0
   _useCompositeCollider: 0
   _geometryType: 0
   _createBackgroundColor: 1

@@ -10,7 +10,12 @@ public class BigMonster : Singleton<BigMonster>
     public float MoveSpeed;
     
     public Transform Target => Player.Instance.IsEmpty ? Player.Instance.transform : LurkingPosition;
-    
+
+    private void Start()
+    {
+        transform.position = LurkingPosition.position;
+    }
+
     private void Update()
     {
         
