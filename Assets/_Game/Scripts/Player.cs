@@ -66,19 +66,27 @@ public class Player : Singleton<Player>
         if (IsDead) return;
 
         flashlight.color = CaptureActive ? Color.green : Color.white;
-        
+
+        DoMoveInput();
+        TryCheats();
+
+        //If in the middle of a QTE we don't want the rest of the update to happen.
         if (CaptureQTEActive)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (GhostTarget)
             {
-                GhostTarget.CaptureGhostAddProgress();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    GhostTarget.CaptureGhostAddProgress();
+
+                }
+
+                UpdateFlashlight(GhostTarget.transform.position - transform.position);
             }
 
             return;
         }
 
-        DoMoveInput();
-        TryCheats();
         UpdateFlashlight();
         
         TickBatteryLifetime();
@@ -159,15 +167,12 @@ public class Player : Singleton<Player>
 
     private void DoMoveInput()
     {
-        
-        
         //translate player
         float horiz = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
         Vector3 move = new Vector3(horiz, vert, 0).normalized;
         MoveInput = move;
-        _rb.linearVelocity = MoveInput * (moveSpeed);
-        
+
         Anim.SetBool("Moving", MoveInput.magnitude > 0);
     }
 
@@ -212,26 +217,47 @@ public class Player : Singleton<Player>
         Vector2 dir =  mousePos - flashlightPos;
         AimDirection = dir.normalized;
         
-        //flip player model
-        Vector3 scale = Model.transform.localScale;
         float flipValue = dir.x < 0 ? -1 : 1;
-        scale.x = Mathf.Abs(scale.x) * flipValue;
-        
+
         //AIM BONE
         if (dir.magnitude > 0.6f)
         {
-            Model.transform.localScale = scale;
+            SetFacingDirection(flipValue == 1);
             
             flashlight.transform.up = dir;
             
             dir.x *= flipValue;
             Skeleton.skeleton.FindBone("AIM").SetLocalPosition(dir.normalized * 5);
-            
         }
+    }
+
+    private void UpdateFlashlight(Vector2 overrideDirection)
+    {
+        //direction to mouse
+        AimDirection = overrideDirection.normalized;
+
+        float flipValue = overrideDirection.x < 0 ? -1 : 1;
+
+        //AIM BONE
+        if (overrideDirection.magnitude > 0.6f)
+        {
+            SetFacingDirection(flipValue == 1);
+
+            flashlight.transform.up = overrideDirection;
+
+            overrideDirection.x *= flipValue;
+            Skeleton.skeleton.FindBone("AIM").SetLocalPosition(overrideDirection.normalized * 5);
+        }
+    }
+
+    private void SetFacingDirection(bool faceRight)
+    {
+        Model.transform.localScale = new Vector3(faceRight ? 1 : -1, 1, 1);
     }
 
     private void FixedUpdate()
     {
+        _rb.linearVelocity = MoveInput * (moveSpeed);
     }
 
     public bool TryTakeDamage()
