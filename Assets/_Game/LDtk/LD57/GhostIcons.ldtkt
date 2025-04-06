@@ -1,0 +1,58 @@
+{
+  "Rects": [
+    {
+      "x": 51,
+      "y": 0,
+      "w": 51,
+      "h": 51
+    },
+    {
+      "x": 102,
+      "y": 0,
+      "w": 51,
+      "h": 51
+    },
+    {
+      "x": 153,
+      "y": 0,
+      "w": 51,
+      "h": 51
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "w": 51,
+      "h": 51
+    }
+  ],
+  "Def": {
+    "__cHei": 2,
+    "__cWid": 5,
+    "cachedPixelData": {
+      "opaqueTiles": "1111111111",
+      "averageColors": "f778f765f756f657000000000000000000000000"
+    },
+    "customData": [
+
+    ],
+    "embedAtlas": null,
+    "enumTags": [
+
+    ],
+    "identifier": "GhostIcons",
+    "padding": 0,
+    "pxHei": 56,
+    "pxWid": 205,
+    "relPath": "atlas/ghostIcons.png",
+    "savedSelections": [
+
+    ],
+    "spacing": 0,
+    "tags": [
+
+    ],
+    "tagsSourceEnumUid": null,
+    "tileGridSize": 51,
+    "uid": 103
+  }
+}
