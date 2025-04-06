@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
 
         if (Trajectory != Vector2.zero)
         {
-            Rigidbody.AddForce(Trajectory * ProjectileSpeedModifier * DefaultSpeed * Time.deltaTime);
+            Rigidbody.AddForce(Trajectory * (ProjectileSpeedModifier * DefaultSpeed * Time.deltaTime));
         }
     }
 
@@ -51,9 +51,13 @@ public class Projectile : MonoBehaviour
     {
         if (Trajectory == Vector2.zero) return; //We don't want anything else to get hit by the projectile if it's not moving
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ghost") || other.gameObject.layer == LayerMask.NameToLayer("Projectile")) return;
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ghost") || other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
+        {
+            return;
+        }
 
-        if (other.TryGetComponent<Player>(out var player))
+        Player player = other.GetComponentInParent<Player>();
+        if (player)
         {
             if (player.TryTakeDamage())
             {

@@ -237,7 +237,7 @@ public class Player : Singleton<Player>
     {
         //direction to mouse
         Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 flashlightPos = transform.position;
+        Vector2 flashlightPos = transform.position + Vector3.up*0.4f;
         Vector2 dir =  mousePos - flashlightPos;
         AimDirection = dir.normalized;
         
