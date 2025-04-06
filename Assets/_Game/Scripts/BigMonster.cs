@@ -13,7 +13,7 @@ public class BigMonster : Singleton<BigMonster>
 
     private void Start()
     {
-        transform.position = LurkingPosition.position;
+        transform.position = (Vector2)LurkingPosition.position;
     }
 
     private void Update()
