@@ -257,6 +257,8 @@ public class Player : Singleton<Player>
 
     public bool TryTakeDamage()
     {
+        if (HP <= 0) return false;
+        
         if (InvincibilityTime > 0) return false;
         InvincibilityTime = 0.5f;
         
@@ -267,6 +269,7 @@ public class Player : Singleton<Player>
         if (HP <= 0)
         {
             Debug.Log("Player is dead");
+            Anim.SetTrigger("death");
             
             FadeManager.Instance.FadeIn(Color.black, () =>
             {
@@ -279,7 +282,7 @@ public class Player : Singleton<Player>
         {
             // Handle player taking damage
             Debug.Log("Player took damage, remaining HP: " + HP);
-            
+            Anim.SetTrigger("damage");
         }
 
         return true;
