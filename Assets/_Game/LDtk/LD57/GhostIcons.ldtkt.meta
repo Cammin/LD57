@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: a37ed8e656ba26840b5dafcdc7ab2072
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: f3268c876daf4890b6af6cd462063137, type: 3}
+  _reimportOnDependencyChange: 1
+  _pixelsPerUnit: 28
+  _overrideTexture: {instanceID: 0}
+  _sprites:
+  - name: GhostIcons_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 5
+      width: 51
+      height: 51
+    spriteID: 479db3c63782be34fbab3f707f0d303c
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 5
+      width: 51
+      height: 51
+    spriteID: 30eee1ee3730c514b8100db4caacc8ce
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 5
+      width: 51
+      height: 51
+    spriteID: 8e0ee4c85952e8e46b81a9a7bd79fa7a
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 153
+      y: 5
+      width: 51
+      height: 51
+    spriteID: 7b978a177f359894eb8e06e63723cafe
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 5
+      width: 1
+      height: 51
+    spriteID: 722a21f46d80262458564d5c898e442d
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 51
+      height: 5
+    spriteID: 32b4a47c2ee54e14a81ae813ea694e01
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 0
+      width: 51
+      height: 5
+    spriteID: 7d9238341a1a1fb4e85e01625600b017
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 0
+      width: 51
+      height: 5
+    spriteID: aef897afe83233c42b828756a5b2c1a1
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 153
+      y: 0
+      width: 51
+      height: 5
+    spriteID: 2802dcc03dd6e4d49b051819bda8423b
+    spriteOutline: []
+    tessellationDetail: 0
+  - name: GhostIcons_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 0
+      width: 1
+      height: 5
+    spriteID: 23f9cbb18d33cb44dab0815a41d47fbb
+    spriteOutline: []
+    tessellationDetail: 0
+  _secondaryTextures: []
+  _artifacts: {instanceID: 0}

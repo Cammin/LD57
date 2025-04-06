@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: a90efe6911e7ff54b9c45ef6e13df66f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7235965070455730560
+    second: SALARYMAN_0
+  - first:
+      213: -1729417552093684255
+    second: SALARYMAN_1
+  - first:
+      213: 1333995781816605224
+    second: SALARYMAN_2
+  - first:
+      213: 6429556698621087424
+    second: SALARYMAN_3
+  - first:
+      213: 4339090015644498474
+    second: SALARYMAN_4
+  - first:
+      213: 3604078263740358725
+    second: SALARYMAN_5
+  - first:
+      213: -1488917987352355544
+    second: SALARYMAN_6
+  - first:
+      213: 322520771406414196
+    second: SALARYMAN_7
+  - first:
+      213: 6742068145276909383
+    second: SALARYMAN_8
+  - first:
+      213: -2196305581802386888
+    second: SALARYMAN_9
+  - first:
+      213: 6845338226634946375
+    second: SALARYMAN_10
+  - first:
+      213: -7687939610007874384
+    second: SALARYMAN_11
+  - first:
+      213: -546009091046940784
+    second: SALARYMAN_12
+  - first:
+      213: 9065270600217267087
+    second: SALARYMAN_13
+  - first:
+      213: 3584117953622398430
+    second: SALARYMAN_14
+  - first:
+      213: -8379278518298335831
+    second: SALARYMAN_15
+  - first:
+      213: 8493813603142352100
+    second: SALARYMAN_16
+  - first:
+      213: -7630594668837988925
+    second: SALARYMAN_17
+  - first:
+      213: -3546247830358545757
+    second: SALARYMAN_18
+  - first:
+      213: 5632471439620354554
+    second: SALARYMAN_19
+  - first:
+      213: 6904105194937441919
+    second: SALARYMAN_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SALARYMAN_0
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 399
+        width: 108
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e0a503b10b49b90800000000000000
+      internalID: -7235965070455730560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_1
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 411
+        width: 84
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed512336efdff7e0800000000000000
+      internalID: -1729417552093684255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_2
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 461
+        width: 104
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a5c03881e438210800000000000000
+      internalID: 1333995781816605224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_3
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 481
+        width: 98
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce0b8c80cf5a3950800000000000000
+      internalID: 6429556698621087424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 370
+        width: 77
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a3fe6316b873c30800000000000000
+      internalID: 4339090015644498474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_5
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 269
+        width: 134
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54063fce512440230800000000000000
+      internalID: 3604078263740358725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_6
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 374
+        width: 128
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82d5c28aafc465be0800000000000000
+      internalID: -1488917987352355544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_7
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 200
+        width: 97
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4714d5ccee2d97400800000000000000
+      internalID: 322520771406414196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_8
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 200
+        width: 78
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 747f4b2d143a09d50800000000000000
+      internalID: 6742068145276909383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_9
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 339
+        width: 153
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a067ab5b72581e0800000000000000
+      internalID: -2196305581802386888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_10
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 340
+        width: 73
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7477af559d68ffe50800000000000000
+      internalID: 6845338226634946375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_11
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 299
+        width: 103
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b453da38a3fe4590800000000000000
+      internalID: -7687939610007874384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_12
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 299
+        width: 84
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09f5304ef9f2c68f0800000000000000
+      internalID: -546009091046940784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_13
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 299
+        width: 68
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b0ebeb49f4ecd70800000000000000
+      internalID: 9065270600217267087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_14
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 269
+        width: 136
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed553c21a485db130800000000000000
+      internalID: 3584117953622398430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_15
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 242
+        width: 195
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a524ca3592d6bb80800000000000000
+      internalID: -8379278518298335831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_16
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 14
+        width: 293
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec3eab487610e570800000000000000
+      internalID: 8493813603142352100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_17
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 14
+        width: 289
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c51ceac39eaa1690800000000000000
+      internalID: -7630594668837988925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_18
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 14
+        width: 184
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aaaaf9136239cec0800000000000000
+      internalID: -3546247830358545757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_19
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 134
+        width: 221
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af1ba16aeee8a2e40800000000000000
+      internalID: 5632471439620354554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SALARYMAN_20
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 14
+        width: 227
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7edc24681f40df50800000000000000
+      internalID: 6904105194937441919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SALARYMAN_0: -7235965070455730560
+      SALARYMAN_1: -1729417552093684255
+      SALARYMAN_10: 6845338226634946375
+      SALARYMAN_11: -7687939610007874384
+      SALARYMAN_12: -546009091046940784
+      SALARYMAN_13: 9065270600217267087
+      SALARYMAN_14: 3584117953622398430
+      SALARYMAN_15: -8379278518298335831
+      SALARYMAN_16: 8493813603142352100
+      SALARYMAN_17: -7630594668837988925
+      SALARYMAN_18: -3546247830358545757
+      SALARYMAN_19: 5632471439620354554
+      SALARYMAN_2: 1333995781816605224
+      SALARYMAN_20: 6904105194937441919
+      SALARYMAN_3: 6429556698621087424
+      SALARYMAN_4: 4339090015644498474
+      SALARYMAN_5: 3604078263740358725
+      SALARYMAN_6: -1488917987352355544
+      SALARYMAN_7: 322520771406414196
+      SALARYMAN_8: 6742068145276909383
+      SALARYMAN_9: -2196305581802386888
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

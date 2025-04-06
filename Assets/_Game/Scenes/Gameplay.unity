@@ -27942,6 +27942,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.718094
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06396476
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.999277
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.038019847
+      objectReference: {fileID: 0}
     - target: {fileID: 6797408072210317865, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
       propertyPath: m_fontColor.a
       value: 0
@@ -27961,6 +27993,10 @@ PrefabInstance:
     - target: {fileID: 6797408072210317865, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 16777215
+      objectReference: {fileID: 0}
+    - target: {fileID: 6998365710397493885, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7589051462891818124, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
       propertyPath: m_Name

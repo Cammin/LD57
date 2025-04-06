@@ -1,5 +1,6 @@
 using CamLib;
 using DG.Tweening;
+using Spine.Unity;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -29,6 +30,9 @@ public class Player : Singleton<Player>
     public GameObject Model;
 
     public CinemachineImpulseSource Impulse;
+
+    public Animator Anim;
+    public SkeletonRenderer Skeleton;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
     
@@ -82,6 +86,8 @@ public class Player : Singleton<Player>
         Vector3 move = new Vector3(horiz, vert, 0).normalized;
         MoveInput = move;
         _rb.linearVelocity = MoveInput * (moveSpeed);
+        
+        Anim.SetBool("Moving", MoveInput.magnitude > 0);
     }
 
     private void TryCheats()
@@ -124,14 +130,29 @@ public class Player : Singleton<Player>
         Vector2 flashlightPos = transform.position;
         Vector2 dir =  mousePos - flashlightPos;
         
-        flashlight.transform.up = dir;
-        
         
         //flip player model
         Vector3 scale = Model.transform.localScale;
         float flipValue = dir.x < 0 ? -1 : 1;
         scale.x = Mathf.Abs(scale.x) * flipValue;
-        Model.transform.localScale = scale;
+        
+        
+        
+        
+        //AIM BONE
+        if (dir.magnitude > 1f)
+        {
+            Model.transform.localScale = scale;
+            
+            flashlight.transform.up = dir;
+            
+            dir.x *= flipValue;
+            Skeleton.skeleton.FindBone("AIM").SetLocalPosition(dir.normalized * 5);
+            
+        }
+        
+        
+        
     }
 
     private void FixedUpdate()
