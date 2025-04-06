@@ -245,7 +245,7 @@ public class Player : Singleton<Player>
         scale.x = Mathf.Abs(scale.x) * flipValue;
         
         //AIM BONE
-        if (dir.magnitude > 1f)
+        if (dir.magnitude > 0.6f)
         {
             Model.transform.localScale = scale;
             
