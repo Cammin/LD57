@@ -50,7 +50,9 @@ public class Player : Singleton<Player>
     [NonSerialized] public bool CaptureQTEActive;
     
     public bool IsDead => HP <= 0;
-    
+
+    public bool IsDrainingFlashlight;
+
     private void Start()
     {
         _camera = Camera.main;
@@ -169,8 +171,11 @@ public class Player : Singleton<Player>
     private void TickBatteryLifetime()
     {
         if (CaptureQTEActive) return;
-        
-        BatteryLifeRemaining = Mathf.Max(BatteryLifeRemaining - Time.deltaTime, 0);
+
+        if (IsDrainingFlashlight)
+        {
+            BatteryLifeRemaining = Mathf.Max(BatteryLifeRemaining - Time.deltaTime, 0);
+        }
         
         float ratio = BatteryLifeRemaining / MaxBatteryLife;
         
