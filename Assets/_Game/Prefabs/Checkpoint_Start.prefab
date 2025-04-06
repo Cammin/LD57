@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint_Start
       objectReference: {fileID: 0}
+    - target: {fileID: 3254535649398217899, guid: 9a928f36dc6b9904ab85f39a3613f47f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3446396453137527560, guid: 9a928f36dc6b9904ab85f39a3613f47f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -60,8 +64,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5689424455879076040, guid: 9a928f36dc6b9904ab85f39a3613f47f, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 5254560925835631086, guid: 9a928f36dc6b9904ab85f39a3613f47f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7609513709363396597, guid: 9a928f36dc6b9904ab85f39a3613f47f, type: 3}

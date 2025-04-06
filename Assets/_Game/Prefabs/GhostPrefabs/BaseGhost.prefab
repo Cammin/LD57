@@ -54,14 +54,15 @@ MonoBehaviour:
   MoveSpeedModifier: 1
   ActionCooldownDuration: 3
   CanBeCaptured: 1
-  CaptureDifficultyModifier: 1
   ScoreAddedForCapture: 100
+  CaptureDifficultyModifier: 1
+  CaptureForceModifier: 20
+  CaptureFlashColor: {r: 0, g: 0, b: 0, a: 0}
   CanDetectPlayerThroughWalls: 0
   RetreatIfTooClose: 0
   DetectPlayerRange: 10
   AttackPlayerRange: 20
   StopAtDistance: 1
-  CaptureForceModifier: 20
 --- !u!50 &1750260032933030037
 Rigidbody2D:
   serializedVersion: 5
@@ -88,7 +89,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &7501758713620872402
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
