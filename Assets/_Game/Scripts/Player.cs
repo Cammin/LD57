@@ -61,6 +61,8 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
+        Anim.SetBool("Flashlight", !IsEmpty);
+        
         if (IsDead) return;
         
         if (CaptureQTEActive)
