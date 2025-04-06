@@ -47,18 +47,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a10df2074a2a54b90c63f3f53f85f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GhostBehaviour: {fileID: 0}
   Rigidbody: {fileID: 1750260032933030037}
   CanMove: 1
   MoveSpeedModifier: 1
   ActionCooldownDuration: 3
   CanBeCaptured: 1
   CaptureDifficultyModifier: 1
+  ScoreAddedForCapture: 100
   CanDetectPlayerThroughWalls: 0
   RetreatIfTooClose: 0
   DetectPlayerRange: 10
   AttackPlayerRange: 20
   StopAtDistance: 1
-  GhostBehaviour: {fileID: 0}
+  CaptureForceModifier: 20
 --- !u!50 &1750260032933030037
 Rigidbody2D:
   serializedVersion: 5
@@ -120,7 +122,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
 --- !u!1 &5417355086913282558
@@ -149,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 5417355086913282558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
