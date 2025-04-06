@@ -8,6 +8,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Player : Singleton<Player>
 {
@@ -48,8 +49,11 @@ public class Player : Singleton<Player>
 
     public float ProgressPerQTEHit = 15f;
 
+    public GameObject CaptureParticles;
+
     public const float CaptureCastRadius = 3f;
     public const float CaptureCastLength = 10f;
+    public const float CaptureDistanceForQTE = 4f;
 
     private Vector2 AimDirection;
 
@@ -74,6 +78,8 @@ public class Player : Singleton<Player>
         Anim.SetBool("Flashlight", !IsEmpty);
         
         if (IsDead) return;
+
+        CaptureParticles.SetActive(CaptureActive || CaptureQTEActive);
 
         flashlight.color = CaptureActive ? Color.cyan : Color.white;
 
@@ -113,7 +119,7 @@ public class Player : Singleton<Player>
             }
             else
             {
-                if (Vector2.Distance(transform.position, GhostTarget.transform.position) < 1f)
+                if (Vector2.Distance(transform.position, GhostTarget.transform.position) < CaptureDistanceForQTE)
                 {
                     CaptureGhostQTE();
                 }
@@ -134,7 +140,7 @@ public class Player : Singleton<Player>
             if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
             {
                 //Debug.Log("hit ghost");
-                if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture)
+                if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture && !ghost.CheckForWalls())
                 {
                     return ghost;
                 }
@@ -146,13 +152,9 @@ public class Player : Singleton<Player>
 
     private void CaptureGhostQTE()
     {
-        GhostTarget.BlockActions = true;
-        GhostTarget.BlockCapture = true;
-        GhostTarget.BlockMovement = true;
-
         CaptureQTEActive = true;
 
-        GameManager.Instance.CameraZoom(4);
+        GhostTarget.StartCapture();
     }
 
     private void TickBatteryLifetime()
@@ -257,6 +259,11 @@ public class Player : Singleton<Player>
         }
     }
 
+    public Vector2 GetAimDirection()
+    {
+        return AimDirection;
+    }
+
     private void UpdateFlashlight(Vector2 overrideDirection)
     {
         //direction to mouse
@@ -279,6 +286,9 @@ public class Player : Singleton<Player>
     private void SetFacingDirection(bool faceRight)
     {
         Model.transform.localScale = new Vector3(faceRight ? 1 : -1, 1, 1);
+
+        //Flashlight particles need to be adjusted for when scale's x is -1
+        CaptureParticles.transform.localRotation = Quaternion.AngleAxis(faceRight ? 80 : 280, Vector3.forward);
     }
 
     private void FixedUpdate()

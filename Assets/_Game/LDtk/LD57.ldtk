@@ -14496,7 +14496,15 @@
 							"height": 56,
 							"defUid": 15,
 							"px": [476,420],
-							"fieldInstances": [{ "__identifier": "Ghosts", "__type": "Array<EntityRef>", "__value": [], "__tile": null, "defUid": 16, "realEditorValues": [] }],
+							"fieldInstances": [{ "__identifier": "Ghosts", "__type": "Array<EntityRef>", "__value": [{
+								"entityIid": "835f7070-1030-11f0-a1ce-67c507248607",
+								"layerIid": "61331361-1030-11f0-aa9b-ddf74b243fdc",
+								"levelIid": "61331360-1030-11f0-aa9b-8d3689d8b004",
+								"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
+							}], "__tile": null, "defUid": 16, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["835f7070-1030-11f0-a1ce-67c507248607"]
+							}] }],
 							"__worldX": 3668,
 							"__worldY": 1316
 						},

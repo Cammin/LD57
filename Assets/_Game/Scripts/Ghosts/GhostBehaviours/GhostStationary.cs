@@ -9,13 +9,26 @@ public class GhostStationary : GhostBehaviour
     {
         base.GhostAction();
 
-        //TODO animate
+        Ghost.Animator.SetTrigger("shoot");
         StartCoroutine(CoCastProjectile());
 
         IEnumerator CoCastProjectile()
         {
-            yield return new WaitForSeconds(1);
+            Ghost.BlockMovement = true;
+
+            yield return new WaitForSeconds(.3f);
+
+            if (Ghost.CaptureInProgress)
+                yield break;
+
             Projectile.SpawnProjectile(ProjectilePrefab, transform.position, Player.Instance.transform.position);
+
+            yield return new WaitForSeconds(.2f);
+
+            if (Ghost.CaptureInProgress)
+                yield break;
+
+            Ghost.BlockMovement = false;
         }
     }
 }

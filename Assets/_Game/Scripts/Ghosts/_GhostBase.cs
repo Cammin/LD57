@@ -1,3 +1,4 @@
+using Spine;
 using System;
 using System.Collections;
 using Unity.Cinemachine;
@@ -7,6 +8,7 @@ using UnityEngine.UIElements;
 public sealed class GhostBase : MonoBehaviour
 {
     public GhostBehaviour GhostBehaviour;
+    public Animator Animator;
     public Rigidbody2D Rigidbody;
     [Space]
     public bool CanMove = true;
@@ -27,17 +29,6 @@ public sealed class GhostBase : MonoBehaviour
     public float AttackPlayerRange = 20f;
     public float StopAtDistance = 3f;
 
-
-    public AudioSource SfxChant;
-    public AudioSource SfxShoot;
-    public AudioSource SfxSuckedLoop;
-    public AudioSource SfxSuckedEnd;
-    
-    //for peeker
-    public AudioSource SfxPeekerHide;
-    public AudioSource SfxPeekerRevert;
-    
-
     //-------------------------------------------------
 
     public const float DefaultSpeed = 1000f;
@@ -51,9 +42,10 @@ public sealed class GhostBase : MonoBehaviour
     [NonSerialized] public bool BlockActions;
     [NonSerialized] public bool BlockMovement;
     [NonSerialized] public bool BlockCapture;
+    
 
     [NonSerialized] private float CooldownRemaining;
-
+    [NonSerialized] private bool Destroying;
 
     private void Start()
     {
@@ -67,13 +59,16 @@ public sealed class GhostBase : MonoBehaviour
 
         if (CaptureProgress > 0) CaptureProgress -= Time.deltaTime;
 
-        if (PlayerFound)
+        if (PlayerFound || CaptureInProgress)
         {
             transform.localScale = new Vector3(Player.Instance.transform.position.x > transform.position.x ? 1 : -1, 1, 1);
         }
 
         //Ghost shouldn't be able to do anything if player is mid-capture QTE
-        if (CaptureInProgress) return;
+        if (CaptureInProgress)
+        {
+            return;
+        }
 
         if (!PlayerFound && Vector2.Distance(Player.Instance.transform.position, transform.position) <= DetectPlayerRange)
         {
@@ -96,7 +91,7 @@ public sealed class GhostBase : MonoBehaviour
             OverrideDestination = Player.Instance.transform.position;
         }
 
-        if (!BlockActions && PlayerFound && CooldownRemaining <= 0)
+        if (!BlockActions && !Destroying && PlayerFound && CooldownRemaining <= 0)
         {
             if (Vector2.Distance(Player.Instance.transform.position, transform.position) <= AttackPlayerRange)
             {
@@ -110,10 +105,27 @@ public sealed class GhostBase : MonoBehaviour
     {
         Rigidbody.linearVelocity = Vector2.zero;
 
-        if (CaptureInProgress && !Player.Instance.CaptureQTEActive)
+        if (CaptureInProgress)
         {
-            var direction = (Player.Instance.transform.position - transform.position).normalized;
-            Rigidbody.AddForce(direction * (CaptureForceModifier * DefaultCaptureForce * Time.deltaTime));
+            if (Player.Instance.CaptureQTEActive || Destroying)
+            {
+                var currentDistance = Vector2.Distance(Player.Instance.transform.position, transform.position);
+
+                var distanceModifier = 100f / (Player.CaptureDistanceForQTE - 1);
+                var newDistance = Player.CaptureDistanceForQTE - CaptureProgress / (distanceModifier);
+
+                if (currentDistance > newDistance)
+                {
+                    var direction = (Player.Instance.transform.position - transform.position).normalized;
+                    Rigidbody.AddForce(direction * currentDistance * DefaultCaptureForce * Time.deltaTime * Player.Instance.moveSpeed / 2f);
+                }
+            }
+
+            if (!Player.Instance.CaptureQTEActive)
+            {
+                var direction = (Player.Instance.transform.position - transform.position).normalized;
+                Rigidbody.AddForce(direction * CaptureForceModifier * DefaultCaptureForce * Time.deltaTime);
+            }
         }
         else if (!BlockMovement)
         {
@@ -123,7 +135,7 @@ public sealed class GhostBase : MonoBehaviour
                 if (Vector2.Distance(OverrideDestination, transform.position) > .01f)
                 {
                     var direction = (OverrideDestination - transform.position).normalized;
-                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
+                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -138,12 +150,12 @@ public sealed class GhostBase : MonoBehaviour
                 if (Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
                 {
                     var direction = (Player.Instance.transform.position - transform.position).normalized;
-                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
+                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
                 }
                 else if (RetreatIfTooClose)
                 {
                     var direction = (transform.position - Player.Instance.transform.position).normalized;
-                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
+                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
                 }
             }
         }
@@ -159,7 +171,8 @@ public sealed class GhostBase : MonoBehaviour
             {
                 return false;
             } 
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
             {
                 return true;
             }
@@ -168,11 +181,23 @@ public sealed class GhostBase : MonoBehaviour
         return false;
     }
 
+    public void StartCapture()
+    {
+        BlockActions = true;
+        BlockCapture = true;
+        BlockMovement = true;
+
+        Animator.SetTrigger("suck");
+
+        GameManager.Instance.CameraZoom(4);
+        GameManager.Instance.OverrideCameraTarget = transform;
+    }
+
     public void CaptureGhostAddProgress()
     {
         CaptureProgress += (Player.Instance.ProgressPerQTEHit / CaptureDifficultyModifier);
 
-        if (CaptureProgress >= 100)
+        if (CaptureProgress >= 100 && !Destroying)
         {
             CaptureGhost();
         }
@@ -180,18 +205,21 @@ public sealed class GhostBase : MonoBehaviour
 
     public void CaptureGhost()
     {
-        Player.Instance.GhostTarget = null;
+        Destroying = true;
 
-        //TODO animate
+        Animator.SetTrigger("die");
 
         StartCoroutine(CoCapture());
 
         IEnumerator CoCapture()
         {
-            GameManager.Instance.OverrideCameraTarget = transform;
-            SfxSuckedEnd.Play();
+            yield return new WaitForSeconds(.625f);
 
-            yield return new WaitForSeconds(1); //TODO change to anim time
+            GameManager.Instance.ImpulseColourVolume(CaptureFlashColor);
+
+            yield return new WaitForSeconds(.5f);
+
+            Player.Instance.GhostTarget = null;
 
             GameManager.Instance.OverrideCameraTarget = null;
 
@@ -200,7 +228,6 @@ public sealed class GhostBase : MonoBehaviour
 
             GameManager.Instance.CameraResetZoom();
 
-            GameManager.Instance.ImpulseColourVolume(CaptureFlashColor);
             Destroy(gameObject);
         }
     }
