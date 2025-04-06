@@ -192,7 +192,7 @@ public class Player : Singleton<Player>
         
         if (Input.GetMouseButtonDown(2))
         {
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         if (Input.GetKeyDown(KeyCode.V))
         {

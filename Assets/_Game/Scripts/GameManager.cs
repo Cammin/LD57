@@ -9,7 +9,7 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : Singleton<GameManager>
 {
-    public const float DefaultZoom = 8f;
+    public const float DefaultZoom = 5.5f;
 
     public CinemachineCamera Camera;
     public Light2D GlobalLight;
@@ -18,9 +18,8 @@ public class GameManager : Singleton<GameManager>
     [NonSerialized] public Transform OverrideCameraTarget;
     private Tween CurrentZoomTween;
 
-    void Start()
+    private void Start()
     {
-        
         
     }
 

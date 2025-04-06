@@ -25,6 +25,8 @@ public class Battery : MonoBehaviour
             
             CollectSfx.Play();
             
+            GameManager.Instance.ImpulseColourVolume(Color.yellow);
+            
             Destroy(gameObject, 1f);
             
             
