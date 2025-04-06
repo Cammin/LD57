@@ -76,6 +76,18 @@ PrefabInstance:
       propertyPath: MoveSpeedModifier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CaptureFlashColor.b
+      value: 0.8076925
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CaptureFlashColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CaptureFlashColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7466982531889587248, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: m_Sprite
       value: 

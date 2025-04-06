@@ -85,6 +85,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CaptureFlashColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CaptureFlashColor.g
+      value: 0.94045043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CaptureFlashColor.r
+      value: 0.6084906
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: CanDetectPlayerThroughWalls
       value: 1
       objectReference: {fileID: 0}

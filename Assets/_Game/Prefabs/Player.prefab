@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 684876204988941622}
   - component: {fileID: 7485253717119135013}
   - component: {fileID: 6797408072210317865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: dialogue text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 6060184374556475088}
   - component: {fileID: 7172285985089965335}
   - component: {fileID: 9100216197742814110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spine Mecanim GameObject (SALARYMAN)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1046,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4614911416479968593}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2279922484321874834}
   - component: {fileID: 4577440665045551088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjectileHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

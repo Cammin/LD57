@@ -66,12 +66,14 @@ public class Player : Singleton<Player>
         Anim.SetBool("Flashlight", !IsEmpty);
         
         if (IsDead) return;
+
+        flashlight.color = CaptureActive ? Color.green : Color.white;
         
         if (CaptureQTEActive)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                CaptureGhostAddProgress();
+                GhostTarget.CaptureGhostAddProgress();
             }
 
             return;
@@ -84,9 +86,6 @@ public class Player : Singleton<Player>
         TickBatteryLifetime();
         
         InvincibilityTime -= Time.deltaTime;
-        
-        
-        
 
         CaptureActive = Input.GetMouseButton(0);
 
@@ -136,36 +135,6 @@ public class Player : Singleton<Player>
         GhostTarget.BlockMovement = true;
 
         CaptureQTEActive = true;
-    }
-
-    private void CaptureGhostAddProgress()
-    {
-        GhostTarget.CaptureProgress += (ProgressPerQTEHit / GhostTarget.CaptureDifficultyModifier);
-
-        if (GhostTarget.CaptureProgress >= 100)
-        {
-            CaptureGhost();
-        }
-    }
-
-    private void CaptureGhost()
-    {
-        CaptureQTEActive = false;
-
-        var ghost = GhostTarget;
-        GhostTarget = null;
-
-        //TODO animate
-
-        StartCoroutine(CoCapture());
-
-        IEnumerator CoCapture()
-        {
-            yield return new WaitForSeconds(1); //TODO change to anim time
-
-            AddScore(ghost.ScoreAddedForCapture);
-            Destroy(ghost.gameObject);
-        }
     }
 
     private void TickBatteryLifetime()
@@ -279,7 +248,7 @@ public class Player : Singleton<Player>
         
         HP--;
         Impulse.GenerateImpulse();
-        GameManager.Instance.ImpulseDamageVolume();
+        GameManager.Instance.ImpulseColourVolume(Color.red);
         
         if (HP <= 0)
         {
@@ -291,8 +260,6 @@ public class Player : Singleton<Player>
             {
                 SceneManager.LoadScene("Gameplay");
             });
-            
-            
         }
         else
         {
