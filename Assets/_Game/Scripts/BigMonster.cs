@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using CamLib;
 using UnityEngine;
 
@@ -11,17 +13,15 @@ public class BigMonster : Singleton<BigMonster>
     
     public Transform Target => Player.Instance.IsEmpty ? Player.Instance.transform : LurkingPosition;
 
-    private void Start()
+    private IEnumerator Start()
     {
-        transform.position = (Vector2)LurkingPosition.position;
+        for (int i = 0; i < 10; i++)
+        {
+            transform.position = (Vector2)LurkingPosition.position;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
-    private void Update()
-    {
-        
-        
-        
-    }
 
     private void FixedUpdate()
     {
