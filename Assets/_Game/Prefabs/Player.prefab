@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 3164846470521809903}
   - component: {fileID: 6060184374556475088}
   - component: {fileID: 7172285985089965335}
+  - component: {fileID: 9100216197742814110}
   m_Layer: 6
   m_Name: Spine Mecanim GameObject (SALARYMAN)
   m_TagString: Untagged
@@ -639,6 +640,19 @@ MonoBehaviour:
     useCustomMixMode: 1
     layerMixModes: 0100000001000000
     layerBlendModes: 0100000002000000
+--- !u!114 &9100216197742814110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5097198271898543266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c2e9cdbe1348b1a945baaa9c0e3ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yPointOffset: -0.55
 --- !u!1 &5413423174208059773
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +917,7 @@ MonoBehaviour:
   Anim: {fileID: 6060184374556475088}
   Skeleton: {fileID: 7172285985089965335}
   ProgressPerQTEHit: 15
+  IsDrainingFlashlight: 0
   Score: 0
   DialogueText: {fileID: 6797408072210317865}
 --- !u!50 &4800535478567288387
@@ -1115,7 +1130,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

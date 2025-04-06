@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1267382687505291142, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267382687505291142, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.35686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267382687505291142, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8235295
+      objectReference: {fileID: 0}
     - target: {fileID: 2812081817052192528, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
