@@ -14,15 +14,19 @@ public sealed class GhostBase : MonoBehaviour
     public float ActionCooldownDuration = 3f;
     [Space]
     public bool CanBeCaptured = true;
-    public float CaptureDifficultyModifier = 1f;
     public int ScoreAddedForCapture = 100;
+    public float CaptureDifficultyModifier = 1f;
+    public float CaptureForceModifier = 20f;
+    [ColorUsageAttribute(false)]
+    public Color CaptureFlashColor;
     [Space]
     public bool CanDetectPlayerThroughWalls;
     public bool RetreatIfTooClose;
     public float DetectPlayerRange = 25f;
     public float AttackPlayerRange = 20f;
     public float StopAtDistance = 3f;
-    public float CaptureForceModifier = 20f;
+    
+
 
     //-------------------------------------------------
 
@@ -127,13 +131,50 @@ public sealed class GhostBase : MonoBehaviour
 
     public bool CheckForWalls()
     {
-        var hit = Physics2D.Raycast(transform.position, (Player.Instance.transform.position - transform.position).normalized, DetectPlayerRange);
+        var hits = Physics2D.RaycastAll(transform.position, (Player.Instance.transform.position - transform.position).normalized, DetectPlayerRange);
 
-        if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        foreach(var hit in hits)
         {
-            return true;
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player")) 
+            {
+                return false;
+            } 
+            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            {
+                return true;
+            }
         }
 
         return false;
+    }
+
+    public void CaptureGhostAddProgress()
+    {
+        CaptureProgress += (Player.Instance.ProgressPerQTEHit / CaptureDifficultyModifier);
+
+        if (CaptureProgress >= 100)
+        {
+            CaptureGhost();
+        }
+    }
+
+    public void CaptureGhost()
+    {
+        Player.Instance.CaptureQTEActive = false;
+
+        Player.Instance.GhostTarget = null;
+
+        //TODO animate
+
+        StartCoroutine(CoCapture());
+
+        IEnumerator CoCapture()
+        {
+            yield return new WaitForSeconds(1); //TODO change to anim time
+
+            Player.Instance.AddScore(ScoreAddedForCapture);
+            GameManager.Instance.ImpulseColourVolume(CaptureFlashColor);
+            Destroy(gameObject);
+        }
     }
 }
