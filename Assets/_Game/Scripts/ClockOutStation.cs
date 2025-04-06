@@ -6,6 +6,8 @@ public class ClockOutStation : MonoBehaviour, ILDtkImportedFields
     public bool PlayerInRange;
     public ExitDoor Door;
 
+    public AudioSource Sound;
+    
     private void Update()
     {
         if (PlayerInRange && Input.GetKeyDown(KeyCode.Space))
@@ -17,6 +19,7 @@ public class ClockOutStation : MonoBehaviour, ILDtkImportedFields
     private void ClockOut()
     {
         Door.OpenDoor();
+        Sound.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class ExitDoor : MonoBehaviour
 {
     public GameObject Door;
+    public AudioSource Sound;
 
     private void Start()
     {
@@ -13,6 +14,7 @@ public class ExitDoor : MonoBehaviour
     public void OpenDoor()
     {
         Door.SetActive(true);
+        Sound.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
