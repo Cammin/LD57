@@ -1,0 +1,58 @@
+LD57_Transparent.png
+	size: 1024, 1024
+	filter: Linear, Linear
+blackblob1
+	bounds: 764, 460, 49, 55
+	offsets: 1, 1, 51, 57
+blackblob2
+	bounds: 945, 762, 33, 37
+	offsets: 1, 1, 35, 39
+blackblob3
+	bounds: 531, 186, 70, 92
+	offsets: 1, 1, 72, 94
+body
+	bounds: 497, 687, 315, 322
+	offsets: 2, 2, 319, 325
+bodyback
+	bounds: 818, 736, 273, 121
+	offsets: 1, 2, 275, 125
+	rotate: 90
+bodyfront
+	bounds: 497, 470, 261, 211
+	offsets: 1, 2, 264, 214
+eyebrow
+	bounds: 945, 805, 204, 54
+	offsets: 2, 1, 207, 56
+	rotate: 90
+eyel
+	bounds: 819, 500, 85, 107
+	offsets: 2, 2, 88, 110
+eyer
+	bounds: 819, 613, 81, 117
+	offsets: 62, 0, 143, 117
+glow
+	bounds: 6, 6, 405, 448
+	offsets: 6, 7, 418, 461
+hiteyes
+	bounds: 417, 15, 158, 81
+	offsets: 1, 1, 160, 83
+	rotate: 90
+hitflash
+	bounds: 6, 460, 485, 549
+	offsets: 3, 1, 513, 551
+pen1
+	bounds: 531, 284, 77, 180
+	offsets: 1, 2, 79, 183
+pen2
+	bounds: 614, 278, 55, 186
+	offsets: 2, 1, 58, 188
+penfront1
+	bounds: 675, 307, 64, 157
+	offsets: 1, 2, 66, 161
+penfront2
+	bounds: 764, 521, 49, 160
+	offsets: 2, 1, 52, 162
+shadow
+	bounds: 417, 179, 275, 108
+	offsets: 1, 1, 277, 110
+	rotate: 90
