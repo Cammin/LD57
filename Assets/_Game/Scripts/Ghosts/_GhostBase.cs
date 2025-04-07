@@ -81,8 +81,13 @@ public sealed class GhostBase : MonoBehaviour
         }
 
 
-        if (!PlayerFound && Vector2.Distance(Player.Instance.transform.position, transform.position) <= DetectPlayerRange && (GhostBehaviour && GhostBehaviour.FindPlayerConditions()))
+        if (!PlayerFound && Vector2.Distance(Player.Instance.transform.position, transform.position) <= DetectPlayerRange)
         {
+            if (GhostBehaviour)
+            {
+                if (!GhostBehaviour.FindPlayerConditions()) return;
+            }
+
             //If player can't be detected through walls, raycast to player to confirm no walls. If wall is found, return.
             if (!CanDetectPlayerThroughWalls)
             {
