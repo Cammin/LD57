@@ -17,7 +17,7 @@ AudioRandomContainer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AmbientBigMonster
-  m_Volume: -17.1
+  m_Volume: -1.8
   m_Pitch: 0
   m_AutomaticTriggerTime: 0
   m_LoopCount: 1

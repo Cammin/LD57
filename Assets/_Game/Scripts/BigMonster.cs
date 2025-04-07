@@ -31,7 +31,7 @@ public class BigMonster : Singleton<BigMonster>
         Vector2 dirToTarget = (Target.position - transform.position);
         
 
-        if (Mathf.Abs(dirToTarget.x) > 0.5f)
+        if (Mathf.Abs(dirToTarget.x) > 0.2f)
         {
             Rb.linearVelocity = dirToTarget.normalized * MoveSpeed;
             Vector3 scale = Model.transform.localScale;

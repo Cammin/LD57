@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
     public GameObject ProjectileImpact;
 
     public float ProjectileSpeedModifier = 5f;
+    
+    public AudioSource DestroySfx;
 
     public const float DefaultSpeed = 1000f;
     public const float CleanUpAfterDuration = 10f;
@@ -88,6 +90,7 @@ public class Projectile : MonoBehaviour
         {
             ProjectileMoving.SetActive(false);
             ProjectileImpact.SetActive(true);
+            DestroySfx.Play();
 
             yield return new WaitForSeconds(1f);
 
