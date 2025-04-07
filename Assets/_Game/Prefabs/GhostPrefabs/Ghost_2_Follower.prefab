@@ -72,6 +72,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5721341410956028292, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ccafd09cae688074ba4537b212cde315, type: 2}
+    - target: {fileID: 5830023564438942881, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 648597838912acc4ebc931bc01fd02cb, type: 2}
+    - target: {fileID: 6161991815151731653, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: skeletonDataAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 911eff4e0a00d1b4198a0fb2bb55d064, type: 2}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: DetectPlayerRange
       value: 25

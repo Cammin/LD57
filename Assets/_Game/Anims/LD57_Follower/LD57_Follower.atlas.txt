@@ -1,0 +1,78 @@
+LD57_Follower.png
+	size: 2048, 2048
+	filter: Linear, Linear
+Straw
+	bounds: 438, 398, 118, 110
+	offsets: 2, 1, 122, 113
+biteglow
+	bounds: 6, 721, 417, 649
+	offsets: 6, 6, 431, 662
+blackblob1
+	bounds: 766, 1065, 49, 55
+	offsets: 1, 1, 51, 57
+	rotate: 90
+blackblob2
+	bounds: 562, 399, 32, 37
+	offsets: 2, 1, 35, 39
+	rotate: 90
+blackblob3
+	bounds: 704, 416, 70, 92
+	offsets: 1, 1, 72, 94
+body
+	bounds: 766, 1120, 250, 299
+	offsets: 1, 1, 253, 301
+	rotate: 90
+bodyback
+	bounds: 223, 143, 231, 198
+	offsets: 1, 1, 233, 201
+	rotate: 90
+bodybiteback
+	bounds: 438, 514, 237, 370
+	offsets: 1, 1, 240, 372
+	rotate: 90
+bodybitebottom
+	bounds: 429, 757, 301, 405
+	offsets: 1, 1, 303, 408
+	rotate: 90
+bodybitetop
+	bounds: 429, 1064, 331, 306
+	offsets: 2, 1, 334, 308
+eyel
+	bounds: 1071, 1302, 77, 68
+	offsets: 2, 1, 82, 70
+eyelbite
+	bounds: 745, 346, 62, 64
+	offsets: 1, 2, 75, 68
+eyer
+	bounds: 840, 998, 54, 62
+	offsets: 1, 1, 56, 64
+eyerbite
+	bounds: 827, 1066, 48, 70
+	offsets: 2, 1, 51, 72
+	rotate: 90
+face
+	bounds: 593, 236, 157, 146
+	offsets: 1, 1, 160, 148
+	rotate: 90
+facebite
+	bounds: 427, 162, 212, 160
+	offsets: 2, 1, 215, 162
+	rotate: 90
+glow
+	bounds: 6, 380, 335, 426
+	offsets: 6, 7, 348, 439
+	rotate: 90
+hatback
+	bounds: 814, 377, 374, 231
+	offsets: 2, 1, 378, 234
+	rotate: 90
+hatfront
+	bounds: 6, 6, 368, 211
+	offsets: 2, 1, 371, 214
+	rotate: 90
+hiteyes
+	bounds: 562, 437, 136, 71
+	offsets: 5, 9, 143, 81
+shadow
+	bounds: 903, 1006, 275, 108
+	offsets: 1, 1, 277, 110
