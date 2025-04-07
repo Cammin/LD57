@@ -39,6 +39,10 @@ public class BigMonster : Singleton<BigMonster>
             scale.x = Mathf.Abs(scale.x) * flipValue;
             Model.transform.localScale = scale;
         }
+        else
+        {
+            Rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
