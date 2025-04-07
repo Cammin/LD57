@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering.Universal;
 
 public class Battery : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Battery : MonoBehaviour
     public bool collected;
 
     public AudioSource CollectSfx;
+    
+    public Light2D TurnOffLightUponCollect;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,8 +25,8 @@ public class Battery : MonoBehaviour
             player.AddScore(scoreOnCollect);
             
             Anim.SetTrigger("collect");
-            
-            
+
+            TurnOffLightUponCollect.enabled = false;
             CollectSfx.Play();
             
             GameManager.Instance.ImpulseColourVolume(Color.yellow);

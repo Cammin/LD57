@@ -633,7 +633,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
+  m_ShadowsEnabled: 0
   m_ShadowIntensity: 1
   m_ShadowSoftness: 0.3
   m_ShadowSoftnessFalloffIntensity: 0.5
@@ -683,7 +683,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.13, z: 0}
-  m_LocalScale: {x: 1.4285715, y: 1.4285715, z: 1}
+  m_LocalScale: {x: 2.426143, y: 2.426143, z: 1.6983}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3625104718026779688}
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
+  m_ShadowsEnabled: 0
   m_ShadowIntensity: 1
   m_ShadowSoftness: 0.3
   m_ShadowSoftnessFalloffIntensity: 0.5
@@ -1540,7 +1540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565289768703346246}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.73364824, w: 0.6795294}
+  m_LocalRotation: {x: 0, y: 0, z: -0.038019847, w: 0.999277}
   m_LocalPosition: {x: 0.718094, y: -0.06396476, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1690,6 +1690,7 @@ MonoBehaviour:
   _rb: {fileID: 4800535478567288387}
   flashlight: {fileID: 2648489090378467982}
   lightAround: {fileID: 5709163412367745977}
+  lightStylish: {fileID: 79255604296453360}
   MaxBatteryLife: 25
   BatteryLifeLowIndicator: {fileID: 1299731484678333982}
   LightInnerOverLifetimeRatio: {x: 1, y: 4}

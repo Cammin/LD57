@@ -18,6 +18,7 @@ public class Player : Singleton<Player>
     public Rigidbody2D _rb;
     public Light2D flashlight;
     public Light2D lightAround;
+    public Light2D lightStylish;
 
     private Vector2 MoveInput;
 
@@ -235,6 +236,7 @@ public class Player : Singleton<Player>
         bool empty = ratio <= 0;
         flashlight.enabled = !empty;
         lightAround.enabled = !empty;
+        lightStylish.enabled = !empty;
         
         flashlight.pointLightInnerRadius = Mathf.Lerp(LightInnerOverLifetimeRatio.x, LightInnerOverLifetimeRatio.y, ratio);
         flashlight.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio);
@@ -242,6 +244,8 @@ public class Player : Singleton<Player>
         
         lightAround.pointLightInnerRadius = 0;
         lightAround.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio * 0.5f);
+        
+        lightStylish.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.5f, ratio);
     }
 
     private void DoMoveInput()

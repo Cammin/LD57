@@ -1,5 +1,6 @@
 using LDtkUnity;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Checkpoint : MonoBehaviour, ILDtkImportedEntity, ILDtkImportedFields
 {
@@ -12,6 +13,8 @@ public class Checkpoint : MonoBehaviour, ILDtkImportedEntity, ILDtkImportedField
     public AudioSource Drink;
     public Animator Anim;
 
+    public Light2D TurnOffLightUponCollect;
+    
     public bool Touched;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -60,6 +63,7 @@ public class Checkpoint : MonoBehaviour, ILDtkImportedEntity, ILDtkImportedField
                 Anim.SetTrigger("collect");
                 GameManager.Instance.ImpulseColourVolume(Color.green);
                 GameManager.Instance.CreatePulseText("Checkpoint!", Color.green);
+                TurnOffLightUponCollect.enabled = false;
                 Destroy(gameObject, 4);
             }
             else

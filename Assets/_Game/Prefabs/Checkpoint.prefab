@@ -54,6 +54,7 @@ MonoBehaviour:
   InvincibleBatteryOnSpawn: 0
   Drink: {fileID: 4438983926326976584}
   Anim: {fileID: 5105177604121728690}
+  TurnOffLightUponCollect: {fileID: 3090929568252396682}
   Touched: 0
 --- !u!58 &5689424455879076040
 CircleCollider2D:

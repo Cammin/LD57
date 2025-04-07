@@ -569,6 +569,7 @@ MonoBehaviour:
   Anim: {fileID: 3639526174946872123}
   collected: 0
   CollectSfx: {fileID: 5314663600305356225}
+  TurnOffLightUponCollect: {fileID: 6055458060823243808}
 --- !u!58 &4088259200540959514
 CircleCollider2D:
   m_ObjectHideFlags: 0
