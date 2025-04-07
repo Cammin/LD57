@@ -4565,9 +4565,9 @@
 							"height": 336,
 							"defUid": 32,
 							"px": [784,476],
-							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Alright, work is done. time to clock out.", "__tile": null, "defUid": 35, "realEditorValues": [{
+							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Alright, Time to clock out.", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["Alright, work is done. time to clock out."]
+								"params": ["Alright, Time to clock out."]
 							}] }],
 							"__worldX": -532,
 							"__worldY": 476
@@ -4593,22 +4593,22 @@
 						},
 						{
 							"__identifier": "Tutorial_Text_Trigger",
-							"__grid": [30,3],
+							"__grid": [33,2],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
 							"__smartColor": "#0099DB",
 							"iid": "de84d2a0-1030-11f0-a57e-073f293a72e5",
-							"width": 392,
-							"height": 280,
+							"width": 308,
+							"height": 448,
 							"defUid": 32,
-							"px": [840,84],
+							"px": [924,56],
 							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Where's my clock out station?!", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["Where's my clock out station?!"]
 							}] }],
-							"__worldX": -476,
-							"__worldY": 84
+							"__worldX": -392,
+							"__worldY": 56
 						},
 						{
 							"__identifier": "PlayerStart",
@@ -4638,9 +4638,9 @@
 							"height": 168,
 							"defUid": 32,
 							"px": [952,812],
-							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Ah, it's the end of the day.\nI can move with the the WASD keys or the arrow keys.", "__tile": null, "defUid": 35, "realEditorValues": [{
+							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Time to go.\nI can move with the the WASD keys or the arrow keys.", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["Ah, it's the end of the day.\\nI can move with the the WASD keys or the arrow keys."]
+								"params": ["Time to go.\\nI can move with the the WASD keys or the arrow keys."]
 							}] }],
 							"__worldX": -364,
 							"__worldY": 812
@@ -28900,7 +28900,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "Enemy3",
-							"__grid": [6,5],
+							"__grid": [11,4],
 							"__pivot": [0.5,1],
 							"__tags": ["Enemy"],
 							"__tile": { "tilesetUid": 103, "x": 153, "y": 0, "w": 51, "h": 51 },
@@ -28909,54 +28909,33 @@
 							"width": 28,
 							"height": 28,
 							"defUid": 9,
-							"px": [182,168],
+							"px": [322,140],
 							"fieldInstances": [
-								{ "__identifier": "HideSpots", "__type": "Array<EntityRef>", "__value": [
-									{
-										"entityIid": "d5cbc9b0-1030-11f0-a1ce-2913231a701f",
-										"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
-										"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
-										"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
-									},
-									{
-										"entityIid": "e5273700-1030-11f0-a1ce-7b8e7eb8eb50",
-										"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
-										"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
-										"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
-									},
-									{
-										"entityIid": "d882fa70-1030-11f0-a1ce-6969899cc566",
-										"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
-										"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
-										"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
-									},
-									{
-										"entityIid": "e24e2660-1030-11f0-a1ce-119e204e46db",
-										"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
-										"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
-										"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
-									}
-								], "__tile": null, "defUid": 21, "realEditorValues": [ {
+								{ "__identifier": "HideSpots", "__type": "Array<EntityRef>", "__value": [ {
+									"entityIid": "d5cbc9b0-1030-11f0-a1ce-2913231a701f",
+									"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
+									"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
+									"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
+								}, {
+									"entityIid": "e24e2660-1030-11f0-a1ce-119e204e46db",
+									"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
+									"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
+									"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
+								} ], "__tile": null, "defUid": 21, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["d5cbc9b0-1030-11f0-a1ce-2913231a701f"]
-								}, {
-									"id": "V_String",
-									"params": ["e5273700-1030-11f0-a1ce-7b8e7eb8eb50"]
-								}, {
-									"id": "V_String",
-									"params": ["d882fa70-1030-11f0-a1ce-6969899cc566"]
 								}, {
 									"id": "V_String",
 									"params": ["e24e2660-1030-11f0-a1ce-119e204e46db"]
 								} ] },
 								{ "__identifier": "HideAttempts", "__type": "Int", "__value": null, "__tile": null, "defUid": 29, "realEditorValues": [] }
 							],
-							"__worldX": 4942,
-							"__worldY": 1764
+							"__worldX": 5082,
+							"__worldY": 1736
 						},
 						{
 							"__identifier": "Enemy3",
-							"__grid": [17,14],
+							"__grid": [12,14],
 							"__pivot": [0.5,1],
 							"__tags": ["Enemy"],
 							"__tile": { "tilesetUid": 103, "x": 153, "y": 0, "w": 51, "h": 51 },
@@ -28965,40 +28944,19 @@
 							"width": 28,
 							"height": 28,
 							"defUid": 9,
-							"px": [490,420],
+							"px": [350,420],
 							"fieldInstances": [
-								{ "__identifier": "HideSpots", "__type": "Array<EntityRef>", "__value": [
-									{
-										"entityIid": "d5cbc9b0-1030-11f0-a1ce-2913231a701f",
-										"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
-										"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
-										"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
-									},
-									{
-										"entityIid": "e24e2660-1030-11f0-a1ce-119e204e46db",
-										"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
-										"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
-										"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
-									},
-									{
-										"entityIid": "d882fa70-1030-11f0-a1ce-6969899cc566",
-										"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
-										"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
-										"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
-									},
-									{
-										"entityIid": "e5273700-1030-11f0-a1ce-7b8e7eb8eb50",
-										"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
-										"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
-										"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
-									}
-								], "__tile": null, "defUid": 21, "realEditorValues": [ {
-									"id": "V_String",
-									"params": ["d5cbc9b0-1030-11f0-a1ce-2913231a701f"]
+								{ "__identifier": "HideSpots", "__type": "Array<EntityRef>", "__value": [ {
+									"entityIid": "d882fa70-1030-11f0-a1ce-6969899cc566",
+									"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
+									"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
+									"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
 								}, {
-									"id": "V_String",
-									"params": ["e24e2660-1030-11f0-a1ce-119e204e46db"]
-								}, {
+									"entityIid": "e5273700-1030-11f0-a1ce-7b8e7eb8eb50",
+									"layerIid": "20a45291-1030-11f0-aa9b-c9f4e40e8db4",
+									"levelIid": "20a45290-1030-11f0-aa9b-ffc6b6c374c4",
+									"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
+								} ], "__tile": null, "defUid": 21, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["d882fa70-1030-11f0-a1ce-6969899cc566"]
 								}, {
@@ -29007,7 +28965,7 @@
 								} ] },
 								{ "__identifier": "HideAttempts", "__type": "Int", "__value": null, "__tile": null, "defUid": 29, "realEditorValues": [] }
 							],
-							"__worldX": 5250,
+							"__worldX": 5110,
 							"__worldY": 2016
 						},
 						{

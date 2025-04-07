@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e9467e72f44ea196de280adcceb477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotDestroyOnLoad: 1
   AllSounds:
   - {fileID: 6418180475301049370, guid: a47d7cb97cf298c47a3354263840e0c0, type: 2}
   - {fileID: 6418180475301049370, guid: d03fcb81317b652418fc21952e80c759, type: 2}
@@ -67,7 +68,7 @@ MonoBehaviour:
   - {fileID: 6418180475301049370, guid: 2a8e3e82e4b19ea40a08aecbf13601d1, type: 2}
   - {fileID: 6418180475301049370, guid: ace9dd4b588f69b4f87951f580469061, type: 2}
   Source: {fileID: 4009159850398983344}
-  attempts: 5
+  attempts: 20
 --- !u!82 &4009159850398983344
 AudioSource:
   m_ObjectHideFlags: 0

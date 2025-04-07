@@ -1,9 +1,10 @@
 using System.Collections;
+using CamLib;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
-public class EnsureAllSoundsPlay : MonoBehaviour
+public class EnsureAllSoundsPlay : Singleton<EnsureAllSoundsPlay>
 {
     public AudioResource[] AllSounds;
     public AudioSource Source;
@@ -19,10 +20,9 @@ public class EnsureAllSoundsPlay : MonoBehaviour
             {
                 Source.resource = sound;
                 Source.Play();
-                yield return new WaitForSeconds(0.01f);
+                yield return null;
             }
-        
-            yield return new WaitForSeconds(0.1f);
+            yield return null;
         }
         
         //#endif
