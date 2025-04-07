@@ -1708,7 +1708,7 @@ MonoBehaviour:
   SfxVacuumLoop: {fileID: 3134524080690815631}
   IsEmptyLastFrame: 0
   ProgressPerQTEHit: 15
-  CaptureParticles: {fileID: 8754399562572636119}
+  CaptureParticles: {fileID: 1204830790701808783}
   PulseTextSpawnPoint: {fileID: 2938099293588152805}
   IsDrainingFlashlight: 0
   Score: 0
@@ -2098,6 +2098,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5419104803312583288}
     m_Modifications:
+    - target: {fileID: 1111736213330543836, guid: acde1a4c8b396d24396a745e85bdcac6, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4436211241140776560, guid: acde1a4c8b396d24396a745e85bdcac6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -2163,13 +2167,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acde1a4c8b396d24396a745e85bdcac6, type: 3}
+--- !u!198 &1204830790701808783 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1111736213330543836, guid: acde1a4c8b396d24396a745e85bdcac6, type: 3}
+  m_PrefabInstance: {fileID: 2293956233595107411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2469471869182465571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4436211241140776560, guid: acde1a4c8b396d24396a745e85bdcac6, type: 3}
-  m_PrefabInstance: {fileID: 2293956233595107411}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8754399562572636119 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7397203132519851908, guid: acde1a4c8b396d24396a745e85bdcac6, type: 3}
   m_PrefabInstance: {fileID: 2293956233595107411}
   m_PrefabAsset: {fileID: 0}

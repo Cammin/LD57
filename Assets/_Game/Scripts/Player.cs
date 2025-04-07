@@ -51,7 +51,7 @@ public class Player : Singleton<Player>
 
     public float ProgressPerQTEHit = 15f;
 
-    public GameObject CaptureParticles;
+    public ParticleSystem CaptureParticles;
 
     public Transform PulseTextSpawnPoint;
 
@@ -81,6 +81,8 @@ public class Player : Singleton<Player>
         //SfxVacuumLoop.volume = 0;
     }
 
+    private bool prevParticlesState;
+    
     private void Update()
     {
         if (Time.timeScale <= 0) return;
@@ -89,7 +91,20 @@ public class Player : Singleton<Player>
         
         if (IsDead) return;
 
-        CaptureParticles.SetActive(CaptureActive || CaptureQTEActive);
+        bool newParticlesState = CaptureActive || CaptureQTEActive;
+        if (newParticlesState != prevParticlesState)
+        {
+            prevParticlesState = newParticlesState;
+            if (newParticlesState)
+            {
+                CaptureParticles.Play();
+            }
+            else
+            {
+                CaptureParticles.Stop();
+            }
+        }
+        
 
         flashlight.color = CaptureActive ? Color.cyan : Color.white;
 
