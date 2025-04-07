@@ -53,6 +53,8 @@ public class IntroOutro : MonoBehaviour
 
         if (canClick && Input.GetMouseButtonDown(0))
         {
+            
+            Player.ResetScore();
             IsOutro = false;
             FadeManager.Instance.FadeIn(Color.black, LoadNextScene);
 

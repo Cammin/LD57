@@ -80,6 +80,8 @@ public class Player : Singleton<Player>
         DialogueText.color = new Color(1, 1, 1, 0);
 
         //SfxVacuumLoop.volume = 0;
+
+        
     }
 
     private bool prevParticlesState;
@@ -399,11 +401,17 @@ public class Player : Singleton<Player>
         HP = 3;
     }
 
-    public int Score;
+    public static int Score;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    public static void ResetScore()
+    {
+        Score = 0;
+    }
     
     public void AddScore(int score)
     {
-        GameManager.Instance.CreatePulseText($"+{score} Score!", Color.white);
+        GameManager.Instance.CreatePulseText($"+{score} score", Color.white);
 
         Score += score;
         //update UI etc
