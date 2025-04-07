@@ -885,8 +885,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Haunted, exhausted, underpaid \u2014 but home.\r\nYou collapse into bed,
-    finally free... until tomorrow"
+  m_text: 'Haunted, exhausted, underpaid - but home.
+
+    You collapse into bed
+    at 6AM...
+
+    Your alarm rings at 7... good job, I guess?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a456b4326d9f0c44b571da542df32c9, type: 2}
   m_sharedMaterial: {fileID: -2392909206753964324, guid: 4a456b4326d9f0c44b571da542df32c9, type: 2}
@@ -1119,10 +1123,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'After a long day at work. you crack your knuckles, and begin to go home.
+  m_text: 'After a long day at work, I crack my knuckles, and begin to go home.
 
     It''s
-    been a long work day.
+    been a long work day. I bet I won''t get paid overtime...
 
 '
   m_isRightToLeft: 0
