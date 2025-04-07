@@ -34,6 +34,12 @@ public class Checkpoint : MonoBehaviour, ILDtkImportedEntity, ILDtkImportedField
         {
             Player.Instance.transform.position = transform.position;
             Player.Instance.IsDrainingFlashlight = !InvincibleBatteryOnSpawn;
+
+            if (!InvincibleBatteryOnSpawn)
+            {
+                MusicManager.Instance.ChangeToMusic();
+            }
+            
             Destroy(gameObject);
         }
     }

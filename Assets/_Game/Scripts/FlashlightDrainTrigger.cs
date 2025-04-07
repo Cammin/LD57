@@ -7,6 +7,8 @@ public class FlashlightDrainTrigger : MonoBehaviour
         if (other.TryGetComponent<Player>(out var player))
         {
             player.IsDrainingFlashlight = true;
+
+            MusicManager.Instance.ChangeToMusic();
         }
     }
 }

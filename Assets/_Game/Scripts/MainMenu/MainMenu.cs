@@ -15,6 +15,14 @@ public class MainMenu : MonoBehaviour
 #if UNITY_WEBGL
         QuitButton.gameObject.SetActive(false);
 #endif
+        
+        
+        //destroy music manager if it exists
+        MusicManager musicManager = MusicManager.Instance;
+        if (musicManager)
+        {
+            Destroy(musicManager.gameObject);
+        }
     }
 
     public void OnPlayButtonPressed()

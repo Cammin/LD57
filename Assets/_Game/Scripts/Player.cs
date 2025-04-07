@@ -172,6 +172,7 @@ public class Player : Singleton<Player>
             if (!IsEmptyLastFrame && BatteryLifeRemaining <= 0)
             {
                 SfxFlashlightEmpty.Play();
+                MusicManager.Instance.RanOutOfBattery();
                 IsEmptyLastFrame = true;
             }
 
@@ -340,6 +341,7 @@ public class Player : Singleton<Player>
     public void RechargeBattery()
     {
         BatteryLifeRemaining = MaxBatteryLife;
+        MusicManager.Instance.ChangeToMusic();
     }
     
     public void Heal()
