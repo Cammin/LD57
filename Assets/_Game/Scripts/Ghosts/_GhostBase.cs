@@ -47,6 +47,11 @@ public sealed class GhostBase : MonoBehaviour
     [NonSerialized] private float CooldownRemaining;
     [NonSerialized] private bool Destroying;
 
+    public AudioSource SfxSuckStart;
+    public AudioSource SfxSuckDefeat;
+    public AudioSource SfxShoot;
+    
+    
     private void Start()
     {
         //In case it isn't assigned in the Inspector.
@@ -190,6 +195,7 @@ public sealed class GhostBase : MonoBehaviour
         BlockMovement = true;
 
         Animator.SetTrigger("suck");
+        SfxSuckStart.Play();
 
         GameManager.Instance.CameraZoom(4);
         GameManager.Instance.OverrideCameraTarget = transform;
@@ -210,6 +216,7 @@ public sealed class GhostBase : MonoBehaviour
         Destroying = true;
 
         Animator.SetTrigger("die");
+        SfxSuckDefeat.Play();
 
         StartCoroutine(CoCapture());
 
