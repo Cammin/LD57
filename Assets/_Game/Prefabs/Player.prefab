@@ -1690,7 +1690,7 @@ MonoBehaviour:
   _rb: {fileID: 4800535478567288387}
   flashlight: {fileID: 2648489090378467982}
   lightAround: {fileID: 5709163412367745977}
-  MaxBatteryLife: 20
+  MaxBatteryLife: 25
   BatteryLifeLowIndicator: {fileID: 1299731484678333982}
   LightInnerOverLifetimeRatio: {x: 1, y: 4}
   LightOuterOverLifetimeRatio: {x: 2, y: 10}
