@@ -80,11 +80,6 @@ public sealed class GhostBase : MonoBehaviour
             return;
         }
 
-        if (GhostBehaviour)
-        {
-            Debug.Log(GhostBehaviour.FindPlayerConditions());
-        }
-
 
         if (!PlayerFound && Vector2.Distance(Player.Instance.transform.position, transform.position) <= DetectPlayerRange && (GhostBehaviour && GhostBehaviour.FindPlayerConditions()))
         {
