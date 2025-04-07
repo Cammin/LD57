@@ -9,6 +9,7 @@ public class GhostFollower : GhostBehaviour
         base.GhostAction();
 
         Ghost.Animator.SetTrigger("shoot");
+        Ghost.SfxShoot.Play();
         StartCoroutine(CoCastProjectile());
 
         IEnumerator CoCastProjectile()

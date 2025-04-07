@@ -52,6 +52,7 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
         base.GhostAction();
 
         Ghost.Animator.SetTrigger("shoot");
+        Ghost.SfxShoot.Play();
         StartCoroutine(CoCastProjectileBurst());
 
         IEnumerator CoCastProjectileBurst()
