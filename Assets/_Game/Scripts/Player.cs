@@ -79,6 +79,8 @@ public class Player : Singleton<Player>
 
     private void Update()
     {
+        if (Time.timeScale <= 0) return;
+        
         Anim.SetBool("Flashlight", !IsEmpty);
         
         if (IsDead) return;

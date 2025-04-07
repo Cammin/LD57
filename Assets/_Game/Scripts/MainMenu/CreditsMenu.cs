@@ -1,20 +1,17 @@
 using UnityEngine;
 
-namespace _Game.Scripts.WorldMap
+public class CreditsMenu : MonoBehaviour
 {
-    public class CreditsMenu : MonoBehaviour
+    private void Start()
     {
-        private void Start()
+        gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameObject.SetActive(false);
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                gameObject.SetActive(false);
-            }
         }
     }
 }

@@ -28,6 +28,7 @@ public class FadeManager : Singleton<FadeManager>
         ScreenFade.color = Color.clear;
         ScreenFade.DOColor(color, duration)
             .SetDelay(delay)
+            .SetUpdate(true)
             .OnComplete(() =>
             {
                 callback?.Invoke();

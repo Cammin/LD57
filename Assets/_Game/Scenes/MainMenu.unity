@@ -2619,10 +2619,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 4322632398396452906, guid: a153bbe473604a4419c4c3acb5bab149, type: 3}
-      propertyPath: _doNotDestroyOnLoad
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4339637432987516121, guid: a153bbe473604a4419c4c3acb5bab149, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
