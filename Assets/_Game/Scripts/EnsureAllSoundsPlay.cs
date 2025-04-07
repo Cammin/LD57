@@ -1,16 +1,17 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class EnsureAllSoundsPlay : MonoBehaviour
 {
     public AudioResource[] AllSounds;
     public AudioSource Source;
-    public int attempts = 5;
-
+    public int attempts = 20;
+    
     public IEnumerator Start()
     {
-        #if UNITY_WEBGL
+        //#if UNITY_WEBGL
         
         for (int i = 0; i < attempts; i++)
         {
@@ -21,11 +22,11 @@ public class EnsureAllSoundsPlay : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
             }
         
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.1f);
         }
         
-        #endif
+        //#endif
         
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
     }
 }

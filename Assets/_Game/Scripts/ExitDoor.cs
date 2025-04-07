@@ -33,6 +33,7 @@ public class ExitDoor : MonoBehaviour
     private void LoadWinScene()
     {
         Checkpoint.ResetCheckpoint();
-        SceneManager.LoadScene("MainMenu");
+        IntroOutro.IsOutro = true;
+        SceneManager.LoadScene("IntroOutro");
     }
 }
