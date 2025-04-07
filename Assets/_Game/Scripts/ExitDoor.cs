@@ -32,6 +32,8 @@ public class ExitDoor : MonoBehaviour
 
     private void LoadWinScene()
     {
+        Destroy(MusicManager.Instance.gameObject);
+        
         Checkpoint.ResetCheckpoint();
         IntroOutro.IsOutro = true;
         SceneManager.LoadScene("IntroOutro");
