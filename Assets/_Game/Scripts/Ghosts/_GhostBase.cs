@@ -201,6 +201,8 @@ public sealed class GhostBase : MonoBehaviour
 
         GameManager.Instance.CameraZoom(4);
         GameManager.Instance.OverrideCameraTarget = transform;
+
+        Hud.Instance.ShowSpacebar(true);
     }
 
     public void CaptureGhostAddProgress()
@@ -219,6 +221,8 @@ public sealed class GhostBase : MonoBehaviour
 
         Animator.SetTrigger("die");
         SfxSuckDefeat.Play();
+
+        Hud.Instance.ShowSpacebar(false);
 
         StartCoroutine(CoCapture());
 
