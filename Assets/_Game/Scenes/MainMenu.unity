@@ -1427,8 +1427,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Art: \nLucas Moreira\nAlex Forcer \nGustavo Tozze\n\nProgramming:\nCameron
-    Krebbers\nBrian Pimentel \n\nLevel Design:\nCameron Krebbers\n\nAll SFX from
-    OpenGameArt (CC0), Music from OpenGameArt (Gundatsch - https://soundcloud.com/gundatsch)"
+    Krebbers\nBrian Pimentel \n\nLevel Design:\nCameron Krebbers\n\nSfx/Music from
+    OpenGameArt (CC0)\n\n\"difficulties\" - Gundatsch - https://soundcloud.com/gundatsch"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a456b4326d9f0c44b571da542df32c9, type: 2}
   m_sharedMaterial: {fileID: -2392909206753964324, guid: 4a456b4326d9f0c44b571da542df32c9, type: 2}
