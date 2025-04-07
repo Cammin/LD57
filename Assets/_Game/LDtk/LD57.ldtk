@@ -38039,19 +38039,19 @@
 						},
 						{
 							"__identifier": "ActivateFlashlightDrain",
-							"__grid": [14,11],
+							"__grid": [10,3],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
 							"__smartColor": "#BE4A2F",
 							"iid": "4b2f3420-1030-11f0-a57e-efa0f60b7569",
 							"width": 84,
-							"height": 56,
+							"height": 112,
 							"defUid": 105,
-							"px": [392,308],
+							"px": [280,84],
 							"fieldInstances": [],
-							"__worldX": 1288,
-							"__worldY": 896
+							"__worldX": 1176,
+							"__worldY": 672
 						}
 					]
 				},

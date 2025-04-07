@@ -63,6 +63,8 @@ public class Player : Singleton<Player>
     
     public bool IsDead => HP <= 0;
 
+    public float BatteryRatio => BatteryLifeRemaining / MaxBatteryLife;
+
     public bool IsDrainingFlashlight;
 
     private void Start()
