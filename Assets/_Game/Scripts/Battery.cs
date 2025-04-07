@@ -12,7 +12,8 @@ public class Battery : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<Player>(out var player))
+        Player player = other.GetComponentInParent<Player>(other);
+        if (player)
         {
             if (collected) return;
             

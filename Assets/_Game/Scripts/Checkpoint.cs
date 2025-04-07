@@ -48,7 +48,8 @@ public class Checkpoint : MonoBehaviour, ILDtkImportedEntity, ILDtkImportedField
     {
         if (Touched) return;
 
-        if (other.TryGetComponent<Player>(out var player))
+        Player player = other.GetComponentInParent<Player>(other);
+        if (player)
         {
             LastCheckpoint = iid;
             Touched = true;
