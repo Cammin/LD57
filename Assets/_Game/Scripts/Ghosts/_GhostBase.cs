@@ -199,7 +199,7 @@ public sealed class GhostBase : MonoBehaviour
         Animator.SetTrigger("suck");
         SfxSuckStart.Play();
 
-        GameManager.Instance.CameraZoom(4);
+        GameManager.Instance.CameraZoom(7f);
         GameManager.Instance.OverrideCameraTarget = transform;
 
         Hud.Instance.ShowSpacebar(true);
