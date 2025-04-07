@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5417355086913282558, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542618223115179933, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5721341410956028292, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: m_Controller
       value: 
@@ -93,16 +101,20 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
-      propertyPath: CaptureFlashColor.b
-      value: 0.8076925
-      objectReference: {fileID: 0}
-    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
-      propertyPath: CaptureFlashColor.g
+      propertyPath: CaptureFlashColor.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
-      propertyPath: CaptureFlashColor.r
+      propertyPath: CaptureFlashColor.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CaptureFlashColor.g
+      value: 0.9561915
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: CaptureFlashColor.r
+      value: 0.6367924
       objectReference: {fileID: 0}
     - target: {fileID: 7466982531889587248, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: m_Sprite
