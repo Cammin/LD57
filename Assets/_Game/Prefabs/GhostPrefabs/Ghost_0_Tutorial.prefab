@@ -154,6 +154,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5721341410956028292, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a62a446b8df3c8a47a84653379e56da2, type: 2}
+    - target: {fileID: 5830023564438942881, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 10511efb99b34424cbc32603a0fbd5d6, type: 2}
+    - target: {fileID: 6161991815151731653, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
+      propertyPath: skeletonDataAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 181b3c1450510894ca0ecc07e6df288c, type: 2}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: CanMove
       value: 0

@@ -1,0 +1,42 @@
+LD57_CannonFodder.png
+	size: 1024, 1024
+	filter: Linear, Linear
+blackblob1
+	bounds: 274, 176, 49, 55
+	offsets: 1, 1, 51, 57
+blackblob2
+	bounds: 424, 194, 33, 37
+	offsets: 1, 1, 35, 39
+blackblob3
+	bounds: 383, 916, 70, 92
+	offsets: 1, 1, 72, 94
+body
+	bounds: 6, 164, 262, 357
+	offsets: 1, 1, 264, 359
+bodyback
+	bounds: 287, 57, 233, 113
+	offsets: 1, 1, 235, 116
+eyel
+	bounds: 329, 180, 51, 42
+	offsets: 1, 1, 53, 44
+	rotate: 90
+eyer
+	bounds: 377, 182, 49, 41
+	offsets: 1, 2, 51, 44
+	rotate: 90
+facecrease
+	bounds: 6, 6, 185, 38
+	offsets: 3, 2, 190, 42
+glow
+	bounds: 6, 527, 371, 481
+	offsets: 7, 8, 386, 496
+hiteyes
+	bounds: 197, 11, 124, 33
+	offsets: 1, 1, 126, 35
+mask
+	bounds: 274, 237, 284, 169
+	offsets: 2, 1, 287, 172
+	rotate: 90
+shadow
+	bounds: 6, 50, 275, 108
+	offsets: 1, 1, 277, 110
