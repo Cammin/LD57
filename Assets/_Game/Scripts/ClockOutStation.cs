@@ -7,7 +7,14 @@ public class ClockOutStation : MonoBehaviour, ILDtkImportedFields
     public ExitDoor Door;
 
     public AudioSource Sound;
-    
+
+    public GameObject Light;
+
+    private void Start()
+    {
+        Light.SetActive(true);
+    }
+
     private void Update()
     {
         if (PlayerInRange && Input.GetKeyDown(KeyCode.Space))
@@ -20,6 +27,8 @@ public class ClockOutStation : MonoBehaviour, ILDtkImportedFields
     {
         Door.OpenDoor();
         Sound.Play();
+        
+        Light.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
