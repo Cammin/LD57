@@ -477,6 +477,7 @@ MonoBehaviour:
   GhostBehaviour: {fileID: 0}
   Animator: {fileID: 5721341410956028292}
   Rigidbody: {fileID: 1750260032933030037}
+  AmbientLight: {fileID: 1267382687505291142}
   CanMove: 1
   MoveSpeedModifier: 1
   ActionCooldownDuration: 3
@@ -484,7 +485,7 @@ MonoBehaviour:
   ScoreAddedForCapture: 100
   CaptureDifficultyModifier: 1
   CaptureForceModifier: 20
-  CaptureFlashColor: {r: 0, g: 0, b: 0, a: 0}
+  CaptureFlashColor: {r: 0.6367924, g: 0.9561915, b: 1, a: 0}
   CanDetectPlayerThroughWalls: 0
   RetreatIfTooClose: 0
   DetectPlayerRange: 10

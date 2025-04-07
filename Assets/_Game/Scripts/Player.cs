@@ -55,7 +55,7 @@ public class Player : Singleton<Player>
 
     public Transform PulseTextSpawnPoint;
 
-    public const float CaptureCastRadius = 3f;
+    public const float CaptureCastRadius = 1f;
     public const float CaptureCastLength = 10f;
     public const float CaptureDistanceForQTE = 4f;
 
@@ -118,7 +118,7 @@ public class Player : Singleton<Player>
             {
                 UpdateFlashlight(GhostTarget.transform.position - transform.position);
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (!GhostTarget.IsBeingDestroyed() && Input.GetKeyDown(KeyCode.Space))
                 {
                     GhostTarget.CaptureGhostAddProgress();
                     SfxQteMash.Play();
@@ -183,14 +183,14 @@ public class Player : Singleton<Player>
 
     private GhostBase GhostCaptureHit()
     {
-        var hits = Physics2D.CircleCastAll(transform.position, CaptureCastRadius, AimDirection, CaptureCastLength);
+        var hits = Physics2D.RaycastAll(transform.position, AimDirection, CaptureCastLength);
 
         foreach(var hit in hits)
         {
             if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
             {
                 //Debug.Log("hit ghost");
-                if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture && !ghost.CheckForWalls())
+                if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture && !ghost.CheckForWalls(1000f))
                 {
                     return ghost;
                 }

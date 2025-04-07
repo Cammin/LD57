@@ -83,6 +83,8 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
         Ghost.BlockActions = true;
         Ghost.BlockCapture = true;
 
+        Debug.Log("retreat");
+
         Ghost.Animator.SetTrigger("shadow");
         SfxPeekerHide.Play();
         StartCoroutine(CoRetreat());
@@ -115,6 +117,8 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
 
     public void RetreatEnd()
     {
+        Retreating = false;
+
         Ghost.Animator.SetTrigger("revert");
         SfxPeekerReveal.Play();
         StartCoroutine(CoRetreatEnd());
@@ -123,7 +127,6 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
         {
             yield return new WaitForSeconds(.792f);
 
-            Retreating = false;
             Ghost.BlockActions = false;
             Ghost.BlockCapture = false;
         }

@@ -11,6 +11,7 @@ public sealed class GhostBase : MonoBehaviour
     public GhostBehaviour GhostBehaviour;
     public Animator Animator;
     public Rigidbody2D Rigidbody;
+    public Light2D AmbientLight;
     [Space]
     public bool CanMove = true;
     public float MoveSpeedModifier = 1f;
@@ -21,14 +22,17 @@ public sealed class GhostBase : MonoBehaviour
     public int ScoreAddedForCapture = 100;
     public float CaptureDifficultyModifier = 1f;
     public float CaptureForceModifier = 20f;
-    [ColorUsageAttribute(false)]
-    public Color CaptureFlashColor;
+    [ColorUsageAttribute(false)] public Color CaptureFlashColor = Color.white;
     [Space]
     public bool CanDetectPlayerThroughWalls;
     public bool RetreatIfTooClose;
     public float DetectPlayerRange = 25f;
     public float AttackPlayerRange = 20f;
     public float StopAtDistance = 3f;
+    [Space]
+    public AudioSource SfxSuckStart;
+    public AudioSource SfxSuckDefeat;
+    public AudioSource SfxShoot;
 
     //-------------------------------------------------
 
@@ -38,20 +42,15 @@ public sealed class GhostBase : MonoBehaviour
 
     public bool CaptureInProgress => Player.Instance.GhostTarget == this;
 
+    private float CooldownRemaining;
+    private bool Destroying;
+
     [NonSerialized] public Vector3 OverrideDestination;
     [NonSerialized] public float CaptureProgress;
     [NonSerialized] public bool PlayerFound;
     [NonSerialized] public bool BlockActions;
     [NonSerialized] public bool BlockMovement;
     [NonSerialized] public bool BlockCapture;
-    
-
-    [NonSerialized] private float CooldownRemaining;
-    [NonSerialized] private bool Destroying;
-
-    public AudioSource SfxSuckStart;
-    public AudioSource SfxSuckDefeat;
-    public AudioSource SfxShoot;
     
     
     private void Start()
@@ -66,7 +65,11 @@ public sealed class GhostBase : MonoBehaviour
 
         if (CaptureProgress > 0) CaptureProgress -= CaptureProgressDecay * Time.deltaTime;
 
-        if (PlayerFound || CaptureInProgress)
+        if (OverrideDestination != Vector3.zero)
+        {
+            transform.localScale = new Vector3(OverrideDestination.x > transform.position.x ? 1 : -1, 1, 1);
+        }
+        else if (PlayerFound || CaptureInProgress)
         {
             transform.localScale = new Vector3(Player.Instance.transform.position.x > transform.position.x ? 1 : -1, 1, 1);
         }
@@ -141,13 +144,14 @@ public sealed class GhostBase : MonoBehaviour
             //If destination is overriden prioritize moving to the override.
             if (OverrideDestination != Vector3.zero)
             {
-                if (Vector2.Distance(OverrideDestination, transform.position) > .01f)
+                if (Vector2.Distance(OverrideDestination, transform.position) > .1f)
                 {
                     var direction = (OverrideDestination - transform.position).normalized;
                     Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
                 }
                 else
                 {
+                    transform.position = OverrideDestination;
                     OverrideDestination = Vector3.zero;
                 }
             }
@@ -181,6 +185,26 @@ public sealed class GhostBase : MonoBehaviour
                 return false;
             } 
             
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool CheckForWalls(float customRange)
+    {
+        var hits = Physics2D.RaycastAll(transform.position, (Player.Instance.transform.position - transform.position).normalized, customRange);
+
+        foreach (var hit in hits)
+        {
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                return false;
+            }
+
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
             {
                 return true;
@@ -231,6 +255,8 @@ public sealed class GhostBase : MonoBehaviour
             yield return new WaitForSeconds(.625f);
 
             GameManager.Instance.ImpulseColourVolume(CaptureFlashColor);
+            
+            if (AmbientLight) AmbientLight.enabled = false;
 
             yield return new WaitForSeconds(.5f);
 
@@ -243,13 +269,12 @@ public sealed class GhostBase : MonoBehaviour
 
             GameManager.Instance.CameraResetZoom();
 
-            //destory after some time.
-            Light2D light2 = GetComponentInChildren<Light2D>();
-            if (light2)
-            {
-                light2.enabled = false;
-            }
             Destroy(gameObject, 1);
         }
+    }
+
+    public bool IsBeingDestroyed()
+    {
+        return Destroying;
     }
 }
