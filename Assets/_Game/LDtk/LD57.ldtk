@@ -2469,8 +2469,8 @@
 			"maxCount": 0,
 			"limitScope": "PerLevel",
 			"limitBehavior": "MoveLastOne",
-			"pivotX": 0.5,
-			"pivotY": 0.5,
+			"pivotX": 0,
+			"pivotY": 1,
 			"fieldDefs": []
 		},
 		{
@@ -3473,32 +3473,16 @@
 							"defUid": 25,
 							"px": [406,154],
 							"fieldInstances": [{ "__identifier": "Door", "__type": "EntityRef", "__value": {
-								"entityIid": "9b52c930-1030-11f0-aa9b-9d46eacd3339",
+								"entityIid": "9b1ae3d0-1030-11f0-a549-397c9ee368dc",
 								"layerIid": "eb4311d0-1030-11f0-aa9b-15eb2ae888d3",
 								"levelIid": "eb42eac0-1030-11f0-aa9b-690be1822126",
 								"worldIid": "46041161-e920-11ef-ac58-c1e111886b3b"
 							}, "__tile": null, "defUid": 27, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["9b52c930-1030-11f0-aa9b-9d46eacd3339"]
+								"params": ["9b1ae3d0-1030-11f0-a549-397c9ee368dc"]
 							}] }],
 							"__worldX": 7574,
 							"__worldY": -294
-						},
-						{
-							"__identifier": "ExitDoor",
-							"__grid": [8,3],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#3E8948",
-							"iid": "9b52c930-1030-11f0-aa9b-9d46eacd3339",
-							"width": 28,
-							"height": 28,
-							"defUid": 26,
-							"px": [238,98],
-							"fieldInstances": [],
-							"__worldX": 7406,
-							"__worldY": -350
 						},
 						{
 							"__identifier": "Tutorial_Text_Trigger",
@@ -3517,6 +3501,22 @@
 								"params": ["Ah finally! I can clock out with Spacebar."]
 							}] }],
 							"__worldX": 7504,
+							"__worldY": -364
+						},
+						{
+							"__identifier": "ExitDoor",
+							"__grid": [9,2],
+							"__pivot": [0,1],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#3E8948",
+							"iid": "9b1ae3d0-1030-11f0-a549-397c9ee368dc",
+							"width": 28,
+							"height": 28,
+							"defUid": 26,
+							"px": [252,84],
+							"fieldInstances": [],
+							"__worldX": 7420,
 							"__worldY": -364
 						}
 					]
@@ -3752,6 +3752,22 @@
 							"fieldInstances": [],
 							"__worldX": 7557,
 							"__worldY": -206
+						},
+						{
+							"__identifier": "Chair",
+							"__grid": [22,26],
+							"__pivot": [0,1],
+							"__tags": ["Decor"],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "b4aa5100-1030-11f0-a549-ab6bc6b1cc30",
+							"width": 21,
+							"height": 14,
+							"defUid": 129,
+							"px": [154,189],
+							"fieldInstances": [],
+							"__worldX": 7322,
+							"__worldY": -259
 						}
 					]
 				},
