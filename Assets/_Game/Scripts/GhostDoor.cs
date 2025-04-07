@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using CamLib;
 using LDtkUnity;
@@ -19,6 +20,8 @@ public class GhostDoor : MonoBehaviour, ILDtkImportedFields
     public GameObject Open1;
     public GameObject Open2;
 
+    public Transform CameraTrack;
+
     public void OnLDtkImportFields(LDtkFields fields)
     {
         LDtkReferenceToAnEntityInstance[] refs = fields.GetEntityReferenceArray("Ghosts");
@@ -38,17 +41,36 @@ public class GhostDoor : MonoBehaviour, ILDtkImportedFields
             if (!Destroying)
             {
                 Destroying = true;
-                Sound.Play();
-                
-                Collider.enabled = false;
-                
-                Idle1.SetActive(false);
-                Idle2.SetActive(false);
-                Open1.SetActive(true);
-                Open2.SetActive(true);
-                
-                Destroy(gameObject, 2f);
+                StartCoroutine(DoOpen());
             }
         }
+    }
+
+    private IEnumerator DoOpen()
+    {
+        bool shouldPan = !GameManager.IsPointInsideCamera(CameraTrack.position);
+
+        if (shouldPan)
+        {
+            GameManager.Instance.OverrideCameraTarget = CameraTrack; 
+            yield return new WaitForSeconds(1.0f);
+        }
+        
+        Sound.Play();
+                
+        Collider.enabled = false;
+        Idle1.SetActive(false);
+        Idle2.SetActive(false);
+        Open1.SetActive(true);
+        Open2.SetActive(true);
+
+        if (shouldPan)
+        {
+            yield return new WaitForSeconds(1.1f);
+            GameManager.Instance.OverrideCameraTarget = null; 
+        }
+        
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 }

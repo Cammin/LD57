@@ -75,4 +75,22 @@ public class GameManager : Singleton<GameManager>
         pulse.transform.position = Player.Instance.PulseTextSpawnPoint.position;
         pulse.ShowText(text, color);
     }
+
+    public static bool IsPointInsideCamera(Vector2 pos)
+    {
+        Camera cam = Player.Instance._camera;
+        
+        Vector3 view = cam.WorldToViewportPoint(pos);
+        return view.z > 0 &&
+               view.x >= 0 && view.x <= 1 &&
+               view.y >= 0 && view.y <= 1;
+    }
+    
+    public static bool IsPointInsideCamera(Camera cam, Vector2 pos)
+    {
+        Vector3 view = cam.WorldToViewportPoint(pos);
+        return view.z > 0 &&
+               view.x >= 0 && view.x <= 1 &&
+               view.y >= 0 && view.y <= 1;
+    }
 }

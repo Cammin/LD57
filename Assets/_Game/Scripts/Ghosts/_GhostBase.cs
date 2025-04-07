@@ -276,15 +276,7 @@ public sealed class GhostBase : MonoBehaviour
     
     public bool IsInsideCamera()
     {
-        return IsPointInsideCamera(Player.Instance._camera, transform.position);
-    }
-
-    public static bool IsPointInsideCamera(Camera cam, Vector2 pos)
-    {
-        Vector3 view = cam.WorldToViewportPoint(pos);
-        return view.z > 0 &&
-               view.x >= 0 && view.x <= 1 &&
-               view.y >= 0 && view.y <= 1;
+        return GameManager.IsPointInsideCamera(Player.Instance._camera, transform.position);
     }
 
     public bool IsBeingDestroyed()
