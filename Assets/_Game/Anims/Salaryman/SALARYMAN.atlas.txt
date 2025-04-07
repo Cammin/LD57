@@ -2,72 +2,69 @@ SALARYMAN.png
 	size: 1024, 1024
 	filter: Linear, Linear
 arm_L
-	bounds: 303, 636, 119, 134
-	rotate: 90
+	bounds: 6, 330, 119, 134
 arm_R
-	bounds: 779, 568, 151, 116
+	bounds: 300, 528, 151, 116
 	offsets: 2, 1, 154, 118
 foot_L
-	bounds: 777, 487, 102, 75
+	bounds: 547, 548, 102, 75
 	offsets: 1, 1, 104, 77
 foot_R
-	bounds: 777, 487, 102, 75
+	bounds: 547, 548, 102, 75
 	offsets: 1, 1, 104, 77
 glasses
-	bounds: 784, 787, 219, 102
+	bounds: 192, 433, 219, 102
 	offsets: 7, 7, 230, 111
+	rotate: 90
 hair_piece_1
-	bounds: 689, 502, 110, 82
-	offsets: 2, 1, 113, 84
+	bounds: 457, 531, 113, 84
 	rotate: 90
 hair_piece_2
-	bounds: 6, 659, 65, 101
-	offsets: 1, 2, 68, 104
+	bounds: 803, 774, 68, 104
 	rotate: 90
 hair_piece_3
-	bounds: 6, 587, 75, 66
-	offsets: 1, 1, 77, 68
+	bounds: 699, 584, 77, 68
 hair_piece_4
-	bounds: 885, 472, 96, 70
-	offsets: 2, 1, 99, 72
+	bounds: 699, 658, 99, 72
 hair_piece_5
-	bounds: 113, 654, 82, 70
-	offsets: 1, 1, 84, 72
+	bounds: 300, 450, 84, 72
 hand_L
-	bounds: 577, 526, 106, 98
+	bounds: 691, 736, 106, 98
 	offsets: 1, 2, 108, 102
 hand_flashlight
-	bounds: 784, 895, 225, 114
+	bounds: 399, 408, 225, 114
 	offsets: 1, 1, 227, 116
 head
-	bounds: 6, 730, 291, 279
+	bounds: 6, 658, 291, 279
 	offsets: 1, 1, 293, 282
 leg_L
-	bounds: 443, 550, 100, 128
+	bounds: 557, 734, 100, 128
 	rotate: 90
 leg_R
-	bounds: 443, 656, 99, 136
+	bounds: 557, 629, 99, 136
 	rotate: 90
 light
-	bounds: 303, 761, 287, 248
+	bounds: 303, 650, 287, 248
 	offsets: 20, 16, 327, 281
-shadow
-	bounds: 697, 618, 205, 76
-	offsets: 1, 1, 207, 78
 	rotate: 90
+shadow
+	bounds: 188, 351, 205, 76
+	offsets: 1, 1, 207, 78
 shirt
-	bounds: 596, 829, 182, 180
+	bounds: 6, 470, 182, 180
 	offsets: 1, 1, 185, 182
+	rotate: 90
 suit_L
-	bounds: 596, 630, 95, 193
-	offsets: 1, 1, 97, 195
+	bounds: 557, 840, 97, 195
+	rotate: 90
 suit_R
-	bounds: 779, 690, 91, 193
-	offsets: 2, 1, 94, 195
+	bounds: 758, 848, 89, 179
+	offsets: 5, 0, 94, 195
 	rotate: 90
 tie_bot
-	bounds: 936, 548, 73, 136
+	bounds: 630, 406, 73, 136
 	offsets: 0, 0, 73, 142
 tie_top
-	bounds: 201, 673, 66, 51
+	bounds: 131, 398, 66, 51
 	offsets: 1, 1, 69, 53
+	rotate: 90
