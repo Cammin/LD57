@@ -41,6 +41,11 @@ public class GhostTransparent : GhostBehaviour, ILDtkImportedEntity
         }
     }
 
+    public override bool FindPlayerConditions()
+    {
+        return Restrict.Contains(Player.Instance.transform.position);
+    }
+
     public void OnLDtkImportEntity(EntityInstance entityInstance)
     {
         LDtkComponentEntity entity = GetComponent<LDtkComponentEntity>();
