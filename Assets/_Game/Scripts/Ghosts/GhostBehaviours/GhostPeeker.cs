@@ -64,7 +64,7 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
                 if (Ghost.CaptureInProgress)
                     yield break;
 
-                Projectile.SpawnProjectile(ProjectilePrefab, transform.position, Player.Instance.transform.position);
+                Projectile.SpawnProjectile(ProjectilePrefab, transform.position + Vector3.up * 0.8f, Player.Instance.transform.position);
 
                 yield return new WaitForSeconds(TimeBetweenProjectiles);
             }

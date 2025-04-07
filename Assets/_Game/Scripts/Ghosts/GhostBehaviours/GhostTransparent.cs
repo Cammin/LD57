@@ -9,7 +9,10 @@ public class GhostTransparent : GhostBehaviour, ILDtkImportedEntity
     
     public void Update()
     {
-        Ghost.BlockMovement = Player.Instance.flashlight.IsInLight(transform.position);
+        bool shone = Player.Instance.flashlight.IsInLight(transform.position);
+
+        Ghost.BlockMovement = shone;
+        Ghost.BlockActions = shone;
         
         Ghost.Animator.SetBool("Freeze", Ghost.BlockMovement);
         
