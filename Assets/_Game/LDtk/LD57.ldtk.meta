@@ -55,33 +55,43 @@ ScriptedImporter:
   - _key: ActivateFlashlightDrain
     _asset: {fileID: 7837875884405291839, guid: d36797076afc49241a2d4413f0852678, type: 3}
   - _key: Microwave
-    _asset: {instanceID: 0}
+    _asset: {fileID: 3403424458229727519, guid: 5dee7031cc4631843b578f38e6374f7c, type: 3}
   - _key: Computer
     _asset: {fileID: 7656051358299272442, guid: 49446dbe4fa813d40a67f5792011bd78, type: 3}
   - _key: WaterCooler
-    _asset: {instanceID: 0}
+    _asset: {fileID: 2895251672734955746, guid: c1482d1d6e5c30e4dbfcbd808221ba96, type: 3}
   - _key: ReplacementWater
-    _asset: {instanceID: 0}
+    _asset: {fileID: 1835723918993407660, guid: 5753fa8bae8e29f46b1836ddc1fe76e5, type: 3}
   - _key: Trashcan
-    _asset: {instanceID: 0}
+    _asset: {fileID: 4278495780263122193, guid: 1af939bd970988f4583ada852a5f7b77, type: 3}
   - _key: CoffeePot
-    _asset: {instanceID: 0}
+    _asset: {fileID: 5599632119725700999, guid: 7ed79f9046eb462479c348693647e24c, type: 3}
   - _key: Table
-    _asset: {instanceID: 0}
+    _asset: {fileID: 6282826612905115811, guid: f5ab9549b9b4820498ffe59a74b8a48e, type: 3}
   - _key: Fridge
-    _asset: {instanceID: 0}
+    _asset: {fileID: 8453901286009040052, guid: 46875cd8212dc0047ba2eea9c1ef3a51, type: 3}
   - _key: KitchenCounter
-    _asset: {instanceID: 0}
+    _asset: {fileID: 6407385035204198295, guid: 2d1c65f9b4adb7045861606adeb39f44, type: 3}
   - _key: DeskFan
-    _asset: {instanceID: 0}
+    _asset: {fileID: 8721812731234981284, guid: 8cd528d1ee17d4a47a405424b7fe8660, type: 3}
   - _key: Chair
-    _asset: {instanceID: 0}
-  - _key: CardboardBoxes
-    _asset: {instanceID: 0}
+    _asset: {fileID: 1565478469642791357, guid: 3b89eb1a4c1eca5419d7549100521352, type: 3}
+  - _key: CardboardBox
+    _asset: {fileID: 5301090996849591900, guid: 2d70a2391b2cbbd4b8c5f5892028e93b, type: 3}
   - _key: TackBoard
     _asset: {fileID: 2674132596178289302, guid: 6405f265eab785e4c8fcc4d05505f259, type: 3}
   - _key: Window
-    _asset: {instanceID: 0}
+    _asset: {fileID: 3281234095894594309, guid: 861dfecc690cca14ab758799b5e27d4c, type: 3}
+  - _key: ExitSign_Left
+    _asset: {fileID: 8903015368035518521, guid: 0611562292115aa49b84e73b14f74cbc, type: 3}
+  - _key: ExitSign_Up
+    _asset: {fileID: 7152729378609843282, guid: b76ae5fc7daa9c047ab60672b620ea11, type: 3}
+  - _key: ExitSign_Down
+    _asset: {fileID: 7965764830637461284, guid: c0ce279107834e349af16df96515b6f2, type: 3}
+  - _key: ExitSign_Right
+    _asset: {fileID: 200316564680549756, guid: 465e66ce9ab447340b3afb81a0a75c8b, type: 3}
+  - _key: Trash
+    _asset: {fileID: 8851769240184155000, guid: 0814ffa3684ebe34a9cbc0f99cb331f6, type: 3}
   _enumGenerate: 0
   _enumPath: 
   _enumNamespace: 
