@@ -885,12 +885,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Haunted, exhausted, underpaid - but home.
-
-    You collapse into bed
-    at 6AM...
-
-    Your alarm rings at 7... good job, I guess?'
+  m_text: "Haunted, exhausted, underpaid - but home.\r\nYou collapse into bed at
+    6AM...\r\nYour alarm rings at 7... \nA deep hour of rest, I guess?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a456b4326d9f0c44b571da542df32c9, type: 2}
   m_sharedMaterial: {fileID: -2392909206753964324, guid: 4a456b4326d9f0c44b571da542df32c9, type: 2}
@@ -924,7 +920,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1123,12 +1119,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'After a long day at work, I crack my knuckles, and begin to go home.
-
-    It''s
-    been a long work day. I bet I won''t get paid overtime...
-
-'
+  m_text: "After a long day at work, I crack my knuckles, and begin to go home.\nIt's
+    been a long work day. \nI bet I won't get paid overtime...\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a456b4326d9f0c44b571da542df32c9, type: 2}
   m_sharedMaterial: {fileID: -2392909206753964324, guid: 4a456b4326d9f0c44b571da542df32c9, type: 2}
@@ -1162,7 +1154,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
