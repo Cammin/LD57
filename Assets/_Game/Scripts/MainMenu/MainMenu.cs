@@ -18,10 +18,9 @@ public class MainMenu : MonoBehaviour
         
         
         //destroy music manager if it exists
-        MusicManager musicManager = MusicManager.Instance;
-        if (musicManager)
+        if (MusicManager.HasInstance)
         {
-            Destroy(musicManager.gameObject);
+            Destroy(MusicManager.Instance.gameObject);
         }
     }
 

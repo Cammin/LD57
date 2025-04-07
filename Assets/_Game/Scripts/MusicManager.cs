@@ -26,7 +26,7 @@ public class MusicManager : Singleton<MusicManager>
         {
             Ambience.Play();
         }
-        Ambience.DOFade(0.2f, 1);
+        Ambience.DOFade(0.05f, 1);
     }
 
     public void RanOutOfBattery()

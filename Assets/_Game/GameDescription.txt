@@ -3,7 +3,7 @@ DEEP HOUR
 In Deep Hour you play as an overworked salaryman trapped in the haunted depths of his office building long after everyone else has gone home. Inspired by the eerie liminality of the backrooms, the building stretches into surreal, endless corridors filled with ghostly remnants of corporate burnout.
 Armed with only a flickering flashlight, you must venture deeper room by room, using light to capture restless spirits. Face your fears, and descend into the depths of your own exhaustion... if you dare clock out.
 
-Made in 3 Days for Ludum Dare 57.
+Made in 3 Days for Ludum Dare 57. Theme: Depths
 
 Art: 
 Lucas Moreira
@@ -17,4 +17,5 @@ Brian Pimentel
 Level Design:
 Cameron Krebbers
 
-All Music/Sfx from OpenGameArt (CC0)
+All SFX from OpenGameArt (CC0)
+Music from OpenGameArt (Gundatsch - https://soundcloud.com/gundatsch)
