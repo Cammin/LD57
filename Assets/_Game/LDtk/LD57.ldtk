@@ -2693,8 +2693,8 @@
 			"exportToToc": false,
 			"allowOutOfBounds": false,
 			"doc": null,
-			"width": 28,
-			"height": 28,
+			"width": 20,
+			"height": 10,
 			"resizableX": false,
 			"resizableY": false,
 			"minWidth": null,
@@ -2728,8 +2728,8 @@
 			"exportToToc": false,
 			"allowOutOfBounds": false,
 			"doc": null,
-			"width": 28,
-			"height": 28,
+			"width": 20,
+			"height": 15,
 			"resizableX": false,
 			"resizableY": false,
 			"minWidth": null,
@@ -40602,7 +40602,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "Microwave",
-							"__grid": [86,77],
+							"__grid": [84,83],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40611,14 +40611,14 @@
 							"width": 28,
 							"height": 28,
 							"defUid": 119,
-							"px": [602,546],
+							"px": [588,588],
 							"fieldInstances": [],
-							"__worldX": 798,
-							"__worldY": 1806
+							"__worldX": 784,
+							"__worldY": 1848
 						},
 						{
 							"__identifier": "Microwave",
-							"__grid": [95,77],
+							"__grid": [92,83],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40627,14 +40627,14 @@
 							"width": 28,
 							"height": 28,
 							"defUid": 119,
-							"px": [665,546],
+							"px": [644,588],
 							"fieldInstances": [],
-							"__worldX": 861,
-							"__worldY": 1806
+							"__worldX": 840,
+							"__worldY": 1848
 						},
 						{
 							"__identifier": "Microwave",
-							"__grid": [92,80],
+							"__grid": [88,83],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40643,10 +40643,10 @@
 							"width": 28,
 							"height": 28,
 							"defUid": 119,
-							"px": [644,567],
+							"px": [616,588],
 							"fieldInstances": [],
-							"__worldX": 840,
-							"__worldY": 1827
+							"__worldX": 812,
+							"__worldY": 1848
 						},
 						{
 							"__identifier": "Microwave",
@@ -40698,50 +40698,18 @@
 						},
 						{
 							"__identifier": "ReplacementWater",
-							"__grid": [71,39],
-							"__pivot": [0,1],
-							"__tags": ["Decor"],
-							"__tile": null,
-							"__smartColor": "#FFFFFF",
-							"iid": "b694a060-1030-11f0-a549-6f319a421c32",
-							"width": 28,
-							"height": 28,
-							"defUid": 122,
-							"px": [497,280],
-							"fieldInstances": [],
-							"__worldX": 693,
-							"__worldY": 1540
-						},
-						{
-							"__identifier": "ReplacementWater",
 							"__grid": [57,39],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
 							"__smartColor": "#FFFFFF",
 							"iid": "b6f50fe0-1030-11f0-a549-35971e4ca5cf",
-							"width": 28,
-							"height": 28,
+							"width": 20,
+							"height": 10,
 							"defUid": 122,
 							"px": [399,280],
 							"fieldInstances": [],
 							"__worldX": 595,
-							"__worldY": 1540
-						},
-						{
-							"__identifier": "Trashcan",
-							"__grid": [88,39],
-							"__pivot": [0,1],
-							"__tags": ["Decor"],
-							"__tile": null,
-							"__smartColor": "#C0CBDC",
-							"iid": "b842eca0-1030-11f0-a549-4383143ddc68",
-							"width": 28,
-							"height": 28,
-							"defUid": 123,
-							"px": [616,280],
-							"fieldInstances": [],
-							"__worldX": 812,
 							"__worldY": 1540
 						},
 						{
@@ -40810,7 +40778,7 @@
 						},
 						{
 							"__identifier": "ExitSign_Left",
-							"__grid": [77,68],
+							"__grid": [78,69],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40819,14 +40787,14 @@
 							"width": 56,
 							"height": 28,
 							"defUid": 136,
-							"px": [539,483],
+							"px": [546,490],
 							"fieldInstances": [],
-							"__worldX": 735,
-							"__worldY": 1743
+							"__worldX": 742,
+							"__worldY": 1750
 						},
 						{
 							"__identifier": "ExitSign_Up",
-							"__grid": [88,67],
+							"__grid": [87,69],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40835,14 +40803,14 @@
 							"width": 56,
 							"height": 28,
 							"defUid": 137,
-							"px": [616,476],
+							"px": [609,490],
 							"fieldInstances": [],
-							"__worldX": 812,
-							"__worldY": 1736
+							"__worldX": 805,
+							"__worldY": 1750
 						},
 						{
 							"__identifier": "ExitSign_Down",
-							"__grid": [98,68],
+							"__grid": [96,69],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40851,14 +40819,14 @@
 							"width": 56,
 							"height": 28,
 							"defUid": 138,
-							"px": [686,483],
+							"px": [672,490],
 							"fieldInstances": [],
-							"__worldX": 882,
-							"__worldY": 1743
+							"__worldX": 868,
+							"__worldY": 1750
 						},
 						{
 							"__identifier": "ExitSign_Right",
-							"__grid": [109,69],
+							"__grid": [105,69],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40867,14 +40835,14 @@
 							"width": 56,
 							"height": 28,
 							"defUid": 139,
-							"px": [763,490],
+							"px": [735,490],
 							"fieldInstances": [],
-							"__worldX": 959,
+							"__worldX": 931,
 							"__worldY": 1750
 						},
 						{
 							"__identifier": "TackBoard",
-							"__grid": [48,71],
+							"__grid": [46,73],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40883,14 +40851,14 @@
 							"width": 28,
 							"height": 28,
 							"defUid": 131,
-							"px": [336,504],
+							"px": [322,518],
 							"fieldInstances": [],
-							"__worldX": 532,
-							"__worldY": 1764
+							"__worldX": 518,
+							"__worldY": 1778
 						},
 						{
 							"__identifier": "TackBoard",
-							"__grid": [40,71],
+							"__grid": [38,73],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -40899,10 +40867,10 @@
 							"width": 28,
 							"height": 28,
 							"defUid": 131,
-							"px": [280,504],
+							"px": [266,518],
 							"fieldInstances": [],
-							"__worldX": 476,
-							"__worldY": 1764
+							"__worldX": 462,
+							"__worldY": 1778
 						},
 						{
 							"__identifier": "CardboardBox",
@@ -41274,7 +41242,7 @@
 						},
 						{
 							"__identifier": "Window",
-							"__grid": [59,71],
+							"__grid": [54,73],
 							"__pivot": [0,1],
 							"__tags": ["Decor"],
 							"__tile": null,
@@ -41283,10 +41251,10 @@
 							"width": 32,
 							"height": 28,
 							"defUid": 132,
-							"px": [413,504],
+							"px": [378,518],
 							"fieldInstances": [],
-							"__worldX": 609,
-							"__worldY": 1764
+							"__worldX": 574,
+							"__worldY": 1778
 						},
 						{
 							"__identifier": "Computer",
@@ -41302,6 +41270,54 @@
 							"px": [168,280],
 							"fieldInstances": [],
 							"__worldX": 364,
+							"__worldY": 1540
+						},
+						{
+							"__identifier": "Trashcan",
+							"__grid": [89,39],
+							"__pivot": [0,1],
+							"__tags": ["Decor"],
+							"__tile": null,
+							"__smartColor": "#C0CBDC",
+							"iid": "2b2f0fc0-1030-11f0-a549-13f7f80180e3",
+							"width": 20,
+							"height": 15,
+							"defUid": 123,
+							"px": [623,280],
+							"fieldInstances": [],
+							"__worldX": 819,
+							"__worldY": 1540
+						},
+						{
+							"__identifier": "ReplacementWater",
+							"__grid": [72,39],
+							"__pivot": [0,1],
+							"__tags": ["Decor"],
+							"__tile": null,
+							"__smartColor": "#FFFFFF",
+							"iid": "4eb61010-1030-11f0-a549-a9fc30e46abf",
+							"width": 20,
+							"height": 10,
+							"defUid": 122,
+							"px": [504,280],
+							"fieldInstances": [],
+							"__worldX": 700,
+							"__worldY": 1540
+						},
+						{
+							"__identifier": "ReplacementWater",
+							"__grid": [69,39],
+							"__pivot": [0,1],
+							"__tags": ["Decor"],
+							"__tile": null,
+							"__smartColor": "#FFFFFF",
+							"iid": "5056a0b0-1030-11f0-a549-3954b54ddae7",
+							"width": 20,
+							"height": 10,
+							"defUid": 122,
+							"px": [483,280],
+							"fieldInstances": [],
+							"__worldX": 679,
 							"__worldY": 1540
 						}
 					]

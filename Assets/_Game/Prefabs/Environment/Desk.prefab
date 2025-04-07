@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c2e9cdbe1348b1a945baaa9c0e3ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yPointOffset: -0.96
+  yPointOffset: 0.06
 --- !u!61 &5763252517965975176
 BoxCollider2D:
   m_ObjectHideFlags: 0
