@@ -1517,7 +1517,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4706323649541809328, guid: a9dee99ed72c0f8498fb785c4d5f85dc, type: 3}
       propertyPath: m_Name
-      value: Hud
+      value: ScreenFade
       objectReference: {fileID: 0}
     - target: {fileID: 5125981763639882398, guid: a9dee99ed72c0f8498fb785c4d5f85dc, type: 3}
       propertyPath: m_Pivot.x

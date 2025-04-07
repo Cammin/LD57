@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
         FadeManager.Instance.FadeIn(Color.black, () =>
         {
             SceneManager.LoadScene(GameplayScene.ScenePath);
-        }, 1.5f);
+        }, 1f);
         
     }
 
