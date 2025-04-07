@@ -14,4 +14,9 @@ public abstract class GhostBehaviour : MonoBehaviour
     {
         Debug.Log("Ghost action!");
     }
+
+    public virtual bool FindPlayerConditions()
+    {
+        return true;
+    }
 }
