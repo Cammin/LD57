@@ -33,6 +33,7 @@ public sealed class GhostBase : MonoBehaviour
 
     public const float DefaultSpeed = 1000f;
     public const float DefaultCaptureForce = 1000f;
+    public const float CaptureProgressDecay = 5f;
 
     public bool CaptureInProgress => Player.Instance.GhostTarget == this;
 
@@ -57,7 +58,7 @@ public sealed class GhostBase : MonoBehaviour
     {
         if (CooldownRemaining > 0) CooldownRemaining -= Time.deltaTime;
 
-        if (CaptureProgress > 0) CaptureProgress -= Time.deltaTime;
+        if (CaptureProgress > 0) CaptureProgress -= CaptureProgressDecay * Time.deltaTime;
 
         if (PlayerFound || CaptureInProgress)
         {
@@ -114,7 +115,7 @@ public sealed class GhostBase : MonoBehaviour
                 var currentDistance = Vector2.Distance(Player.Instance.transform.position, transform.position);
 
                 var distanceModifier = 100f / (Player.CaptureDistanceForQTE - 1);
-                var newDistance = Player.CaptureDistanceForQTE - CaptureProgress / (distanceModifier);
+                var newDistance = 2f + Player.CaptureDistanceForQTE - CaptureProgress / (distanceModifier);
 
                 if (currentDistance > newDistance)
                 {

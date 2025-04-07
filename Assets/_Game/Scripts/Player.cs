@@ -51,6 +51,8 @@ public class Player : Singleton<Player>
 
     public GameObject CaptureParticles;
 
+    public Transform PulseTextSpawnPoint;
+
     public const float CaptureCastRadius = 3f;
     public const float CaptureCastLength = 10f;
     public const float CaptureDistanceForQTE = 4f;
@@ -347,8 +349,9 @@ public class Player : Singleton<Player>
     
     public void AddScore(int score)
     {
+        GameManager.Instance.CreatePulseText($"+{score} Score!", Color.white);
+
         Score += score;
-        Debug.Log("Score: " + Score);
         //update UI etc
     }
 

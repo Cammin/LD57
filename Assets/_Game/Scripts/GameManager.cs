@@ -15,6 +15,8 @@ public class GameManager : Singleton<GameManager>
     public Light2D GlobalLight;
     public Volume ColourVolume;
 
+    public PulseText PulseTextPrefab;
+
     [NonSerialized] public Transform OverrideCameraTarget;
     private Tween CurrentZoomTween;
 
@@ -64,5 +66,12 @@ public class GameManager : Singleton<GameManager>
     public void CameraResetZoom()
     {
         CameraZoom(DefaultZoom);
+    }
+
+    public void CreatePulseText(string text, Color color)
+    {
+        var pulse = Instantiate(PulseTextPrefab);
+        pulse.transform.position = Player.Instance.PulseTextSpawnPoint.position;
+        pulse.ShowText(text, color);
     }
 }
