@@ -35,7 +35,7 @@ public class BigMonster : Singleton<BigMonster>
         {
             Rb.linearVelocity = dirToTarget.normalized * MoveSpeed;
             Vector3 scale = Model.transform.localScale;
-            float flipValue = dirToTarget.x < 0 ? 1 : -1;
+            float flipValue = dirToTarget.x < 0 ? -1 : 1;
             scale.x = Mathf.Abs(scale.x) * flipValue;
             Model.transform.localScale = scale;
         }
