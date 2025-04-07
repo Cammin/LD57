@@ -18079,22 +18079,6 @@
 							"__worldY": 1008
 						},
 						{
-							"__identifier": "Chair",
-							"__grid": [42,20],
-							"__pivot": [0,1],
-							"__tags": ["Decor"],
-							"__tile": null,
-							"__smartColor": "#F77622",
-							"iid": "1c3e4e50-1030-11f0-a549-27c3b86616d1",
-							"width": 21,
-							"height": 14,
-							"defUid": 129,
-							"px": [294,147],
-							"fieldInstances": [],
-							"__worldX": 3486,
-							"__worldY": 1043
-						},
-						{
 							"__identifier": "CardboardBox",
 							"__grid": [10,58],
 							"__pivot": [0,1],
