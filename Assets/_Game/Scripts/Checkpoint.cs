@@ -80,6 +80,9 @@ public class Checkpoint : MonoBehaviour, ILDtkImportedEntity, ILDtkImportedField
 
     public void OnLDtkImportFields(LDtkFields fields)
     {
-        fields.TryGetBool("InvincibleBatteryOnSpawn", out InvincibleBatteryOnSpawn);
+        if (fields.TryGetBool("InvincibleBatteryOnSpawn", out var inv))
+        {
+            InvincibleBatteryOnSpawn = inv;
+        }
     }
 }
