@@ -1919,18 +1919,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3587032220806244649, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.426143
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587032220806244649, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.426143
-      objectReference: {fileID: 0}
-    - target: {fileID: 3587032220806244649, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.6983
-      objectReference: {fileID: 0}
     - target: {fileID: 3625104718026779688, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.99
@@ -1971,25 +1959,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6797408072210317865, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
-      propertyPath: m_fontColor.a
-      value: 0
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.718094
       objectReference: {fileID: 0}
-    - target: {fileID: 6797408072210317865, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797408072210317865, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797408072210317865, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797408072210317865, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 16777215
+    - target: {fileID: 5419104803312583288, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06396476
       objectReference: {fileID: 0}
     - target: {fileID: 6998365710397493885, guid: fd1954c0a17da424aafaad67e0d2af2e, type: 3}
       propertyPath: m_Mesh

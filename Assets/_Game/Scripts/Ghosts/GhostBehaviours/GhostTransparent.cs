@@ -7,19 +7,20 @@ public class GhostTransparent : GhostBehaviour
     public void Update()
     {
         Ghost.BlockMovement = Player.Instance.flashlight.IsInLight(transform.position);
+        
+        Ghost.Animator.SetBool("Freeze", Ghost.BlockMovement);
     }
 
     public override void GhostAction()
     {
         base.GhostAction();
 
-        //TODO animation
-
         StartCoroutine(CoAttack());
 
         IEnumerator CoAttack()
         {
-            yield return new WaitForSeconds(1); //TODO anim time
+            Ghost.Animator.SetTrigger("attack");
+            yield return new WaitForSeconds(0.45f);
 
             if (Vector2.Distance(Player.Instance.transform.position, transform.position) <= Ghost.AttackPlayerRange)
             {
