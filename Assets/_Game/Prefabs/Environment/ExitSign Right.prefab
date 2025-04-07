@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3374628533619466616, guid: 0898f805a2a423a46a5b3c89f3d5e22c, type: 3}
       propertyPath: m_Name
-      value: ExitSign
+      value: ExitSign Right
       objectReference: {fileID: 0}
     - target: {fileID: 4046490789433998841, guid: 0898f805a2a423a46a5b3c89f3d5e22c, type: 3}
       propertyPath: m_LocalPosition.x

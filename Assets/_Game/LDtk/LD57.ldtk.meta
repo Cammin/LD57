@@ -57,7 +57,7 @@ ScriptedImporter:
   - _key: Microwave
     _asset: {instanceID: 0}
   - _key: Computer
-    _asset: {instanceID: 0}
+    _asset: {fileID: 7656051358299272442, guid: 49446dbe4fa813d40a67f5792011bd78, type: 3}
   - _key: WaterCooler
     _asset: {instanceID: 0}
   - _key: ReplacementWater
@@ -79,7 +79,7 @@ ScriptedImporter:
   - _key: CardboardBoxes
     _asset: {instanceID: 0}
   - _key: TackBoard
-    _asset: {instanceID: 0}
+    _asset: {fileID: 2674132596178289302, guid: 6405f265eab785e4c8fcc4d05505f259, type: 3}
   - _key: Window
     _asset: {instanceID: 0}
   _enumGenerate: 0
