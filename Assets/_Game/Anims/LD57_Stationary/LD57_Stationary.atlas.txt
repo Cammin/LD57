@@ -1,0 +1,46 @@
+LD57_Stationary.png
+	size: 1024, 1024
+	filter: Linear, Linear
+Shadow
+	bounds: 328, 289, 276, 100
+	offsets: 1, 1, 278, 102
+	rotate: 90
+blackblob1
+	bounds: 411, 583, 49, 55
+	offsets: 1, 1, 51, 57
+blackblob2
+	bounds: 6, 6, 32, 37
+	offsets: 2, 1, 35, 39
+	rotate: 90
+blackblob3
+	bounds: 501, 669, 70, 92
+	offsets: 1, 1, 72, 94
+body
+	bounds: 6, 198, 316, 367
+	offsets: 1, 2, 319, 371
+bodybottom
+	bounds: 6, 44, 293, 148
+	offsets: 1, 2, 295, 152
+eyel
+	bounds: 411, 880, 138, 124
+	offsets: 2, 2, 142, 129
+	rotate: 90
+eyer
+	bounds: 411, 644, 84, 117
+	offsets: 2, 2, 88, 120
+glow
+	bounds: 6, 571, 399, 447
+	offsets: 7, 6, 412, 460
+mouth
+	bounds: 328, 222, 180, 61
+	offsets: 2, 2, 183, 64
+mouthshout
+	bounds: 305, 54, 207, 138
+	offsets: 2, 1, 211, 140
+shouteyel
+	bounds: 411, 767, 107, 93
+	offsets: 18, 10, 127, 104
+	rotate: 90
+shouteyer
+	bounds: 434, 483, 77, 94
+	offsets: 2, 2, 80, 97
