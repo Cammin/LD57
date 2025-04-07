@@ -5,10 +5,14 @@ using UnityEngine.Rendering.Universal;
 
 public class CustomLevel : MonoBehaviour, ILDtkImportedFields, ILDtkImportedLevel
 {
-    public float LightStrength = 1f;
+    public bool OverrideLight = false;
+    public float OverrideLightStrength = 1f;
+    public int levelIndex;
+    public const int maxLevel = 20;
+    
     public Volume Volume;
     public BoxCollider LightingArea;
-    public Light2D GlobalLight;
+    public Light2D GlobalLight => GameManager.Instance.GlobalLight;
 
     private void Start()
     {
@@ -25,13 +29,21 @@ public class CustomLevel : MonoBehaviour, ILDtkImportedFields, ILDtkImportedLeve
 
     public void SetVolumeAmountFlashColor()
     {
-        Debug.Log($"set to! {LightStrength}");
-        GlobalLight = GameManager.Instance.GlobalLight;
-        GlobalLight.intensity = LightStrength;
-        Volume.weight = LightStrength;
+        float factor = (levelIndex / (float)maxLevel);
+        if (OverrideLight)
+        {
+            factor = OverrideLightStrength;
+        }
+        factor = 1-factor;
+        
+        float lightValue = Mathf.Lerp(0.01f, 0.1f, factor);
+        
+        
+        
+        Debug.Log($"set to! levelIndex: {levelIndex}, factor:{factor}, lightValue:{lightValue}");
+        GlobalLight.intensity = lightValue;
+        Volume.weight = lightValue;
     }
-    
-    
 
     public void OnLDtkImportLevel(Level level)
     {
@@ -43,7 +55,14 @@ public class CustomLevel : MonoBehaviour, ILDtkImportedFields, ILDtkImportedLeve
 
     public void OnLDtkImportFields(LDtkFields fields)
     {
-        LightStrength = fields.GetFloat("LightStrength");
+        levelIndex = fields.GetInt("LevelOrder");
+        
+        OverrideLight = !fields.IsNull("LightStrength");
+
+        if (OverrideLight)
+        {
+            OverrideLightStrength = fields.GetFloat("LightStrength");
+        }
         
     }
 }

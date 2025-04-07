@@ -11,7 +11,7 @@
 	"iid": "46041160-e920-11ef-ac58-81145f378f32",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 135,
+	"nextUid": 136,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "Free",
@@ -3108,7 +3108,7 @@
 			"uid": 28,
 			"type": "F_Float",
 			"isArray": false,
-			"canBeNull": false,
+			"canBeNull": true,
 			"arrayMinLength": null,
 			"arrayMaxLength": null,
 			"editorDisplayMode": "NameAndValue",
@@ -3128,7 +3128,44 @@
 			"max": 1,
 			"regex": null,
 			"acceptFileTypes": null,
-			"defaultOverride": { "id": "V_Float", "params": [0.1] },
+			"defaultOverride": null,
+			"textLanguageMode": null,
+			"symmetricalRef": false,
+			"autoChainRef": true,
+			"allowOutOfLevelRef": true,
+			"allowedRefs": "OnlySame",
+			"allowedRefsEntityUid": null,
+			"allowedRefTags": [],
+			"tilesetUid": null
+		},
+		{
+			"identifier": "LevelOrder",
+			"doc": null,
+			"__type": "Int",
+			"uid": 135,
+			"type": "F_Int",
+			"isArray": false,
+			"canBeNull": false,
+			"arrayMinLength": null,
+			"arrayMaxLength": null,
+			"editorDisplayMode": "Hidden",
+			"editorDisplayScale": 1,
+			"editorDisplayPos": "Above",
+			"editorLinkStyle": "StraightArrow",
+			"editorDisplayColor": null,
+			"editorAlwaysShow": false,
+			"editorShowInWorld": true,
+			"editorCutLongValues": true,
+			"editorTextSuffix": null,
+			"editorTextPrefix": null,
+			"useForSmartColor": false,
+			"exportToToc": false,
+			"searchable": false,
+			"min": null,
+			"max": null,
+			"regex": null,
+			"acceptFileTypes": null,
+			"defaultOverride": null,
 			"textLanguageMode": null,
 			"symmetricalRef": false,
 			"autoChainRef": true,
@@ -3159,7 +3196,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [{ "id": "V_Float", "params": [0.1] }] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.8, "__tile": null, "defUid": 28, "realEditorValues": [{ "id": "V_Float", "params": [0.8] }] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 20, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [20] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -4459,7 +4499,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 0, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [0] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -4597,7 +4640,7 @@
 							"px": [952,812],
 							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Ah, it's the end of the day.\nI can move with the the WASD keys or the arrow keys.", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["Ah, it's the end of the day.\nI can move with the the WASD keys or the arrow keys."]
+								"params": ["Ah, it's the end of the day.\\nI can move with the the WASD keys or the arrow keys."]
 							}] }],
 							"__worldX": -364,
 							"__worldY": 812
@@ -8370,7 +8413,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 1, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -8476,7 +8522,7 @@
 							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Wait, what's this ghost? \nMaybe I can get rid of it by aiming my flashlight at it with the mouse and click.", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
 								"params": [
-									"Wait, what's this ghost? \nMaybe I can get rid of it by aiming my flashlight at it with the mouse and click."
+									"Wait, what's this ghost? \\nMaybe I can get rid of it by aiming my flashlight at it with the mouse and click."
 								]
 							}] }],
 							"__worldX": 112,
@@ -9485,7 +9531,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 2, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [2] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -9591,7 +9640,7 @@
 							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Another ghost! This one looks like it will shoot at me.\nThe door over there seems like its locked unless I do something...", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
 								"params": [
-									"Another ghost! This one looks like it will shoot at me.\nThe door over there seems like its locked unless I do something..."
+									"Another ghost! This one looks like it will shoot at me.\\nThe door over there seems like its locked unless I do something..."
 								]
 							}] }],
 							"__worldX": 924,
@@ -11244,7 +11293,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 4, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [4] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -13269,7 +13321,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 5, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [5] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -15390,7 +15445,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 6, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [6] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -16807,7 +16865,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 7, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [7] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -18104,7 +18165,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.2, "__tile": null, "defUid": 28, "realEditorValues": [{ "id": "V_Float", "params": [0.2] }] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [null] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 8, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [8] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -19833,7 +19897,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 9, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [9] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -21187,7 +21254,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 11, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [11] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -22925,7 +22995,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 12, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [12] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -24346,7 +24419,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 13, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [13] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -26041,7 +26117,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 14, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [14] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -27225,7 +27304,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 15, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -28762,7 +28844,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 16, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [16] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -29885,7 +29970,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 17, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [17] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -31822,7 +31910,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 18, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [18] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -33852,7 +33943,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 19, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [19] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -35598,7 +35692,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 10, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -37495,7 +37592,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 3, "__tile": null, "defUid": 135, "realEditorValues": [{ "id": "V_Int", "params": [3] }] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -37577,7 +37677,7 @@
 							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "My flashlight is running out pretty quick. \nBetter grab these batteries just in case something happens...", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
 								"params": [
-									"My flashlight is running out pretty quick. \nBetter grab these batteries just in case something happens..."
+									"My flashlight is running out pretty quick. \\nBetter grab these batteries just in case something happens..."
 								]
 							}] }],
 							"__worldX": 952,
@@ -38332,7 +38432,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 0, "__tile": null, "defUid": 135, "realEditorValues": [] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",
@@ -38814,7 +38917,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LightStrength", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 28, "realEditorValues": [] }],
+			"fieldInstances": [
+				{ "__identifier": "LightStrength", "__type": "Float", "__value": null, "__tile": null, "defUid": 28, "realEditorValues": [] },
+				{ "__identifier": "LevelOrder", "__type": "Int", "__value": 0, "__tile": null, "defUid": 135, "realEditorValues": [] }
+			],
 			"layerInstances": [
 				{
 					"__identifier": "Tiles",

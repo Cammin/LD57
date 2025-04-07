@@ -54,6 +54,34 @@ ScriptedImporter:
     _asset: {fileID: 3572396254277453792, guid: 7765dabe6baf8164dbf9a5266153aa76, type: 3}
   - _key: ActivateFlashlightDrain
     _asset: {fileID: 7837875884405291839, guid: d36797076afc49241a2d4413f0852678, type: 3}
+  - _key: Microwave
+    _asset: {instanceID: 0}
+  - _key: Computer
+    _asset: {instanceID: 0}
+  - _key: WaterCooler
+    _asset: {instanceID: 0}
+  - _key: ReplacementWater
+    _asset: {instanceID: 0}
+  - _key: Trashcan
+    _asset: {instanceID: 0}
+  - _key: CoffeePot
+    _asset: {instanceID: 0}
+  - _key: Table
+    _asset: {instanceID: 0}
+  - _key: Fridge
+    _asset: {instanceID: 0}
+  - _key: KitchenCounter
+    _asset: {instanceID: 0}
+  - _key: DeskFan
+    _asset: {instanceID: 0}
+  - _key: Chair
+    _asset: {instanceID: 0}
+  - _key: CardboardBoxes
+    _asset: {instanceID: 0}
+  - _key: TackBoard
+    _asset: {instanceID: 0}
+  - _key: Window
+    _asset: {instanceID: 0}
   _enumGenerate: 0
   _enumPath: 
   _enumNamespace: 
