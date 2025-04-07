@@ -5198,6 +5198,7 @@ GameObject:
   - component: {fileID: 2679861950500477558}
   - component: {fileID: 8852203125083815362}
   - component: {fileID: 9073485527261393890}
+  - component: {fileID: 5364099939624252555}
   m_Layer: 0
   m_Name: BigMonster_Art
   m_TagString: Untagged
@@ -5259,6 +5260,19 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &5364099939624252555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5448485270532643311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c2e9cdbe1348b1a945baaa9c0e3ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yPointOffset: -3.3
 --- !u!1 &5748761603458160431
 GameObject:
   m_ObjectHideFlags: 0
