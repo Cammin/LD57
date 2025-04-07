@@ -12630,11 +12630,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7841566913875065177, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.54
+      value: 56.25
       objectReference: {fileID: 0}
     - target: {fileID: 7841566913875065177, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.06
+      value: 28.84
       objectReference: {fileID: 0}
     - target: {fileID: 7851111562031955412, guid: d1f3ca1d6cfdbad41837f743fea2c126, type: 3}
       propertyPath: m_Mesh
@@ -12835,6 +12835,7 @@ MonoBehaviour:
   Camera: {fileID: 1247739888}
   GlobalLight: {fileID: 1386915201}
   ColourVolume: {fileID: 1193812761}
+  PulseTextPrefab: {fileID: 6396261744277052891, guid: f4d296c9741cf224dbc8b89c892ddebb, type: 3}
 --- !u!4 &994494385
 Transform:
   m_ObjectHideFlags: 0

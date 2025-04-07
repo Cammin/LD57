@@ -185,6 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8558392212383569367}
+  - component: {fileID: 6396261744277052891}
   m_Layer: 0
   m_Name: PulseText
   m_TagString: Untagged
@@ -208,3 +209,19 @@ Transform:
   - {fileID: 7887443215442496132}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6396261744277052891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8103463354862164903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213c28b7712ffd140ab85ad1fe64446f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 4992160482970079812}
+  VerticalDistance: 1
+  Duration: 1
+  DestinationRandomOffset: {x: 0.1, y: 0.1}

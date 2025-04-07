@@ -47,6 +47,7 @@ public class Checkpoint : MonoBehaviour, ILDtkImportedEntity
                 Drink.Play();
                 Anim.SetTrigger("collect");
                 GameManager.Instance.ImpulseColourVolume(Color.green);
+                GameManager.Instance.CreatePulseText("Checkpoint!", Color.green);
                 Destroy(gameObject, 4);
             }
             else
