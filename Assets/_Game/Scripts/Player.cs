@@ -412,7 +412,7 @@ public class Player : Singleton<Player>
     public TMP_Text DialogueText;
 
     private Tween DialogueTween;
-    private Camera _camera;
+    public Camera _camera;
 
     public void SetDialogueText(string content)
     {
