@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      deephourslogo_0: -7150182813664775280
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
