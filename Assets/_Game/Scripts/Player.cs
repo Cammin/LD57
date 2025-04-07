@@ -98,10 +98,8 @@ public class Player : Singleton<Player>
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     GhostTarget.CaptureGhostAddProgress();
-
                 }
             }
-
             return;
         }
 
@@ -111,7 +109,7 @@ public class Player : Singleton<Player>
         
         InvincibilityTime -= Time.deltaTime;
 
-        CaptureActive = Input.GetMouseButton(0);
+        CaptureActive = Input.GetMouseButton(0) && !IsEmpty;
 
         if (CaptureActive)
         {

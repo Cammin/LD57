@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
 public sealed class GhostBase : MonoBehaviour
@@ -48,6 +49,11 @@ public sealed class GhostBase : MonoBehaviour
     [NonSerialized] private float CooldownRemaining;
     [NonSerialized] private bool Destroying;
 
+    public AudioSource SfxSuckStart;
+    public AudioSource SfxSuckDefeat;
+    public AudioSource SfxShoot;
+    
+    
     private void Start()
     {
         //In case it isn't assigned in the Inspector.
@@ -120,14 +126,14 @@ public sealed class GhostBase : MonoBehaviour
                 if (currentDistance > newDistance)
                 {
                     var direction = (Player.Instance.transform.position - transform.position).normalized;
-                    Rigidbody.AddForce(direction * currentDistance * DefaultCaptureForce * Time.deltaTime * Player.Instance.moveSpeed / 2f);
+                    Rigidbody.AddForce(direction * (currentDistance * DefaultCaptureForce * Time.deltaTime * Player.Instance.moveSpeed) / 2f);
                 }
             }
 
             if (!Player.Instance.CaptureQTEActive)
             {
                 var direction = (Player.Instance.transform.position - transform.position).normalized;
-                Rigidbody.AddForce(direction * CaptureForceModifier * DefaultCaptureForce * Time.deltaTime);
+                Rigidbody.AddForce(direction * (CaptureForceModifier * DefaultCaptureForce * Time.deltaTime));
             }
         }
         else if (!BlockMovement)
@@ -138,7 +144,7 @@ public sealed class GhostBase : MonoBehaviour
                 if (Vector2.Distance(OverrideDestination, transform.position) > .01f)
                 {
                     var direction = (OverrideDestination - transform.position).normalized;
-                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
                 }
                 else
                 {
@@ -153,12 +159,12 @@ public sealed class GhostBase : MonoBehaviour
                 if (Vector2.Distance(Player.Instance.transform.position, transform.position) > StopAtDistance)
                 {
                     var direction = (Player.Instance.transform.position - transform.position).normalized;
-                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
                 }
                 else if (RetreatIfTooClose)
                 {
                     var direction = (transform.position - Player.Instance.transform.position).normalized;
-                    Rigidbody.AddForce(direction * MoveSpeedModifier * DefaultSpeed * Time.deltaTime);
+                    Rigidbody.AddForce(direction * (MoveSpeedModifier * DefaultSpeed * Time.deltaTime));
                 }
             }
         }
@@ -191,6 +197,7 @@ public sealed class GhostBase : MonoBehaviour
         BlockMovement = true;
 
         Animator.SetTrigger("suck");
+        SfxSuckStart.Play();
 
         GameManager.Instance.CameraZoom(4);
         GameManager.Instance.OverrideCameraTarget = transform;
@@ -211,6 +218,7 @@ public sealed class GhostBase : MonoBehaviour
         Destroying = true;
 
         Animator.SetTrigger("die");
+        SfxSuckDefeat.Play();
 
         StartCoroutine(CoCapture());
 
@@ -231,7 +239,13 @@ public sealed class GhostBase : MonoBehaviour
 
             GameManager.Instance.CameraResetZoom();
 
-            Destroy(gameObject);
+            //destory after some time.
+            Light2D light2 = GetComponentInChildren<Light2D>();
+            if (light2)
+            {
+                light2.enabled = false;
+            }
+            Destroy(gameObject, 1);
         }
     }
 }

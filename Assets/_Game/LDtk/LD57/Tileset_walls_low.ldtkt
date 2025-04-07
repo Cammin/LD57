@@ -1,11 +1,11 @@
 {
   "Rects": null,
   "Def": {
-    "__cHei": 3,
+    "__cHei": 4,
     "__cWid": 8,
     "cachedPixelData": {
-      "opaqueTiles": "001100110001001111010011",
-      "averageColors": "01030203f101f001f1010000f001f10103050305f102f102f1020000f000f001f101f101f877f978f8770000f877f877"
+      "opaqueTiles": "00110011000100111111001100111011",
+      "averageColors": "01030203f101f001f1010000f001f10103050305f102f102f1020000f000f001f101f101f867f977f8670000f977f97700000000fa87fa87fa870000fa87fa87"
     },
     "customData": [
 
@@ -16,7 +16,7 @@
     ],
     "identifier": "Tileset_walls_low",
     "padding": 0,
-    "pxHei": 84,
+    "pxHei": 112,
     "pxWid": 224,
     "relPath": "atlas/tileset_walls_low.png",
     "savedSelections": [

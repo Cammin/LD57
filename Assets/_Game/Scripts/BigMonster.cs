@@ -9,10 +9,13 @@ public class BigMonster : Singleton<BigMonster>
 
     public GameObject Model;
     public Rigidbody2D Rb;
-    public float MoveSpeed;
+    public float ChaseSpeed = 0.75f;
+    public float RetreatSpeed = 1.5f;
     
-    public Transform Target => Player.Instance.IsEmpty ? Player.Instance.transform : LurkingPosition;
-
+    public bool IsChasing => Player.Instance.IsEmpty;
+    public Transform Target => IsChasing ? Player.Instance.transform : LurkingPosition;
+    private float MoveSpeed => IsChasing ? ChaseSpeed : RetreatSpeed;
+    
     private IEnumerator Start()
     {
         for (int i = 0; i < 10; i++)
