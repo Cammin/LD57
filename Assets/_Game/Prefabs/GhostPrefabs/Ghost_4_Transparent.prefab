@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: MoveSpeedModifier
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6316611212012778301, guid: 1afebe52afdb5ad4882644051069af7c, type: 3}
       propertyPath: CaptureFlashColor.b
@@ -146,3 +146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ghost: {fileID: 0}
+  Restrict:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
