@@ -3262,9 +3262,9 @@
 							"height": 224,
 							"defUid": 32,
 							"px": [140,84],
-							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Ah finally! I can clock out with E.", "__tile": null, "defUid": 35, "realEditorValues": [{
+							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Ah finally! I can clock out with Spacebar.", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["Ah finally! I can clock out with E."]
+								"params": ["Ah finally! I can clock out with Spacebar."]
 							}] }],
 							"__worldX": 7308,
 							"__worldY": 84
@@ -15525,9 +15525,9 @@
 							"height": 224,
 							"defUid": 32,
 							"px": [532,168],
-							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Hmm, that ghost i just got rid of seems to pursue me.", "__tile": null, "defUid": 35, "realEditorValues": [{
+							"fieldInstances": [{ "__identifier": "msg", "__type": "Multilines", "__value": "Hmm, that ghost seems to pursue me.", "__tile": null, "defUid": 35, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["Hmm, that ghost i just got rid of seems to pursue me."]
+								"params": ["Hmm, that ghost seems to pursue me."]
 							}] }],
 							"__worldX": 3724,
 							"__worldY": 1064

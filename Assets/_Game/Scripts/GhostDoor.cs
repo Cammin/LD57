@@ -47,7 +47,7 @@ public class GhostDoor : MonoBehaviour, ILDtkImportedFields
                 Open1.SetActive(true);
                 Open2.SetActive(true);
                 
-                Destroy(gameObject, 1f);
+                Destroy(gameObject, 2f);
             }
         }
     }

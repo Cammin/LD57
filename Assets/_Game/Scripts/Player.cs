@@ -43,6 +43,8 @@ public class Player : Singleton<Player>
     public AudioSource SfxImpact;
     public AudioSource SfxDeath;
     public AudioSource SfxFlashlightEmpty;
+    public AudioSource SfxQteMash;
+    public AudioSource SfxVacuumLoop;
     
     public bool IsEmpty => BatteryLifeRemaining <= 0;
     public bool IsEmptyLastFrame;
@@ -75,6 +77,8 @@ public class Player : Singleton<Player>
         BatteryLifeRemaining = MaxBatteryLife;
 
         DialogueText.color = new Color(1, 1, 1, 0);
+
+        //SfxVacuumLoop.volume = 0;
     }
 
     private void Update()
@@ -102,6 +106,7 @@ public class Player : Singleton<Player>
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     GhostTarget.CaptureGhostAddProgress();
+                    SfxQteMash.Play();
                 }
             }
             return;
@@ -113,8 +118,15 @@ public class Player : Singleton<Player>
         
         InvincibilityTime -= Time.deltaTime;
 
+        bool prevCaptureActive = CaptureActive;
         CaptureActive = Input.GetMouseButton(0) && !IsEmpty;
 
+        if (CaptureActive != prevCaptureActive)
+        {
+            Debug.Log("Changed vacuum state");
+            ChangedVacuumState();
+        }
+        
         if (CaptureActive)
         {
             if (!GhostTarget)
@@ -132,6 +144,25 @@ public class Player : Singleton<Player>
         else
         {
             GhostTarget = null;
+        }
+    }
+
+    private Tween VacuumTween;
+    
+    private void ChangedVacuumState()
+    {
+        VacuumTween?.Kill();
+        
+        if (CaptureActive)
+        {
+            SfxVacuumLoop.Play();
+            
+            
+            VacuumTween = SfxVacuumLoop.DOFade(1, 0.2f);
+        }
+        else
+        {
+            VacuumTween = SfxVacuumLoop.DOFade(0, 0.2f);
         }
     }
 

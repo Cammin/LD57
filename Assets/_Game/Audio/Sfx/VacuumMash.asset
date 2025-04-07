@@ -6,13 +6,13 @@ AudioRandomContainer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VacuumSuckLoop
-  m_Volume: -12.6
-  m_Pitch: 984
+  m_Name: VacuumMash
+  m_Volume: -5.4
+  m_Pitch: 0
   m_AutomaticTriggerTime: 0
   m_LoopCount: 1
   m_VolumeRandomizationRange: {x: 0, y: 0}
-  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: -170.06056, y: 193.93944}
   m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
   m_LoopCountRandomizationRange: {x: 0, y: 0}
   m_Elements:
@@ -23,7 +23,7 @@ AudioRandomContainer:
   m_AutomaticTriggerMode: 1
   m_LoopMode: 2
   m_VolumeRandomizationEnabled: 0
-  m_PitchRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 1
   m_AutomaticTriggerTimeRandomizationEnabled: 0
   m_LoopCountRandomizationEnabled: 0
 --- !u!1233149941 &6728895258079378465
@@ -32,7 +32,7 @@ AudioContainerElement:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FlameIdle_{6728895258079378465}
-  m_AudioClip: {fileID: 8300000, guid: 9b811f2b16f720248a94d3b05959cda0, type: 3}
+  m_Name: sfx100v2_misc_14_{6728895258079378465}
+  m_AudioClip: {fileID: 8300000, guid: 296221f969995264b8ea3b50e2365760, type: 3}
   m_Volume: 0
   m_Enabled: 1

@@ -1,55 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1233149941 &-8703326412320311412
-AudioContainerElement:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: door-03_{-8703326412320311412}
-  m_AudioClip: {fileID: 8300000, guid: cc6a6a529cd09bb42afaae83317acce7, type: 3}
-  m_Volume: 0
-  m_Enabled: 0
---- !u!1233149941 &-5218475596691201078
-AudioContainerElement:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: door-04_{-5218475596691201078}
-  m_AudioClip: {fileID: 8300000, guid: 88b203588a435d64eb472a792be39b23, type: 3}
-  m_Volume: 0
-  m_Enabled: 0
---- !u!1233149941 &-2985130779416162925
-AudioContainerElement:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: door-06_{-2985130779416162925}
-  m_AudioClip: {fileID: 8300000, guid: 339813b21c0073048950624a1f2ae358, type: 3}
-  m_Volume: 0
-  m_Enabled: 1
---- !u!1233149941 &-2739472022902141684
-AudioContainerElement:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: door-05_{-2739472022902141684}
-  m_AudioClip: {fileID: 8300000, guid: 34e361c03e8a71349b5bc561f4675cab, type: 3}
-  m_Volume: 0
-  m_Enabled: 0
---- !u!1233149941 &-1586131199153639893
-AudioContainerElement:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: door-09_{-1586131199153639893}
-  m_AudioClip: {fileID: 8300000, guid: 0fa7fda434f07ee4c801f9dc43c9583c, type: 3}
-  m_Volume: 0
-  m_Enabled: 1
 --- !u!1307931743 &6418180475301049370
 AudioRandomContainer:
   m_ObjectHideFlags: 0
@@ -58,7 +8,7 @@ AudioRandomContainer:
   m_PrefabAsset: {fileID: 0}
   m_Name: DoorOpen
   m_Volume: 0
-  m_Pitch: 0
+  m_Pitch: 607
   m_AutomaticTriggerTime: 0
   m_LoopCount: 1
   m_VolumeRandomizationRange: {x: 0, y: 0}
@@ -67,12 +17,7 @@ AudioRandomContainer:
   m_LoopCountRandomizationRange: {x: 0, y: 0}
   m_Elements:
   - {fileID: 8102827669419043117}
-  - {fileID: -8703326412320311412}
-  - {fileID: -5218475596691201078}
-  - {fileID: -2739472022902141684}
-  - {fileID: -2985130779416162925}
-  - {fileID: -1586131199153639893}
-  m_AvoidRepeatingLast: 2
+  m_AvoidRepeatingLast: 0
   m_PlaybackMode: 2
   m_TriggerMode: 0
   m_AutomaticTriggerMode: 1
@@ -87,7 +32,7 @@ AudioContainerElement:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: door-02_{8102827669419043117}
-  m_AudioClip: {fileID: 8300000, guid: 053616584d528fb4f87c2a4edae5fd09, type: 3}
+  m_Name: MachinePowerOff_{8102827669419043117}
+  m_AudioClip: {fileID: 8300000, guid: f691fa9b320bba746b296d455d9775c3, type: 3}
   m_Volume: 0
   m_Enabled: 1
