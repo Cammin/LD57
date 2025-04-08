@@ -29007,6 +29007,38 @@
 							"fieldInstances": [],
 							"__worldX": 5775,
 							"__worldY": 777
+						},
+						{
+							"__identifier": "Computer",
+							"__grid": [96,67],
+							"__pivot": [0,1],
+							"__tags": ["Decor"],
+							"__tile": null,
+							"__smartColor": "#124E89",
+							"iid": "b1ef2bd0-1030-11f0-a549-23481f70f715",
+							"width": 84,
+							"height": 28,
+							"defUid": 120,
+							"px": [672,476],
+							"fieldInstances": [],
+							"__worldX": 6300,
+							"__worldY": 616
+						},
+						{
+							"__identifier": "DeskFan",
+							"__grid": [108,67],
+							"__pivot": [0,1],
+							"__tags": ["Decor"],
+							"__tile": null,
+							"__smartColor": "#A22633",
+							"iid": "b368d380-1030-11f0-a549-7bd41e1157bd",
+							"width": 28,
+							"height": 28,
+							"defUid": 128,
+							"px": [756,476],
+							"fieldInstances": [],
+							"__worldX": 6384,
+							"__worldY": 616
 						}
 					]
 				},
