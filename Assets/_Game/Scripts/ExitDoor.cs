@@ -26,6 +26,7 @@ public class ExitDoor : MonoBehaviour
         
         if (other.TryGetComponent<Player>(out var player))
         {
+            player.InvincibilityTime = 5;
             FadeManager.Instance.FadeIn(Color.white, LoadWinScene);
         }
     }
