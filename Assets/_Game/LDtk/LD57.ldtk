@@ -17775,22 +17775,6 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "ExitSign_Right",
-							"__grid": [66,56],
-							"__pivot": [0,1],
-							"__tags": ["Decor"],
-							"__tile": null,
-							"__smartColor": "#2EFF00",
-							"iid": "e69e75c0-1030-11f0-a549-35c42e1e9e74",
-							"width": 56,
-							"height": 28,
-							"defUid": 139,
-							"px": [462,399],
-							"fieldInstances": [],
-							"__worldX": 3654,
-							"__worldY": 1295
-						},
-						{
 							"__identifier": "TackBoard",
 							"__grid": [34,73],
 							"__pivot": [0,1],
@@ -18205,6 +18189,22 @@
 							"fieldInstances": [],
 							"__worldX": 3350,
 							"__worldY": 1215
+						},
+						{
+							"__identifier": "ExitSign_Up",
+							"__grid": [66,56],
+							"__pivot": [0,1],
+							"__tags": ["Decor"],
+							"__tile": null,
+							"__smartColor": "#2EFF00",
+							"iid": "27f909b0-1030-11f0-a549-45ffcb9e353d",
+							"width": 56,
+							"height": 28,
+							"defUid": 137,
+							"px": [462,399],
+							"fieldInstances": [],
+							"__worldX": 3654,
+							"__worldY": 1295
 						}
 					]
 				},
