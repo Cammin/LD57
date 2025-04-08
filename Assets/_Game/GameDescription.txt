@@ -6,16 +6,16 @@ Armed with only a flickering flashlight, you must venture deeper room by room, u
 Made in 3 Days for Ludum Dare 57. Theme: Depths
 
 Art: 
-Lucas Moreira
-Alex Forcer
-Gustavo Tozze
+[Lucas Moreira](https://www.linkedin.com/in/moreiralucash/)
+[Alex Forcer](https://www.alexforcerart.com/)
+[Gustavo Tozze](https://www.behance.net/gtozze)
 
 Programming:
-Cameron Krebbers
-Brian Pimentel
+[Cameron Krebbers](https://cammin.itch.io/)
+[Brian Pimentel](https://www.brianpimentel.com/)
 
 Level Design:
-Cameron Krebbers
+[Cameron Krebbers](https://cammin.itch.io/)
 
-All SFX from OpenGameArt (CC0)
-Music from OpenGameArt (Gundatsch - https://soundcloud.com/gundatsch)
+Music/SFX from OpenGameArt (CC0)
+"difficulties" - Gundatsch - https://soundcloud.com/gundatsch
