@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6693504908840857267}
   - component: {fileID: 1456748709930303589}
   - component: {fileID: 98119373698819065}
+  - component: {fileID: 2883448747016603681}
   m_Layer: 0
   m_Name: ExitDoor
   m_TagString: Untagged
@@ -96,6 +97,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.34067482}
   m_EdgeRadius: 0
+--- !u!114 &2883448747016603681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423441380663935504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c2e9cdbe1348b1a945baaa9c0e3ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yPointOffset: 0.3
 --- !u!1 &2089195578230884176
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +521,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a155711e18aa07948b06ac3c678f4296, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
