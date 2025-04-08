@@ -1824,7 +1824,6 @@ MonoBehaviour:
   CaptureParticles: {fileID: 1204830790701808783}
   PulseTextSpawnPoint: {fileID: 2938099293588152805}
   IsDrainingFlashlight: 0
-  Score: 0
   DialogueText: {fileID: 6797408072210317865}
   _camera: {fileID: 0}
 --- !u!50 &4800535478567288387
