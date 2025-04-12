@@ -4,19 +4,18 @@ using UnityEngine.UI;
 
 public class Hud : Singleton<Hud>
 {
+    public const float SpaceBarEndDuration = .35f;
+
     public Image Heart1;
     public Image Heart2;
     public Image Heart3;
-
+    [Space]
     public Image Bolt;
     public Outline BoltOutline;
     public Image BarsFill;
     public Gradient ColorOverBatteryLife;
-
-    public const float SpaceBarEndDuration = .35f;
-
+    [Space]
     public GameObject SpaceBar;
-
     public GameObject[] SpaceBarUp;
     public GameObject[] SpaceBarDown;
     public Image[] SpaceBarGreen;
@@ -56,29 +55,30 @@ public class Hud : Singleton<Hud>
     private void UpdateHearts(Player player)
     {
         Color goodColor = new Color(1, 0.1f, 0.1f, 1);
-        if (player.HP >= 3)
+        Color badColor = new Color(1, 1, 1, 0.2f);
+        if (player.GetHP() >= 3)
         {
             Heart1.color = goodColor;
             Heart2.color = goodColor;
             Heart3.color = goodColor;
         }
-        else if (player.HP == 2)
+        else if (player.GetHP() == 2)
         {
             Heart1.color = goodColor;
             Heart2.color = goodColor;
-            Heart3.color = new Color(1, 1, 1, 0.2f);
+            Heart3.color = badColor;
         }
-        else if (player.HP == 1)
+        else if (player.GetHP() == 1)
         {
             Heart1.color = goodColor;
-            Heart2.color = new Color(1, 1, 1, 0.2f);
-            Heart3.color = new Color(1, 1, 1, 0.2f);
+            Heart2.color = badColor;
+            Heart3.color = badColor;
         }
         else
         {
-            Heart1.color = new Color(1, 1, 1, 0.2f);
-            Heart2.color = new Color(1, 1, 1, 0.2f);
-            Heart3.color = new Color(1, 1, 1, 0.2f);
+            Heart1.color = badColor;
+            Heart2.color = badColor;
+            Heart3.color = badColor;
         }
     }
     

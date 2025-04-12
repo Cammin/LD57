@@ -2,43 +2,49 @@ using CamLib;
 using DG.Tweening;
 using Spine.Unity;
 using System;
-using System.Collections;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class Player : Singleton<Player>
 {
-    public int HP;
+    //Constants
+    //----------------------------------------------
+    public const int DefaultHealth = 3;
+    public const float CaptureCastRadius = 1f;
+    public const float CaptureCastLength = 10f;
+    public const float CaptureDistanceForQTE = 4f;
+    //----------------------------------------------
 
-    public float moveSpeed;
-    public Rigidbody2D _rb;
-    public Light2D flashlight;
-    public Light2D lightAround;
-    public Light2D lightStylish;
+    public bool IsEmpty => BatteryLifeRemaining <= 0;
+    public bool IsDead => HP <= 0;
+    public float BatteryRatio => BatteryLifeRemaining / MaxBatteryLife;
 
-    private Vector2 MoveInput;
-
-    public float MaxBatteryLife;
-    private float BatteryLifeRemaining;
-    public GameObject BatteryLifeLowIndicator;
-    
-
-    public Vector2 LightInnerOverLifetimeRatio;
-    public Vector2 LightOuterOverLifetimeRatio;
-
-    public float InvincibilityTime;
-    
-    public GameObject Model;
-
-    public CinemachineImpulseSource Impulse;
+    public static int Score;
 
     public Animator Anim;
     public SkeletonRenderer Skeleton;
-
+    public Rigidbody2D Rigidbody;
+    public GameObject Model;
+    public GameObject BatteryLifeLowIndicator;
+    [Space]
+    public float MoveSpeed;
+    public float MaxBatteryLife;
+    public float ProgressPerQTEHit = 15f;
+    [Space]
+    public Light2D Flashlight;
+    public Light2D LightAround;
+    public Light2D LightStylish;
+    public Vector2 LightInnerOverLifetimeRatio;
+    public Vector2 LightOuterOverLifetimeRatio;
+    public ParticleSystem CaptureParticles;
+    public CinemachineImpulseSource Impulse;
+    [Space]
+    public Transform PulseTextSpawnPoint;
+    public TMP_Text DialogueText;
+    [Space]
     public AudioSource SfxFootstep;
     public AudioSource SfxHurt;
     public AudioSource SfxImpact;
@@ -46,58 +52,43 @@ public class Player : Singleton<Player>
     public AudioSource SfxFlashlightEmpty;
     public AudioSource SfxQteMash;
     public AudioSource SfxVacuumLoop;
-    
-    public bool IsEmpty => BatteryLifeRemaining <= 0;
-    public bool IsEmptyLastFrame;
-
-    public float ProgressPerQTEHit = 15f;
-
-    public ParticleSystem CaptureParticles;
-
-    public Transform PulseTextSpawnPoint;
-
-    public const float CaptureCastRadius = 1f;
-    public const float CaptureCastLength = 10f;
-    public const float CaptureDistanceForQTE = 4f;
-
-    private Vector2 AimDirection;
 
     [NonSerialized] public GhostBase GhostTarget;
     [NonSerialized] public bool CaptureActive;
     [NonSerialized] public bool CaptureQTEActive;
-    
-    public bool IsDead => HP <= 0;
+    [NonSerialized] public bool IsDrainingFlashlight;
+    [NonSerialized] public bool IsEmptyLastFrame;
+    [NonSerialized] public float InvincibilityTime;
 
-    public float BatteryRatio => BatteryLifeRemaining / MaxBatteryLife;
-
-    public bool IsDrainingFlashlight;
+    private Camera Camera;
+    private Tween VacuumTween;
+    private Tween DialogueTween;
+    private Vector2 MoveInput;
+    private Vector2 AimDirection;
+    private bool PrevParticlesState;
+    private int HP;
+    private float BatteryLifeRemaining;
 
     private void Start()
     {
-        _camera = Camera.main;
+        Camera = Camera.main;
+        HP = DefaultHealth;
         BatteryLifeRemaining = MaxBatteryLife;
-
-        DialogueText.color = new Color(1, 1, 1, 0);
-
-        //SfxVacuumLoop.volume = 0;
-
-        
+        DialogueText.color = new Color(1, 1, 1, 0); 
     }
 
-    private bool prevParticlesState;
-    
     private void Update()
     {
-        if (Time.timeScale <= 0) return;
+        if (Time.timeScale <= 0) return; //If the game is paused don't do any of this.
         
         Anim.SetBool("Flashlight", !IsEmpty);
         
         if (IsDead) return;
 
         bool newParticlesState = CaptureActive || CaptureQTEActive;
-        if (newParticlesState != prevParticlesState)
+        if (newParticlesState != PrevParticlesState)
         {
-            prevParticlesState = newParticlesState;
+            PrevParticlesState = newParticlesState;
             if (newParticlesState)
             {
                 CaptureParticles.Play();
@@ -107,9 +98,8 @@ public class Player : Singleton<Player>
                 CaptureParticles.Stop();
             }
         }
-        
 
-        flashlight.color = CaptureActive ? Color.cyan : Color.white;
+        Flashlight.color = CaptureActive ? Color.cyan : Color.white;
 
         DoMoveInput();
         TryCheats();
@@ -121,98 +111,119 @@ public class Player : Singleton<Player>
             {
                 UpdateFlashlight(GhostTarget.transform.position - transform.position);
 
-                if (!GhostTarget.IsBeingDestroyed() && Input.GetKeyDown(KeyCode.Space))
+                //Originally only allowed for spacebar to be used here, but added left click as another option for the QTE as a QoL change. Not reflected in UI.
+                if (!GhostTarget.IsBeingDestroyed() && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
                 {
                     GhostTarget.CaptureGhostAddProgress();
                     SfxQteMash.Play();
                 }
             }
+
             return;
         }
 
         UpdateFlashlight();
-        
         TickBatteryLifetime();
         
         InvincibilityTime -= Time.deltaTime;
 
-        bool prevCaptureActive = CaptureActive;
-        CaptureActive = Input.GetMouseButton(0) && !IsEmpty;
+        DoCaptureInput();
+    }
 
-        if (CaptureActive != prevCaptureActive)
+    private void FixedUpdate()
+    {
+        Rigidbody.linearVelocity = MoveInput * (MoveSpeed);
+    }
+
+    public Camera GetCamera()
+    {
+        return Camera;
+    }
+
+    private void DoMoveInput()
+    {
+        //Checks for player movement input.
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+        Vector3 move = new Vector3(x, y, 0).normalized;
+        MoveInput = move;
+
+        Anim.SetBool("Moving", MoveInput.magnitude > 0);
+    }
+
+    public int GetHP()
+    {
+        return HP;
+    }
+
+    public void SetHP(int newHP)
+    {
+        HP = newHP;
+    }
+
+    /// <summary>
+    /// Attempts to deal damage to the player. Will return true if successful. Will return false if the player is dead or has I-frames.
+    /// </summary>
+    /// <returns></returns>
+    public bool TryTakeDamage()
+    {
+        if (IsDead) return false;
+
+        if (InvincibilityTime > 0) return false;
+        InvincibilityTime = 0.5f;
+
+        SetHP(HP - 1);
+        Impulse.GenerateImpulse();
+        GameManager.Instance.ImpulseColourVolume(Color.red);
+
+        SfxImpact.Play();
+
+        if (HP <= 0)
         {
-            Debug.Log("Changed vacuum state");
-            ChangedVacuumState();
-        }
-        
-        if (CaptureActive)
-        {
-            if (!GhostTarget)
+            Debug.Log("Player is dead");
+            Anim.SetTrigger("death");
+            MoveInput = Vector2.zero;
+            Rigidbody.linearVelocity = Vector2.zero;
+            SfxDeath.Play();
+
+            FadeManager.Instance.FadeIn(Color.black, () =>
             {
-                GhostTarget = GhostCaptureHit();
-            }
-            else
-            {
-                if (Vector2.Distance(transform.position, GhostTarget.transform.position) < CaptureDistanceForQTE)
-                {
-                    CaptureGhostQTE();
-                }
-            }
+                SceneManager.LoadScene("Gameplay");
+            });
         }
         else
         {
-            GhostTarget = null;
+            // Handle player taking damage
+            Debug.Log("Player took damage, remaining HP: " + HP);
+            Anim.SetTrigger("damage");
+            SfxHurt.Play();
         }
+
+        return true;
     }
 
-    private Tween VacuumTween;
-    
-    private void ChangedVacuumState()
+    public void AddScore(int score)
     {
-        VacuumTween?.Kill();
-        
-        if (CaptureActive)
-        {
-            SfxVacuumLoop.Play();
-            
-            
-            VacuumTween = SfxVacuumLoop.DOFade(1, 0.2f);
-        }
-        else
-        {
-            VacuumTween = SfxVacuumLoop.DOFade(0, 0.2f);
-        }
+        GameManager.Instance.CreatePulseText($"+{score} score", Color.white);
+
+        Score += score;
     }
 
-    private GhostBase GhostCaptureHit()
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    public static void ResetScore()
     {
-        var hits = Physics2D.RaycastAll(transform.position, AimDirection, CaptureCastLength);
-
-        foreach(var hit in hits)
-        {
-            if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
-            {
-                //Debug.Log("hit ghost");
-                if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture && !ghost.CheckForWalls(1000f))
-                {
-                    return ghost;
-                }
-            }
-        }
-
-        return null;
+        Score = 0;
     }
 
-    private void CaptureGhostQTE()
+    public void RechargeBattery()
     {
-        CaptureQTEActive = true;
-
-        GhostTarget.StartCapture();
+        BatteryLifeRemaining = MaxBatteryLife;
+        MusicManager.Instance.ChangeToMusic();
     }
 
     private void TickBatteryLifetime()
     {
-        if (CaptureQTEActive) return;
+        if (CaptureQTEActive) return; //We don't want battery to drain during QTEs.
 
         if (IsDrainingFlashlight)
         {
@@ -236,38 +247,177 @@ public class Player : Singleton<Player>
         BatteryLifeLowIndicator.SetActive(ratio <= 0.2f);
 
         bool empty = ratio <= 0;
-        flashlight.enabled = !empty;
-        lightAround.enabled = !empty;
-        lightStylish.enabled = !empty;
+        Flashlight.enabled = !empty;
+        LightAround.enabled = !empty;
+        LightStylish.enabled = !empty;
         
-        flashlight.pointLightInnerRadius = Mathf.Lerp(LightInnerOverLifetimeRatio.x, LightInnerOverLifetimeRatio.y, ratio);
-        flashlight.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio);
+        Flashlight.pointLightInnerRadius = Mathf.Lerp(LightInnerOverLifetimeRatio.x, LightInnerOverLifetimeRatio.y, ratio);
+        Flashlight.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio);
         
+        LightAround.pointLightInnerRadius = 0;
+        LightAround.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio * 0.5f);
         
-        lightAround.pointLightInnerRadius = 0;
-        lightAround.pointLightOuterRadius = Mathf.Lerp(LightOuterOverLifetimeRatio.x, LightOuterOverLifetimeRatio.y, ratio * 0.5f);
-        
-        lightStylish.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.5f, ratio);
+        LightStylish.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.5f, ratio);
     }
 
-    private void DoMoveInput()
+    public Vector2 GetAimDirection()
     {
-        //translate player
-        float horiz = Input.GetAxisRaw("Horizontal");
-        float vert = Input.GetAxisRaw("Vertical");
-        Vector3 move = new Vector3(horiz, vert, 0).normalized;
-        MoveInput = move;
-
-        Anim.SetBool("Moving", MoveInput.magnitude > 0);
+        return AimDirection;
     }
 
+    private void UpdateFlashlight()
+    {
+        //Calculations for aim direction and flashlight transform manipulation.
+        Vector2 mousePos = Camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 flashlightPos = transform.position + Vector3.up*0.4f;
+        Vector2 dir =  mousePos - flashlightPos;
+        AimDirection = dir.normalized;
+        
+        float flipValue = dir.x < 0 ? -1 : 1;
+
+        //Updates the transform of the player Spine skeleton's AIM bone if the magnitude of the aiming direction passes the given threshold.
+        if (dir.magnitude > 0.6f)
+        {
+            SetFacingDirection(flipValue == 1);
+            
+            Flashlight.transform.up = dir;
+            
+            dir.x *= flipValue;
+            Skeleton.skeleton.FindBone("AIM").SetLocalPosition(dir.normalized * 5);
+        }
+    }
+
+    /// <summary>
+    /// Override method that takes a specified direction as an argument instead of calculating it. Used for handling flashlight aim direction during ghost capture.
+    /// </summary>
+    /// <param name="overrideDirection"></param>
+    private void UpdateFlashlight(Vector2 overrideDirection)
+    {
+        //Calculations for aim direction and flashlight transform manipulation.
+        AimDirection = overrideDirection.normalized;
+
+        float flipValue = overrideDirection.x < 0 ? -1 : 1;
+
+        //Updates the transform of the player Spine skeleton's AIM bone if the magnitude of the aiming direction passes the given threshold.
+        if (overrideDirection.magnitude > 0.6f)
+        {
+            SetFacingDirection(flipValue == 1);
+
+            Flashlight.transform.up = overrideDirection;
+
+            overrideDirection.x *= flipValue;
+            Skeleton.skeleton.FindBone("AIM").SetLocalPosition(overrideDirection.normalized * 5);
+        }
+    }
+
+    private void SetFacingDirection(bool faceRight)
+    {
+        Model.transform.localScale = new Vector3(faceRight ? 1 : -1, 1, 1);
+
+        //Flashlight particles need to be adjusted for when scale's x is -1
+        CaptureParticles.transform.localRotation = Quaternion.AngleAxis(faceRight ? 80 : 280, Vector3.forward);
+    }
+
+    private void DoCaptureInput()
+    {
+        bool prevCaptureActive = CaptureActive;
+        CaptureActive = Input.GetMouseButton(0) && !IsEmpty;
+
+        if (CaptureActive != prevCaptureActive)
+        {
+            Debug.Log("Changed vacuum state");
+            ChangedVacuumState();
+        }
+
+        if (CaptureActive)
+        {
+            if (!GhostTarget)
+            {
+                GhostTarget = GhostCaptureHit();
+            }
+            else
+            {
+                //Only start the ghost capture QTE once the ghost reaches the pre-defined distance threshold.
+                if (Vector2.Distance(transform.position, GhostTarget.transform.position) < CaptureDistanceForQTE)
+                {
+                    CaptureGhostQTE();
+                }
+            }
+        }
+        else
+        {
+            GhostTarget = null;
+        }
+    }
+
+    /// <summary>
+    /// Does a raycast out, and if the ghost is found in the cast checks if it's a valid capture target.
+    /// </summary>
+    /// <returns></returns>
+    private GhostBase GhostCaptureHit()
+    {
+        var hits = Physics2D.RaycastAll(transform.position, AimDirection, CaptureCastLength);
+
+        foreach (var hit in hits)
+        {
+            if (hit && hit.collider.gameObject.TryGetComponent<GhostBase>(out var ghost))
+            {
+                if (ghost && ghost.CanBeCaptured && !ghost.BlockCapture && !ghost.CheckForWalls(1000f))
+                {
+                    return ghost;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private void CaptureGhostQTE()
+    {
+        CaptureQTEActive = true;
+
+        GhostTarget.StartCapture();
+    }
+
+    private void ChangedVacuumState()
+    {
+        VacuumTween?.Kill();
+
+        if (CaptureActive)
+        {
+            SfxVacuumLoop.Play();
+
+
+            VacuumTween = SfxVacuumLoop.DOFade(1, 0.2f);
+        }
+        else
+        {
+            VacuumTween = SfxVacuumLoop.DOFade(0, 0.2f);
+        }
+    }
+
+    public void SetDialogueText(string content)
+    {
+        DialogueTween?.Complete(true);
+        
+        if (content != null)
+        {
+            DialogueText.text = content;
+            DialogueTween = DialogueText.DOFade(1, 0.5f);
+            return;
+        }
+        
+        DialogueTween = DialogueText.DOFade(0, 0.2f);
+    }
+
+    //Cheats (Dev build only)
     private void TryCheats()
     {
         if (!Debug.isDebugBuild)
         {
             return;
         }
-        
+
         if (Input.GetMouseButtonDown(2))
         {
             transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -292,147 +442,5 @@ public class Player : Singleton<Player>
                 Destroy(nearestGhost.gameObject);
             }
         }
-    }
-
-    private void UpdateFlashlight()
-    {
-        //direction to mouse
-        Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 flashlightPos = transform.position + Vector3.up*0.4f;
-        Vector2 dir =  mousePos - flashlightPos;
-        AimDirection = dir.normalized;
-        
-        float flipValue = dir.x < 0 ? -1 : 1;
-
-        //AIM BONE
-        if (dir.magnitude > 0.6f)
-        {
-            SetFacingDirection(flipValue == 1);
-            
-            flashlight.transform.up = dir;
-            
-            dir.x *= flipValue;
-            Skeleton.skeleton.FindBone("AIM").SetLocalPosition(dir.normalized * 5);
-        }
-    }
-
-    public Vector2 GetAimDirection()
-    {
-        return AimDirection;
-    }
-
-    private void UpdateFlashlight(Vector2 overrideDirection)
-    {
-        //direction to mouse
-        AimDirection = overrideDirection.normalized;
-
-        float flipValue = overrideDirection.x < 0 ? -1 : 1;
-
-        //AIM BONE
-        if (overrideDirection.magnitude > 0.6f)
-        {
-            SetFacingDirection(flipValue == 1);
-
-            flashlight.transform.up = overrideDirection;
-
-            overrideDirection.x *= flipValue;
-            Skeleton.skeleton.FindBone("AIM").SetLocalPosition(overrideDirection.normalized * 5);
-        }
-    }
-
-    private void SetFacingDirection(bool faceRight)
-    {
-        Model.transform.localScale = new Vector3(faceRight ? 1 : -1, 1, 1);
-
-        //Flashlight particles need to be adjusted for when scale's x is -1
-        CaptureParticles.transform.localRotation = Quaternion.AngleAxis(faceRight ? 80 : 280, Vector3.forward);
-    }
-
-    private void FixedUpdate()
-    {
-        _rb.linearVelocity = MoveInput * (moveSpeed);
-    }
-
-    public bool TryTakeDamage()
-    {
-        if (IsDead) return false;
-        
-        if (InvincibilityTime > 0) return false;
-        InvincibilityTime = 0.5f;
-        
-        HP--;
-        Impulse.GenerateImpulse();
-        GameManager.Instance.ImpulseColourVolume(Color.red);
-        
-        SfxImpact.Play();
-        
-        if (HP <= 0)
-        {
-            Debug.Log("Player is dead");
-            Anim.SetTrigger("death");
-            MoveInput = Vector2.zero;
-            _rb.linearVelocity = Vector2.zero;
-            SfxDeath.Play();
-            
-            FadeManager.Instance.FadeIn(Color.black, () =>
-            {
-                SceneManager.LoadScene("Gameplay");
-            });
-        }
-        else
-        {
-            // Handle player taking damage
-            Debug.Log("Player took damage, remaining HP: " + HP);
-            Anim.SetTrigger("damage");
-            SfxHurt.Play();
-        }
-
-        return true;
-    }
-
-    public void RechargeBattery()
-    {
-        BatteryLifeRemaining = MaxBatteryLife;
-        MusicManager.Instance.ChangeToMusic();
-    }
-    
-    public void Heal()
-    {
-        HP = 3;
-    }
-
-    public static int Score;
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    public static void ResetScore()
-    {
-        Score = 0;
-    }
-    
-    public void AddScore(int score)
-    {
-        GameManager.Instance.CreatePulseText($"+{score} score", Color.white);
-
-        Score += score;
-        //update UI etc
-    }
-
-    public TMP_Text DialogueText;
-
-    private Tween DialogueTween;
-    public Camera _camera;
-
-    public void SetDialogueText(string content)
-    {
-        DialogueTween?.Complete(true);
-        
-        if (content != null)
-        {
-            DialogueText.text = content;
-            DialogueTween = DialogueText.DOFade(1, 0.5f);
-            return;
-        }
-        
-        DialogueTween = DialogueText.DOFade(0, 0.2f);
     }
 }

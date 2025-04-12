@@ -1,11 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using LDtkUnity;
 using UnityEngine;
 
-//Look down a corner. if it sees the player, shoot a X round burst of projectiles per interval then hide back behind it.
+/// <summary>
+/// Look down a corner. if it sees the player, shoot a X round burst of projectiles per interval then hide back behind it.
+/// </summary>
 public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
 {
     public Projectile ProjectilePrefab;
@@ -20,10 +21,9 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
     [Space]
     public AudioSource SfxPeekerHide;
     public AudioSource SfxPeekerReveal;
-
     
-    [NonSerialized] private bool Retreating;
-    [NonSerialized] private int TimesRetreated;
+    private bool Retreating;
+    private int TimesRetreated;
 
     public override void Start()
     {
@@ -78,7 +78,10 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
         HidingSpots = iids.Select(p => p.GetComponent<PeekerHidingSpot>()).ToArray();
     }
 
-    public void RetreatToNewPoint()
+    /// <summary>
+    /// Ghost retreats to the furthest pre-defined point from the player. Is invincible until reaching the override destination but is unable to act against the player during retreat.
+    /// </summary>
+    private void RetreatToNewPoint()
     {
         Ghost.BlockActions = true;
         Ghost.BlockCapture = true;
@@ -115,7 +118,7 @@ public class GhostPeeker : GhostBehaviour, ILDtkImportedFields
         }
     }
 
-    public void RetreatEnd()
+    private void RetreatEnd()
     {
         Retreating = false;
 

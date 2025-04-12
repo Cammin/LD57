@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class PeekerHidingSpot : MonoBehaviour, ILDtkImportedFields
 {
-    public Vector2[] points;
+    public Vector2[] Points;
     
     public void OnLDtkImportFields(LDtkFields fields)
     {
-        points = fields.GetPointArray("HideSpots");
+        Points = fields.GetPointArray("HideSpots");
     }
 
     public Vector2 GetFurthestPoint(Vector2 from)
     {
-        Vector2 furthestPoint = points[0];
-        float maxDistance = Vector2.Distance(from, points[0]);
+        Vector2 furthestPoint = Points[0];
+        float maxDistance = Vector2.Distance(from, Points[0]);
 
-        foreach (var point in points)
+        foreach (var point in Points)
         {
             float distance = Vector2.Distance(from, point);
             if (distance > maxDistance)

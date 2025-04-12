@@ -5,6 +5,7 @@ public class GhostStationary : GhostBehaviour
 {
     public Projectile ProjectilePrefab;
 
+    //Simple behaviour that fires a projectile.
     public override void GhostAction()
     {
         base.GhostAction();

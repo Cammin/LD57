@@ -1,21 +1,20 @@
 using LDtkUnity;
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class Checkpoint : MonoBehaviour, ILDtkImportedEntity, ILDtkImportedFields
 {
-    public bool IsStart;
-
-    private static string LastCheckpoint;
     public string iid;
+    public bool IsStart;
     public bool InvincibleBatteryOnSpawn;
-
+    [Space]
     public AudioSource Drink;
     public Animator Anim;
-
     public Light2D TurnOffLightUponCollect;
     
-    public bool Touched;
+    private static string LastCheckpoint;
+    private bool Touched;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     public static void ResetCheckpoint()

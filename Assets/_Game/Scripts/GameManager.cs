@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
     public PulseText PulseTextPrefab;
 
     [NonSerialized] public Transform OverrideCameraTarget;
+
     private Tween CurrentZoomTween;
 
     
@@ -78,7 +79,7 @@ public class GameManager : Singleton<GameManager>
 
     public static bool IsPointInsideCamera(Vector2 pos)
     {
-        Camera cam = Player.Instance._camera;
+        Camera cam = Player.Instance.GetCamera();
         
         Vector3 view = cam.WorldToViewportPoint(pos);
         return view.z > 0 &&

@@ -1,15 +1,19 @@
 using System.Collections;
 using UnityEngine;
+
 public class GhostFollower : GhostBehaviour
 {
     public Projectile ProjectilePrefab;
 
+    //Simple behaviour that fires a projectile. Yes, it's currently the same as the Stationary ghost behaviour, but has been made
+    //separate in case we want to add anything to the Follower ghost in the future.
     public override void GhostAction()
     {
         base.GhostAction();
 
         Ghost.Animator.SetTrigger("shoot");
         Ghost.SfxShoot.Play();
+
         StartCoroutine(CoCastProjectile());
 
         IEnumerator CoCastProjectile()

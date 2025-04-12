@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Rigidbody2D Rigidbody;
-
-    public GameObject ProjectileMoving;
-    public GameObject ProjectileImpact;
-
-    public float ProjectileSpeedModifier = 5f;
-    
-    public AudioSource DestroySfx;
-
+    //Constants
+    //-----------------------------------------------
     public const float DefaultSpeed = 1000f;
     public const float CleanUpAfterDuration = 10f;
     public const float HitWallsAfterDuration = .5f;
+    //-----------------------------------------------
 
-    [NonSerialized] private Vector2 Trajectory;
-    [NonSerialized] private float LifeTime;
+    public Rigidbody2D Rigidbody;
+    public GameObject ProjectileMoving;
+    public GameObject ProjectileImpact;
+    public AudioSource DestroySfx;
+
+    public float ProjectileSpeedModifier = 5f;
+
+    private Vector2 Trajectory;
+    private float LifeTime;
 
     public static void SpawnProjectile(Projectile ProjectilePrefab, Vector2 StartingPosition, Vector2 TargetPosition)
     {
@@ -55,10 +56,10 @@ public class Projectile : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
-    //Check hit
+    //Check if we hit the player.
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Trajectory == Vector2.zero) return; //We don't want anything else to get hit by the projectile if it's not moving
+        if (Trajectory == Vector2.zero) return; //We don't want anything else to get hit by the projectile if it's not moving.
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Ghost") || other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
         {
@@ -83,7 +84,7 @@ public class Projectile : MonoBehaviour
 
     public void DestroyProjectile()
     {
-        Trajectory = Vector2.zero; //Set trajectory to 0 so that we aren't triggering anything else by accident during destroy routine
+        Trajectory = Vector2.zero; //Set trajectory to 0 so that we aren't triggering anything else by accident during destroy routine.
         StartCoroutine(CoDestroy());
 
         IEnumerator CoDestroy()

@@ -1797,21 +1797,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
-  HP: 3
-  moveSpeed: 8
-  _rb: {fileID: 4800535478567288387}
-  flashlight: {fileID: 2648489090378467982}
-  lightAround: {fileID: 5709163412367745977}
-  lightStylish: {fileID: 79255604296453360}
-  MaxBatteryLife: 25
-  BatteryLifeLowIndicator: {fileID: 1299731484678333982}
-  LightInnerOverLifetimeRatio: {x: 1, y: 4}
-  LightOuterOverLifetimeRatio: {x: 2, y: 10}
-  InvincibilityTime: 0
-  Model: {fileID: 5097198271898543266}
-  Impulse: {fileID: 7289971482518546540}
   Anim: {fileID: 6060184374556475088}
   Skeleton: {fileID: 7172285985089965335}
+  Rigidbody: {fileID: 4800535478567288387}
+  Model: {fileID: 5097198271898543266}
+  BatteryLifeLowIndicator: {fileID: 1299731484678333982}
+  MoveSpeed: 7
+  MaxBatteryLife: 25
+  ProgressPerQTEHit: 15
+  Flashlight: {fileID: 2648489090378467982}
+  LightAround: {fileID: 5709163412367745977}
+  LightStylish: {fileID: 79255604296453360}
+  LightInnerOverLifetimeRatio: {x: 1, y: 4}
+  LightOuterOverLifetimeRatio: {x: 2, y: 10}
+  CaptureParticles: {fileID: 1204830790701808783}
+  Impulse: {fileID: 7289971482518546540}
+  PulseTextSpawnPoint: {fileID: 2938099293588152805}
+  DialogueText: {fileID: 6797408072210317865}
   SfxFootstep: {fileID: 8192097635764689786}
   SfxHurt: {fileID: 469153059580760261}
   SfxImpact: {fileID: 5775053684458218618}
@@ -1819,13 +1821,6 @@ MonoBehaviour:
   SfxFlashlightEmpty: {fileID: 4026487855066237892}
   SfxQteMash: {fileID: 6687699058205530460}
   SfxVacuumLoop: {fileID: 3134524080690815631}
-  IsEmptyLastFrame: 0
-  ProgressPerQTEHit: 15
-  CaptureParticles: {fileID: 1204830790701808783}
-  PulseTextSpawnPoint: {fileID: 2938099293588152805}
-  IsDrainingFlashlight: 0
-  DialogueText: {fileID: 6797408072210317865}
-  _camera: {fileID: 0}
 --- !u!50 &4800535478567288387
 Rigidbody2D:
   serializedVersion: 5

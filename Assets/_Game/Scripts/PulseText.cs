@@ -1,5 +1,3 @@
-using System;
-using System.Text;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;

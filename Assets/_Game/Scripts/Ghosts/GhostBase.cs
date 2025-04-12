@@ -1,13 +1,19 @@
-using Spine;
 using System;
 using System.Collections;
-using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.UIElements;
 
 public sealed class GhostBase : MonoBehaviour
 {
+    //Constants
+    //---------------------------------------------------
+    public const float DefaultSpeed = 1000f;
+    public const float DefaultCaptureForce = 1000f;
+    public const float CaptureProgressDecay = 5f;
+    //---------------------------------------------------
+
+    public bool CaptureInProgress => Player.Instance.GhostTarget == this;
+
     public GhostBehaviour GhostBehaviour;
     public Animator Animator;
     public Rigidbody2D Rigidbody;
@@ -34,24 +40,15 @@ public sealed class GhostBase : MonoBehaviour
     public AudioSource SfxSuckDefeat;
     public AudioSource SfxShoot;
 
-    //-------------------------------------------------
-
-    public const float DefaultSpeed = 1000f;
-    public const float DefaultCaptureForce = 1000f;
-    public const float CaptureProgressDecay = 5f;
-
-    public bool CaptureInProgress => Player.Instance.GhostTarget == this;
-
-    private float CooldownRemaining;
-    private bool Destroying;
-
     [NonSerialized] public Vector3 OverrideDestination;
     [NonSerialized] public float CaptureProgress;
     [NonSerialized] public bool PlayerFound;
     [NonSerialized] public bool BlockActions;
     [NonSerialized] public bool BlockMovement;
     [NonSerialized] public bool BlockCapture;
-    
+
+    private float CooldownRemaining;
+    private bool Destroying;
     
     private void Start()
     {
@@ -65,6 +62,7 @@ public sealed class GhostBase : MonoBehaviour
 
         if (CaptureProgress > 0) CaptureProgress -= CaptureProgressDecay * Time.deltaTime;
 
+        //Facing direction
         if (OverrideDestination != Vector3.zero)
         {
             transform.localScale = new Vector3(OverrideDestination.x > transform.position.x ? 1 : -1, 1, 1);
@@ -80,7 +78,7 @@ public sealed class GhostBase : MonoBehaviour
             return;
         }
 
-
+        //If the player hasn't been found but they're within range.
         if (!PlayerFound && Vector2.Distance(Player.Instance.transform.position, transform.position) <= DetectPlayerRange)
         {
             if (GhostBehaviour)
@@ -110,6 +108,7 @@ public sealed class GhostBase : MonoBehaviour
             if (CanMove) OverrideDestination = Player.Instance.transform.position;
         }
 
+        //Ghost does action, as defined by the assigned GhostBehaviour.
         if (!BlockActions && !Destroying && PlayerFound && CooldownRemaining <= 0)
         {
             if (Vector2.Distance(Player.Instance.transform.position, transform.position) <= AttackPlayerRange)
@@ -124,6 +123,7 @@ public sealed class GhostBase : MonoBehaviour
     {
         Rigidbody.linearVelocity = Vector2.zero;
 
+        //Physics manipulation due to capture mechanic takes priority.
         if (CaptureInProgress)
         {
             if (Player.Instance.CaptureQTEActive || Destroying)
@@ -136,7 +136,7 @@ public sealed class GhostBase : MonoBehaviour
                 if (currentDistance > newDistance)
                 {
                     var direction = (Player.Instance.transform.position - transform.position).normalized;
-                    Rigidbody.AddForce(direction * (currentDistance * DefaultCaptureForce * Time.deltaTime * Player.Instance.moveSpeed) / 2f);
+                    Rigidbody.AddForce(direction * (currentDistance * DefaultCaptureForce * Time.deltaTime * Player.Instance.MoveSpeed) / 2f);
                 }
             }
 
@@ -181,6 +181,8 @@ public sealed class GhostBase : MonoBehaviour
         }
     }
 
+    //In order to check if there's a wall between the ghost and the player we do a raycast, and if the wall is earlier in the list than
+    //the player we return true.
     public bool CheckForWalls()
     {
         var hits = Physics2D.RaycastAll(transform.position, (Player.Instance.transform.position - transform.position).normalized, DetectPlayerRange);
@@ -201,6 +203,7 @@ public sealed class GhostBase : MonoBehaviour
         return false;
     }
 
+    //Override method where we pass a custom range as an argument instead of the ghost class's pre-defined detection range.
     public bool CheckForWalls(float customRange)
     {
         var hits = Physics2D.RaycastAll(transform.position, (Player.Instance.transform.position - transform.position).normalized, customRange);
@@ -282,7 +285,7 @@ public sealed class GhostBase : MonoBehaviour
     
     public bool IsInsideCamera()
     {
-        return GameManager.IsPointInsideCamera(Player.Instance._camera, transform.position);
+        return GameManager.IsPointInsideCamera(Player.Instance.GetCamera(), transform.position);
     }
 
     public bool IsBeingDestroyed()
