@@ -1802,7 +1802,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 4800535478567288387}
   Model: {fileID: 5097198271898543266}
   BatteryLifeLowIndicator: {fileID: 1299731484678333982}
-  MoveSpeed: 7
+  MoveSpeed: 8
   MaxBatteryLife: 25
   ProgressPerQTEHit: 15
   Flashlight: {fileID: 2648489090378467982}
